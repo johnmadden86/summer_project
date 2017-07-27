@@ -1,0 +1,28 @@
+{
+  "members": [
+    {
+      "firstName": "Paul",
+      "lastName": "Pogba",
+      "height": "190",
+      "startingWeight": "91",
+      "gender": "Male",
+      "email": "paul@manutd.fr",
+      "password": "secret",
+      "id": "5a4e5460-78d5-4702-9d51-091b3a3b528d",
+      "fullName": "Paul Pogba",
+      "assessments": []
+    },
+    {
+      "firstName": "David",
+      "lastName": "de Gea",
+      "height": "195",
+      "startingWeight": "65",
+      "gender": "Male",
+      "email": "david@manutd.es",
+      "password": "secret",
+      "id": "97ae6dbd-2a02-4def-9783-e6b39aa3e7d3",
+      "fullName": "David de Gea",
+      "assessments": []
+    }
+  ]
+}

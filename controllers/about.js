@@ -3,10 +3,10 @@
 const logger = require('../utils/logger');
 
 const about = {
-  index(request, response) {
-    //logger.info('about rendering');
+  index(response) {
+    logger.info(`rendering about`);
     const viewData = {
-      title: 'About Template 2',
+      title: 'About',
     };
     response.render('about', viewData);
   },

@@ -1,0 +1,36 @@
+<form class="ui stacked segment form" name="addAssessment" action="/dashboard/addassessment" method="POST">
+    <div class="two fields">
+
+    </div>
+    <div class="seven fields">
+        <div class="field four wide">
+            <label>Date</label>
+            <input placeholder="dd/mm/yyyy" type="date" name="date">
+        </div>
+        <div class="field two wide">
+            <label>Weight</label>
+            <input placeholder="kg" type="number" min="0" max="250" step="0.1" name="weight">
+        </div>
+        <div class="field two wide">
+            <label>Chest</label>
+            <input placeholder="cm" type="number" min="0" max="250" step="0.1" name="chest">
+        </div>
+        <div class="field two wide">
+            <label>Thigh</label>
+            <input placeholder="cm" type="number" min="0" max="250" step="0.1" name="thigh">
+        </div>
+        <div class="field two wide">
+            <label>Upper Arm</label>
+            <input placeholder="cm" type="number" min="0" max="250" step="0.1" name="upperArm">
+        </div>
+        <div class="field two wide">
+            <label>Waist</label>
+            <input placeholder="cm" type="number" min="0" max="250" step="0.1" name="waist">
+        </div>
+        <div class="field two wide">
+            <label>Hips</label>
+            <input placeholder="cm" type="number" min="0" max="250" step="0.1" name="hips">
+        </div>
+    </div>
+    <button class="ui blue submit button">Add Assessment</button>
+</form>
