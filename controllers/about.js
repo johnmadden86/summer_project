@@ -3,7 +3,7 @@
 const logger = require('../utils/logger');
 
 const about = {
-  index(response) {
+  index(request, response) {
     logger.info(`rendering about`);
     const viewData = {
       title: 'About',

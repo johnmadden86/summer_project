@@ -18,7 +18,7 @@ router.post('/register', accounts.register);
 //router.post('/settings', accounts.updateSettings);
 
 router.get('/dashboard', dashboard.index);
-//router.get('/dashboard/:id/deleteassessment/:assessmentid', dashboard.deleteassessment);
+router.get('/dashboard/:userId/deleteassessment/:assessmentId', dashboard.deleteAssessment);
 router.post('/dashboard/addassessment', dashboard.addAssessment);
 
 router.get('/about', about.index);

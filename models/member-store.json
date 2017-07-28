@@ -3,26 +3,35 @@
     {
       "firstName": "Paul",
       "lastName": "Pogba",
-      "height": "190",
-      "startingWeight": "91",
+      "height": "189",
+      "startingWeight": "85",
       "gender": "Male",
       "email": "paul@manutd.fr",
       "password": "secret",
-      "id": "5a4e5460-78d5-4702-9d51-091b3a3b528d",
+      "id": "6089f8f3-f1c4-4ed1-9851-97f40d21082c",
       "fullName": "Paul Pogba",
-      "assessments": []
-    },
-    {
-      "firstName": "David",
-      "lastName": "de Gea",
-      "height": "195",
-      "startingWeight": "65",
-      "gender": "Male",
-      "email": "david@manutd.es",
-      "password": "secret",
-      "id": "97ae6dbd-2a02-4def-9783-e6b39aa3e7d3",
-      "fullName": "David de Gea",
-      "assessments": []
+      "assessments": [
+        {
+          "date": "2017-07-06",
+          "weight": "4",
+          "chest": "4",
+          "thigh": "4",
+          "upperArm": "4",
+          "waist": "4",
+          "hips": "4",
+          "assessmentId": "e05c42cd-eb5a-4108-bb3f-b85842af4613"
+        },
+        {
+          "date": "2017-07-14",
+          "weight": "9",
+          "chest": "5",
+          "thigh": "5",
+          "upperArm": "5",
+          "waist": "5",
+          "hips": "4",
+          "assessmentId": "14a7abd8-b39d-422c-b4c9-14b926b9d464"
+        }
+      ]
     }
   ]
 }

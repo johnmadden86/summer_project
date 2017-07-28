@@ -1,20 +1,20 @@
 'use strict';
 
-const trainers = require('../models/trainer-store');
-const members = require('../models/member-store');
+const trainerStore = require('../models/trainer-store');
+const memberStore = require('../models/member-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
 
 const accounts = {
 
-  index(response) {
+  index(request, response) {
     const viewData = {
       title: 'Welcome',
     };
     response.render('index', viewData);
   },
 
-  signUp(response) {
+  signUp(request, response) {
     const viewData = {
       title: 'Registration',
     };
@@ -25,12 +25,13 @@ const accounts = {
     const member = request.body;
     member.id = uuid();
     member.fullName = member.firstName.concat(' ').concat(member.lastName);
-    members.addMember(member);
+    member.assessments = [];
+    memberStore.addMember(member);
     logger.info(`registering ${member.email}`);
-    response.redirect('/');
+    response.redirect('/login');
   },
 
-  login(response) {
+  login(request, response) {
     const viewData = {
       title: 'Login to the Service',
     };
@@ -38,8 +39,8 @@ const accounts = {
   },
 
   authenticate(request, response) {
-    const member = members.getMemberByEmail(request.body.email);
-    const trainer = trainers.getTrainerByEmail(request.body.email);
+    const member = memberStore.getMemberByEmail(request.body.email);
+    const trainer = trainerStore.getTrainerByEmail(request.body.email);
     if (member && member.password === request.body.password) {
       response.cookie('member', member.email);
       logger.info(`logging in ${member.email}`);
@@ -55,16 +56,16 @@ const accounts = {
   },
 
   getCurrentMember(request) {
-    const memberEmail = request.cookies.members;
-    return members.getMemberByEmail(memberEmail);
+    const memberEmail = request.cookies.member;
+    return memberStore.getMemberByEmail(memberEmail);
   },
 
   getCurrentTrainer(request) {
-    const trainerEmail = request.cookies.trainers;
-    return trainers.getMemberByEmail(trainerEmail);
+    const trainerEmail = request.cookies.trainer;
+    return trainerStore.getMemberByEmail(trainerEmail);
   },
 
-  logout(response) {
+  logout(request, response) {
     response.cookie('member', '');
     response.redirect('/');
     logger.info('logging out...');

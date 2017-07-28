@@ -31,6 +31,17 @@ const memberStore = {
     this.store.save();
   },
 
+  addAssessment(member, assessment) {
+    member.assessments.push(assessment);
+    this.store.save();
+  },
+
+  removeAssessment(userId, assessmentId) {
+    const member = this.getMemberById(userId);
+    _.remove(member.assessments, { id: assessmentId });
+    this.store.save();
+  },
+
 };
 
 module.exports = memberStore;

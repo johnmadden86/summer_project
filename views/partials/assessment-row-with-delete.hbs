@@ -1,5 +1,5 @@
 <div class="ui bulleted list">
-    {{#each assessments}}
+    {{#each member.assessments}}
         <tr>
             <td>{{date}}</td>
             <td>{{weight}}</td>
@@ -17,7 +17,7 @@
             </td>
             <td>{{comment}}</td>
             <td>
-                <a href="/dashboard/${_member.id}/deleteassessment/${_assessment.id}" class="ui icon button">
+                <a href="/dashboard/{{../member.id}}/deleteassessment/{{assessmentId}}" class="ui icon button">
                     <i class="icon trash"></i>
                 </a>
             </td>

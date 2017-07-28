@@ -2,7 +2,7 @@
 
 const logger = require('../utils/logger');
 const accounts = require('./accounts');
-const assessments = require('../models/assessment-store');
+const memberStore = require('../models/member-store');
 const uuid = require('uuid');
 
 const dashboard = {
@@ -11,7 +11,7 @@ const dashboard = {
     const loggedInUser = accounts.getCurrentMember(request);
     const viewData = {
       title: 'Dashboard',
-      assessments: assessments.getUserAssessments(loggedInUser.id),
+      member: loggedInUser,
     };
     response.render('dashboard', viewData);
   },
@@ -20,12 +20,18 @@ const dashboard = {
     const loggedInUser = accounts.getCurrentMember(request);
     const assessment = request.body;
     assessment.assessmentId = uuid();
-    assessment.userId = loggedInUser.id;
-    assessments.addAssessment(assessment);
+    memberStore.addAssessment(loggedInUser, assessment);
     logger.info(`Adding new assessment for ${loggedInUser.fullName}`);
     response.redirect('/dashboard');
   },
 
+  deleteAssessment(request, response) {
+    const loggedInUser = accounts.getCurrentMember(request);
+    const assessmentId = request.params.assessmentId;
+    logger.debug(`Deleting Assessment ${assessmentId} for ${loggedInUser.fullName}`);
+    memberStore.removeAssessment(loggedInUser.id, assessmentId);
+    response.redirect('/dashboard');
+  },
 };
 
 module.exports = dashboard;
