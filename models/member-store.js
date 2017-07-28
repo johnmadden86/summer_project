@@ -2,6 +2,7 @@
 
 const _ = require('lodash');
 const JsonStore = require('./json-store');
+const logger = require('../utils/logger');
 
 const memberStore = {
 
@@ -33,15 +34,29 @@ const memberStore = {
 
   addAssessment(member, assessment) {
     member.assessments.push(assessment);
+    this.sortAssessments(member);
     this.store.save();
   },
 
-  removeAssessment(userId, assessmentId) {
-    const member = this.getMemberById(userId);
-    _.remove(member.assessments, { id: assessmentId });
+  removeAssessment(user, assessmentId) {
+    user.assessments = user.assessments.filter(
+        function (el) {
+          return el.assessmentId !== assessmentId;
+        }
+    );
     this.store.save();
   },
 
+  sortAssessments(user) {
+    user.assessments.sort(
+        function (a, b) {
+          let dateA = new Date(a.date);
+          let dateB = new Date(b.date);
+          return dateA - dateB;
+        }
+    );
+    user.assessments.reverse();
+  },
 };
 
 module.exports = memberStore;

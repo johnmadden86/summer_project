@@ -8,28 +8,48 @@
       "gender": "Male",
       "email": "paul@manutd.fr",
       "password": "secret",
-      "id": "6089f8f3-f1c4-4ed1-9851-97f40d21082c",
+      "id": "01832505-9890-4078-986c-4cf63887f28f",
       "fullName": "Paul Pogba",
       "assessments": [
         {
-          "date": "2017-07-06",
-          "weight": "4",
-          "chest": "4",
-          "thigh": "4",
-          "upperArm": "4",
-          "waist": "4",
-          "hips": "4",
-          "assessmentId": "e05c42cd-eb5a-4108-bb3f-b85842af4613"
-        },
-        {
-          "date": "2017-07-14",
-          "weight": "9",
+          "date": "2017-07-20",
+          "weight": "5",
           "chest": "5",
           "thigh": "5",
           "upperArm": "5",
           "waist": "5",
-          "hips": "4",
-          "assessmentId": "14a7abd8-b39d-422c-b4c9-14b926b9d464"
+          "hips": "5",
+          "assessmentId": "735eda73-e38e-45b9-851d-f27e4af23020"
+        },
+        {
+          "date": "2017-07-14",
+          "weight": "8",
+          "chest": "8",
+          "thigh": "8",
+          "upperArm": "8",
+          "waist": "8",
+          "hips": "8",
+          "assessmentId": "6cb890d9-6c62-4a5b-8919-d6de3837bdc5"
+        },
+        {
+          "date": "2017-07-13",
+          "weight": "5",
+          "chest": "5",
+          "thigh": "5",
+          "upperArm": "5",
+          "waist": "5",
+          "hips": "5",
+          "assessmentId": "180e5027-724e-4161-8a17-b47839357d19"
+        },
+        {
+          "date": "2017-07-07",
+          "weight": "6",
+          "chest": "8",
+          "thigh": "6",
+          "upperArm": "6",
+          "waist": "66",
+          "hips": "6",
+          "assessmentId": "d2f0378e-df67-4ad3-8d38-d3d9c4a1c5c9"
         }
       ]
     }

@@ -13,6 +13,7 @@ const dashboard = {
       title: 'Dashboard',
       member: loggedInUser,
     };
+    memberStore.sortAssessments(loggedInUser);
     response.render('dashboard', viewData);
   },
 
@@ -29,7 +30,7 @@ const dashboard = {
     const loggedInUser = accounts.getCurrentMember(request);
     const assessmentId = request.params.assessmentId;
     logger.debug(`Deleting Assessment ${assessmentId} for ${loggedInUser.fullName}`);
-    memberStore.removeAssessment(loggedInUser.id, assessmentId);
+    memberStore.removeAssessment(loggedInUser, assessmentId);
     response.redirect('/dashboard');
   },
 };
