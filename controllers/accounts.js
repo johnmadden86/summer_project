@@ -1,6 +1,6 @@
 'use strict';
 
-const trainerStore = require('../models/trainer-store');
+//const trainerStore = require('../models/trainer-store');
 const memberStore = require('../models/member-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
@@ -24,7 +24,6 @@ const accounts = {
   register(request, response) {
     const member = request.body;
     member.id = uuid();
-    member.fullName = member.firstName.concat(' ').concat(member.lastName);
     member.assessments = [];
     memberStore.addMember(member);
     logger.info(`registering ${member.email}`);
@@ -40,16 +39,16 @@ const accounts = {
 
   authenticate(request, response) {
     const member = memberStore.getMemberByEmail(request.body.email);
-    const trainer = trainerStore.getTrainerByEmail(request.body.email);
-    if (member && member.password === request.body.password) {
+    //const trainer = trainerStore.getTrainerByEmail(request.body.email);
+    if (member){// && member.password === request.body.password) {
       response.cookie('member', member.email);
       logger.info(`logging in ${member.email}`);
       response.redirect('/dashboard');
-    } else if (trainer && trainer.password === request.body.password) {
-      response.cookie('trainer', trainer.email);
-      logger.info(`logging in ${trainer.email}`);
-      response.redirect('/trainer-dashboard');
-    } else {
+    } //else if (trainer && trainer.password === request.body.password) {
+      //response.cookie('trainer', trainer.email);
+      //logger.info(`logging in ${trainer.email}`);
+      //response.redirect('/trainer-dashboard');}
+    else {
       logger.info('Authentication failed');
       response.redirect('/login');
     }
@@ -60,10 +59,10 @@ const accounts = {
     return memberStore.getMemberByEmail(memberEmail);
   },
 
-  getCurrentTrainer(request) {
+  /*getCurrentTrainer(request) {
     const trainerEmail = request.cookies.trainer;
     return trainerStore.getMemberByEmail(trainerEmail);
-  },
+  },*/
 
   logout(request, response) {
     response.cookie('member', '');

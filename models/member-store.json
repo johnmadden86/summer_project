@@ -8,48 +8,87 @@
       "gender": "Male",
       "email": "paul@manutd.fr",
       "password": "secret",
-      "id": "01832505-9890-4078-986c-4cf63887f28f",
-      "fullName": "Paul Pogba",
+      "id": "97de7625-8110-40ed-b8c4-e138d68c406b",
       "assessments": [
         {
-          "date": "2017-07-20",
-          "weight": "5",
+          "date": "2017-07-31",
+          "weight": "99",
+          "chest": "9",
+          "thigh": "9",
+          "upperArm": "9",
+          "waist": "9",
+          "hips": "9",
+          "assessmentId": "9e6fdf8f-3583-434f-9b72-e3974e3a789d"
+        },
+        {
+          "date": "2017-07-30",
+          "weight": "200",
+          "chest": "0",
+          "thigh": "2",
+          "upperArm": "2",
+          "waist": "2",
+          "hips": "2",
+          "assessmentId": "8243c8b2-1987-4e20-a3f4-e9a0932243d3"
+        },
+        {
+          "date": "2017-07-29",
+          "weight": "11",
+          "chest": "1",
+          "thigh": "1",
+          "upperArm": "1",
+          "waist": "1",
+          "hips": "1",
+          "assessmentId": "654f48bf-4476-40f6-a529-3075ea12d5d2"
+        },
+        {
+          "date": "2017-07-22",
+          "weight": "83.1",
+          "chest": "2",
+          "thigh": "2",
+          "upperArm": "2",
+          "waist": "2",
+          "hips": "2",
+          "assessmentId": "0ce32c86-a1bd-4b88-b0b2-5ef028ec8959"
+        },
+        {
+          "date": "2017-07-18",
+          "weight": "81",
+          "chest": "2",
+          "thigh": "2",
+          "upperArm": "2",
+          "waist": "2",
+          "hips": "2",
+          "assessmentId": "02da386f-ba37-491e-871d-ee98431a2c2e"
+        },
+        {
+          "date": "2017-07-17",
+          "weight": "82",
           "chest": "5",
           "thigh": "5",
           "upperArm": "5",
           "waist": "5",
           "hips": "5",
-          "assessmentId": "735eda73-e38e-45b9-851d-f27e4af23020"
-        },
-        {
-          "date": "2017-07-14",
-          "weight": "8",
-          "chest": "8",
-          "thigh": "8",
-          "upperArm": "8",
-          "waist": "8",
-          "hips": "8",
-          "assessmentId": "6cb890d9-6c62-4a5b-8919-d6de3837bdc5"
+          "assessmentId": "b700bcb3-c561-40c5-93fc-73a0a35874e1"
         },
         {
           "date": "2017-07-13",
-          "weight": "5",
-          "chest": "5",
-          "thigh": "5",
-          "upperArm": "5",
-          "waist": "5",
-          "hips": "5",
-          "assessmentId": "180e5027-724e-4161-8a17-b47839357d19"
+          "weight": "99",
+          "chest": "9",
+          "thigh": "9",
+          "upperArm": "9",
+          "waist": "9",
+          "hips": "9",
+          "assessmentId": "ac637a64-c177-4d4c-9d9d-950b0e2183a2"
         },
         {
-          "date": "2017-07-07",
-          "weight": "6",
-          "chest": "8",
-          "thigh": "6",
-          "upperArm": "6",
-          "waist": "66",
-          "hips": "6",
-          "assessmentId": "d2f0378e-df67-4ad3-8d38-d3d9c4a1c5c9"
+          "date": "2017-07-02",
+          "weight": "15",
+          "chest": "2",
+          "thigh": "2",
+          "upperArm": "2",
+          "waist": "2",
+          "hips": "2",
+          "assessmentId": "d3b45cd3-0352-406f-907f-07386eff48e3"
         }
       ]
     }
