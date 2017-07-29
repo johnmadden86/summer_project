@@ -8,87 +8,85 @@
       "gender": "Male",
       "email": "paul@manutd.fr",
       "password": "secret",
-      "id": "97de7625-8110-40ed-b8c4-e138d68c406b",
+      "name": "Paul Pogba",
+      "id": "2de75eed-3a88-4ddf-ae96-f9df718a0b81",
       "assessments": [
         {
-          "date": "2017-07-31",
-          "weight": "99",
-          "chest": "9",
-          "thigh": "9",
-          "upperArm": "9",
-          "waist": "9",
-          "hips": "9",
-          "assessmentId": "9e6fdf8f-3583-434f-9b72-e3974e3a789d"
+          "date": "2017-07-07",
+          "weight": "86",
+          "chest": "6",
+          "thigh": "6",
+          "upperArm": "6",
+          "waist": "6",
+          "hips": "6",
+          "assessmentId": "3ca5927d-d5aa-4c8a-9631-4baf96b8c64f",
+          "trend": false
         },
         {
-          "date": "2017-07-30",
-          "weight": "200",
-          "chest": "0",
-          "thigh": "2",
-          "upperArm": "2",
-          "waist": "2",
-          "hips": "2",
-          "assessmentId": "8243c8b2-1987-4e20-a3f4-e9a0932243d3"
+          "date": "2017-07-06",
+          "weight": "86",
+          "chest": "6",
+          "thigh": "6",
+          "upperArm": "6",
+          "waist": "6",
+          "hips": "6",
+          "assessmentId": "cdd3c5c5-31f1-4fee-a1de-24caf93ec8c6",
+          "trend": true
         },
         {
-          "date": "2017-07-29",
-          "weight": "11",
-          "chest": "1",
-          "thigh": "1",
-          "upperArm": "1",
-          "waist": "1",
-          "hips": "1",
-          "assessmentId": "654f48bf-4476-40f6-a529-3075ea12d5d2"
+          "date": "2017-07-05",
+          "weight": "88",
+          "chest": "8",
+          "thigh": "8",
+          "upperArm": "8",
+          "waist": "8",
+          "hips": "8",
+          "assessmentId": "1d6d4761-0951-41d9-9efe-aa415c33e969",
+          "trend": false
         },
         {
-          "date": "2017-07-22",
-          "weight": "83.1",
-          "chest": "2",
-          "thigh": "2",
-          "upperArm": "2",
-          "waist": "2",
-          "hips": "2",
-          "assessmentId": "0ce32c86-a1bd-4b88-b0b2-5ef028ec8959"
+          "date": "2017-07-04",
+          "weight": "83",
+          "chest": "3",
+          "thigh": "3",
+          "upperArm": "3",
+          "waist": "3",
+          "hips": "3",
+          "assessmentId": "5649320c-1b47-470b-a6ae-7b838732de8e",
+          "trend": false
         },
         {
-          "date": "2017-07-18",
-          "weight": "81",
-          "chest": "2",
-          "thigh": "2",
-          "upperArm": "2",
-          "waist": "2",
-          "hips": "2",
-          "assessmentId": "02da386f-ba37-491e-871d-ee98431a2c2e"
-        },
-        {
-          "date": "2017-07-17",
+          "date": "2017-07-03",
           "weight": "82",
-          "chest": "5",
-          "thigh": "5",
-          "upperArm": "5",
-          "waist": "5",
-          "hips": "5",
-          "assessmentId": "b700bcb3-c561-40c5-93fc-73a0a35874e1"
-        },
-        {
-          "date": "2017-07-13",
-          "weight": "99",
-          "chest": "9",
-          "thigh": "9",
-          "upperArm": "9",
-          "waist": "9",
-          "hips": "9",
-          "assessmentId": "ac637a64-c177-4d4c-9d9d-950b0e2183a2"
+          "chest": "2",
+          "thigh": "2",
+          "upperArm": "2",
+          "waist": "2",
+          "hips": "2",
+          "assessmentId": "82c1fe3e-5fb8-41e8-9c20-22deb045a6eb",
+          "trend": true
         },
         {
           "date": "2017-07-02",
-          "weight": "15",
+          "weight": "83",
           "chest": "2",
           "thigh": "2",
           "upperArm": "2",
           "waist": "2",
           "hips": "2",
-          "assessmentId": "d3b45cd3-0352-406f-907f-07386eff48e3"
+          "assessmentId": "5a92db80-a2d7-4cc7-bf00-d8bdcc10b04a",
+          "trend": true
+        },
+        {
+          "date": "2017-07-01",
+          "weight": "84",
+          "chest": "4",
+          "thigh": "4",
+          "upperArm": "4",
+          "waist": "4",
+          "hips": "4",
+          "assessmentId": "18553248-0ff4-4960-b60a-fa40bb4961c0",
+          "trend": true
         }
       ]
     }

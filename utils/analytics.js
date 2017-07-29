@@ -17,19 +17,7 @@ const analytics = {
   },
 
   latestAssessment(member) {
-    if (member.assessments.length > 0) {
-      return member.assessments[0];
-    } else {
-      return null;
-    }
-  },
-
-  previousAssessment(member) {
-    if (member.assessments.length > 1) {
-      return member.assessments[1];
-    } else {
-      return null;
-    }
+    return member.assessments[0];
   },
 
   currentWeight(member) {
@@ -55,7 +43,6 @@ const analytics = {
     const ranges = [15, 16, 18.5, 25, 30, 35, 40];
 
     let bmiCategory = categories[0];
-    logger.info(bmiValue);
     for (let j = 0; j < ranges.length; j++) {
       if (bmiValue > ranges[j]) {
         bmiCategory = categories[j + 1];
@@ -94,15 +81,22 @@ const analytics = {
     return marginOfError <= 2;
   },
 
-  trend(assessments) {
-    let trend = null;
-    if (assessments.length > 1) {
-      trend = this.previousAssessment.weight > this.latestAssessment.weight;
+  trend(member) {
+    const numberOfAssessments = member.assessments.length;
+    const earliestAssessment = member.assessments[numberOfAssessments - 1];
+    if (earliestAssessment.weight <= member.startingWeight) {
+      earliestAssessment.trend = true;
     }
 
-    return trend;
+    if (numberOfAssessments > 1) {
+      for (let i = 0; i < numberOfAssessments - 1; i++) {
+        const oldWeight = member.assessments[i + 1].weight;
+        const newWeight = member.assessments[i].weight;
+        if (newWeight <= oldWeight) {
+          member.assessments[i].trend = true;
+        }
+      }
+    }
   },
-
 };
-
 module.exports = analytics;

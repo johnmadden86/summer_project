@@ -23,6 +23,7 @@ const accounts = {
 
   register(request, response) {
     const member = request.body;
+    member.name = member.firstName.concat(' ').concat(member.lastName);
     member.id = uuid();
     member.assessments = [];
     memberStore.addMember(member);

@@ -5,12 +5,12 @@
         <i class="user icon"></i>
       </div>
       <div class="label">
-        {{member.firstName}} {{member.lastName}}
+        {{member.name}}
       </div>
     </div>
     <div class="ui statistic">
       <div class="value">
-        {{#if ibw}}
+        {{#if stats.ibw}}
             <i class="green dashboard icon"></i>
         {{else}}
             <i class="red dashboard icon"></i>
@@ -22,7 +22,7 @@
     </div>
     <div class="ui statistic">
       <div class="value">
-        <i class="heartbeat icon"></i> {{bmi}}
+        <i class="heartbeat icon"></i> {{stats.bmi}}
       </div>
       <div class="label">
         BMI
@@ -33,7 +33,7 @@
         <i class="doctor icon"></i>
       </div>
       <div class="label">
-        {{bmiCategory}}
+        {{stats.bmiCategory}}
       </div>
     </div>
   </div>
