@@ -21,7 +21,7 @@ const analytics = {
   },
 
   currentWeight(member) {
-    let weight = member.startingWeight;
+    let weight = member.details.startingWeight;
     if (member.assessments.length > 0) {
       weight = this.latestAssessment(member).weight;
     }
@@ -31,7 +31,7 @@ const analytics = {
 
   calculateBmi(member) {
     const weight = this.currentWeight(member);
-    const height = member.height / 100;
+    const height = member.details.height / 100;
     return conversion.round(weight / (height * height), 2);
   },
 
@@ -57,18 +57,18 @@ const analytics = {
     const fiveFeet = 60.0;
     let idealBodyWeight;
 
-    let inches = conversion.convertCmToInches(member.height, 2);
+    let inches = conversion.convertCmToInches(member.details.height, 2);
 
     if (inches <= fiveFeet) {
       // noinspection JSValidateTypes
-      if (member.gender === 'Male') {
+      if (member.details.gender === 'Male') {
         idealBodyWeight = 50;
       } else {
         idealBodyWeight = 45.5;
       }
     } else {
       // noinspection JSValidateTypes
-      if (member.gender === 'Male') {
+      if (member.details.gender === 'Male') {
         idealBodyWeight = 50 + ((inches - fiveFeet) * 2.3);
       } else {
         idealBodyWeight = 45.5 + ((inches - fiveFeet) * 2.3);
@@ -84,7 +84,7 @@ const analytics = {
   trend(member) {
     const numberOfAssessments = member.assessments.length;
     const earliestAssessment = member.assessments[numberOfAssessments - 1];
-    if (earliestAssessment.weight <= member.startingWeight) {
+    if (earliestAssessment.weight <= member.details.startingWeight) {
       earliestAssessment.trend = true;
     }
 

@@ -22,10 +22,23 @@ const accounts = {
   },
 
   register(request, response) {
-    const member = request.body;
-    member.name = member.firstName.concat(' ').concat(member.lastName);
-    member.id = uuid();
-    member.assessments = [];
+
+    const member = {
+      id: uuid(),
+      email: request.body.email,
+      password: request.body.password,
+      name: {
+        first: request.body.firstName,
+        last: request.body.lastName,
+      },
+      details: {
+        height: request.body.height,
+        startingWeight: request.body.startingWeight,
+        gender: request.body.gender,
+      },
+      assessments: [],
+    };
+    member.name.full = member.name.first + ' ' + member.name.last;
     memberStore.addMember(member);
     logger.info(`registering ${member.email}`);
     response.redirect('/login');
@@ -43,7 +56,7 @@ const accounts = {
     //const trainer = trainerStore.getTrainerByEmail(request.body.email);
     if (member){// && member.password === request.body.password) {
       response.cookie('member', member.email);
-      logger.info(`logging in ${member.email}`);
+      logger.info(`logging in ${member.name.full}`);
       response.redirect('/dashboard');
     } //else if (trainer && trainer.password === request.body.password) {
       //response.cookie('trainer', trainer.email);
@@ -69,6 +82,20 @@ const accounts = {
     response.cookie('member', '');
     response.redirect('/');
     logger.info('logging out...');
+  },
+
+  update(request, response) {
+    const loggedInUser = accounts.getCurrentMember(request);
+    loggedInUser.email = request.body.email;
+    loggedInUser.password = request.body.password;
+    loggedInUser.name.first = request.body.firstName;
+    loggedInUser.name.last = request.body.lastName;
+    loggedInUser.name.full = request.body.firstName + ' ' + request.body.lastName;
+    loggedInUser.details.height = request.body.height;
+    loggedInUser.details.startingWeight = request.body.startingWeight;
+    loggedInUser.details.gender = request.body.gender;
+    memberStore.save();
+    response.redirect('/dashboard');
   },
 
 };

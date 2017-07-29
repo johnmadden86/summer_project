@@ -57,6 +57,10 @@ const memberStore = {
     );
     user.assessments.reverse();
   },
+
+  save() {
+    this.store.save();
+  }
 };
 
 module.exports = memberStore;

@@ -12,12 +12,12 @@ router.get('/', accounts.index);
 router.get('/signup', accounts.signUp);
 router.get('/login', accounts.login);
 router.get('/logout', accounts.logout);
-//router.get('/settings', accounts.settings);
 router.post('/authenticate', accounts.authenticate);
 router.post('/register', accounts.register);
-//router.post('/settings', accounts.updateSettings);
+router.post('/settings', accounts.update);
 
 router.get('/dashboard', dashboard.index);
+router.get('/settings', dashboard.settings);
 router.get('/dashboard/:userId/deleteassessment/:assessmentId', dashboard.deleteAssessment);
 router.post('/dashboard/addassessment', dashboard.addAssessment);
 

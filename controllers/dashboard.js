@@ -16,7 +16,7 @@ const dashboard = {
       stats: stats,
     };
     memberStore.sortAssessments(loggedInUser);
-    logger.info(`dashboard rendering for ${loggedInUser.name}`);
+    logger.info(`dashboard rendering for ${loggedInUser.name.full}`);
     response.render('dashboard', viewData);
   },
 
@@ -28,16 +28,24 @@ const dashboard = {
     assessment.trend = false;
     memberStore.addAssessment(loggedInUser, assessment);
     analytics.trend(loggedInUser);
-    logger.info(`Adding new assessment for ${loggedInUser.name} on ${assessmentDate}`);
+    logger.info(`Adding new assessment for ${loggedInUser.name.full} on ${assessmentDate}`);
     response.redirect('/dashboard');
   },
 
   deleteAssessment(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
     const assessmentId = request.params.assessmentId;
-    logger.debug(`Deleting Assessment for ${loggedInUser.name}`);
+    logger.debug(`Deleting Assessment for ${loggedInUser.name.full}`);
     memberStore.removeAssessment(loggedInUser, assessmentId);
     response.redirect('/dashboard');
+  },
+
+  settings(request, response) {
+    const loggedInUser = accounts.getCurrentMember(request);
+    const viewData = {
+      member: loggedInUser,
+    };
+    response.render('settings', viewData);
   },
 
 };
