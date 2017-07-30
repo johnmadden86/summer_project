@@ -14,6 +14,7 @@ const trainerStore = {
 
   addTrainer(trainer) {
     this.store.add(this.collection, trainer);
+    this.store.save();
   },
 
   getTrainerById(id) {

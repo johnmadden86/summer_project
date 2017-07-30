@@ -1,6 +1,6 @@
 'use strict';
 
-//const trainerStore = require('../models/trainer-store');
+const trainerStore = require('../models/trainer-store');
 const memberStore = require('../models/member-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
@@ -41,6 +41,22 @@ const accounts = {
     member.name.full = member.name.first + ' ' + member.name.last;
     memberStore.addMember(member);
     logger.info(`registering ${member.email}`);
+    response.redirect('/login');
+  },
+
+  newTrainer(request, response) {
+    const trainer = {
+      id: uuid(),
+      email: request.body.email,
+      password: request.body.password,
+      name: {
+        first: request.body.firstName,
+        last: request.body.lastName,
+      },
+    };
+    trainer.name.full = member.name.first + ' ' + member.name.last;
+    trainerStore.addTrainer(trainer);
+    logger.info(`registering ${trainer.email}`);
     response.redirect('/login');
   },
 

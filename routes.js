@@ -7,6 +7,7 @@ const accounts = require('./controllers/accounts.js');
 const about = require('./controllers/about.js');
 const dashboard = require('./controllers/dashboard.js');
 const trainer = require('./controllers/trainer.js');
+const admin = require('./controllers/admin');
 
 router.get('/', accounts.index);
 router.get('/signup', accounts.signUp);
@@ -20,6 +21,10 @@ router.get('/dashboard', dashboard.index);
 router.get('/settings', dashboard.settings);
 router.get('/dashboard/:userId/deleteassessment/:assessmentId', dashboard.deleteAssessment);
 router.post('/dashboard/addassessment', dashboard.addAssessment);
+
+router.get('/admin', admin.index);
+router.post('/admin', admin.newTrainer);
+
 
 router.get('/about', about.index);
 
