@@ -25,6 +25,10 @@ router.post('/dashboard/add-assessment', dashboard.addAssessment);
 router.get('/admin', admin.index);
 router.post('/admin', admin.newTrainer);
 
+router.get('/admin', admin.index);
+router.post('/admin', admin.newTrainer);
+
+
 router.get('/about', about.index);
 
 router.get('/trainer-dashboard', trainer.index);

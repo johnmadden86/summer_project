@@ -44,6 +44,22 @@ const accounts = {
     response.redirect('/login');
   },
 
+  newTrainer(request, response) {
+    const trainer = {
+      id: uuid(),
+      email: request.body.email,
+      password: request.body.password,
+      name: {
+        first: request.body.firstName,
+        last: request.body.lastName,
+      },
+    };
+    trainer.name.full = member.name.first + ' ' + member.name.last;
+    trainerStore.addTrainer(trainer);
+    logger.info(`registering ${trainer.email}`);
+    response.redirect('/login');
+  },
+
   login(request, response) {
     const viewData = {
       title: 'Login to the Service',
