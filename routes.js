@@ -7,9 +7,10 @@ const accounts = require('./controllers/accounts.js');
 const about = require('./controllers/about.js');
 const dashboard = require('./controllers/dashboard.js');
 const trainer = require('./controllers/trainer.js');
+const admin = require('./controllers/admin');
 
 router.get('/', accounts.index);
-router.get('/signup', accounts.signUp);
+router.get('/sign-up', accounts.signUp);
 router.get('/login', accounts.login);
 router.get('/logout', accounts.logout);
 router.post('/authenticate', accounts.authenticate);
@@ -18,14 +19,17 @@ router.post('/settings', accounts.update);
 
 router.get('/dashboard', dashboard.index);
 router.get('/settings', dashboard.settings);
-router.get('/dashboard/:userId/deleteassessment/:assessmentId', dashboard.deleteAssessment);
-router.post('/dashboard/addassessment', dashboard.addAssessment);
+router.get('/dashboard/:userId/delete-assessment/:assessmentId', dashboard.deleteAssessment);
+router.post('/dashboard/add-assessment', dashboard.addAssessment);
+
+router.get('/admin', admin.index);
+router.post('/admin', admin.newTrainer);
 
 router.get('/about', about.index);
 
-//router.get('/trainerdashboard', TrainerDashboard.index);
-//router.get('/trainerdashboard/deletemeber/{id}', TrainerDashboard.deleteMember);
-//router.get('/trainerassessment/{id} ', TrainerDashboard.trainerAssessment);
-//router.post('/editcomment/{id}', TrainerDashboard.editComment);
+router.get('/trainer-dashboard', trainer.index);
+router.get('/trainer-dashboard/delete-member/:id', trainer.deleteMember);
+router.get('/trainer-assessment/:id', trainer.trainerAssessment);
+router.post('/trainer-assessment/:id/edit-comment/:assessmentId', trainer.editComment);
 
 module.exports = router;

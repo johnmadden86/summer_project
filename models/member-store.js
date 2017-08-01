@@ -58,6 +58,14 @@ const memberStore = {
     user.assessments.reverse();
   },
 
+  getAssessment(assessments, assessmentId) {
+    for (let i = 0; i < assessments.length; i++) {
+      if (assessments[i].assessmentId === assessmentId) {
+        return assessments[i];
+      }
+    }
+  },
+
   save() {
     this.store.save();
   }

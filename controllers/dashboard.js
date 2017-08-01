@@ -25,6 +25,7 @@ const dashboard = {
     const assessment = request.body;
     const assessmentDate = request.body.date;
     assessment.assessmentId = uuid();
+    assessment.comment = '';
     assessment.trend = false;
     memberStore.addAssessment(loggedInUser, assessment);
     analytics.trend(loggedInUser);

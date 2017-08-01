@@ -1,6 +1,6 @@
 'use strict';
 
-//const trainerStore = require('../models/trainer-store');
+const trainerStore = require('../models/trainer-store');
 const memberStore = require('../models/member-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
@@ -18,7 +18,7 @@ const accounts = {
     const viewData = {
       title: 'Registration',
     };
-    response.render('signUp', viewData);
+    response.render('sign-up', viewData);
   },
 
   register(request, response) {
@@ -53,16 +53,16 @@ const accounts = {
 
   authenticate(request, response) {
     const member = memberStore.getMemberByEmail(request.body.email);
-    //const trainer = trainerStore.getTrainerByEmail(request.body.email);
+    const trainer = trainerStore.getTrainerByEmail(request.body.email);
     if (member){// && member.password === request.body.password) {
       response.cookie('member', member.email);
       logger.info(`logging in ${member.name.full}`);
       response.redirect('/dashboard');
-    } //else if (trainer && trainer.password === request.body.password) {
-      //response.cookie('trainer', trainer.email);
-      //logger.info(`logging in ${trainer.email}`);
-      //response.redirect('/trainer-dashboard');}
-    else {
+    } else if (trainer){//} && trainer.password === request.body.password) {
+      response.cookie('trainer', trainer.email);
+      logger.info(`logging in ${trainer.name.full}`);
+      response.redirect('/trainer-dashboard');
+    } else {
       logger.info('Authentication failed');
       response.redirect('/login');
     }
@@ -73,10 +73,10 @@ const accounts = {
     return memberStore.getMemberByEmail(memberEmail);
   },
 
-  /*getCurrentTrainer(request) {
+  getCurrentTrainer(request) {
     const trainerEmail = request.cookies.trainer;
-    return trainerStore.getMemberByEmail(trainerEmail);
-  },*/
+    return trainerStore.getTrainerByEmail(trainerEmail);
+  },
 
   logout(request, response) {
     response.cookie('member', '');

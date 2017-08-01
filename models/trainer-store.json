@@ -1,0 +1,14 @@
+{
+  "trainers": [
+    {
+      "id": "0c031137-66eb-408a-8fcf-77680d2a2e23",
+      "email": "jose@manutd.pt",
+      "password": "secret",
+      "name": {
+        "first": "Jose",
+        "last": "Mourinho",
+        "full": "Jose Mourinho"
+      }
+    }
+  ]
+}

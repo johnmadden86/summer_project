@@ -84,17 +84,13 @@ const analytics = {
   trend(member) {
     const numberOfAssessments = member.assessments.length;
     const earliestAssessment = member.assessments[numberOfAssessments - 1];
-    if (earliestAssessment.weight <= member.details.startingWeight) {
-      earliestAssessment.trend = true;
-    }
+    earliestAssessment.trend = earliestAssessment.weight <= member.details.startingWeight;
 
     if (numberOfAssessments > 1) {
       for (let i = 0; i < numberOfAssessments - 1; i++) {
         const oldWeight = member.assessments[i + 1].weight;
         const newWeight = member.assessments[i].weight;
-        if (newWeight <= oldWeight) {
-          member.assessments[i].trend = true;
-        }
+        member.assessments[i].trend = newWeight <= oldWeight;
       }
     }
   },

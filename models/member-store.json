@@ -1,20 +1,93 @@
 {
   "members": [
     {
-      "id": "490b2296-a930-4221-b622-3d845958f6ff",
-      "email": "david@manutd.es",
+      "id": "ad8051ad-22b7-4071-b801-1747a3b009bb",
+      "email": "paul@manutd.fr",
       "password": "secret",
       "name": {
-        "first": "David",
-        "last": "de Gea",
-        "full": "David de Gea"
+        "first": "Paul",
+        "last": "Pogba",
+        "full": "Paul Pogba"
       },
       "details": {
-        "height": "195",
-        "startingWeight": "90",
+        "height": "189",
+        "startingWeight": "85",
         "gender": "Male"
       },
-      "assessments": []
+      "assessments": [
+        {
+          "date": "2017-08-11",
+          "weight": "85",
+          "chest": "5",
+          "thigh": "5",
+          "upperArm": "5",
+          "waist": "5",
+          "hips": "5",
+          "assessmentId": "6d883846-70b4-4a9a-b28b-64a5a7cd69c1",
+          "comment": "  shite",
+          "trend": false
+        },
+        {
+          "date": "2017-08-01",
+          "weight": "81",
+          "chest": "5",
+          "thigh": "5",
+          "upperArm": "5",
+          "waist": "55",
+          "hips": "5",
+          "assessmentId": "4d3bc3dc-bf86-4bf7-914a-5b17b3e6746c",
+          "comment": "  realy good",
+          "trend": true
+        },
+        {
+          "date": "2017-07-29",
+          "weight": "82",
+          "chest": "2",
+          "thigh": "2",
+          "upperArm": "2",
+          "waist": "2",
+          "hips": "2",
+          "assessmentId": "fabe1efe-c3ba-4f02-962b-9d2f9923ad89",
+          "comment": "  great",
+          "trend": false
+        },
+        {
+          "date": "2017-07-28",
+          "weight": "81",
+          "chest": "1",
+          "thigh": "1",
+          "upperArm": "1",
+          "waist": "11",
+          "hips": "1",
+          "assessmentId": "252e6b6a-4e74-48c2-927b-46d6a8813309",
+          "comment": "  look",
+          "trend": true
+        },
+        {
+          "date": "2017-07-02",
+          "weight": "83",
+          "chest": "3",
+          "thigh": "3",
+          "upperArm": "3",
+          "waist": "3",
+          "hips": "3",
+          "assessmentId": "1abc1491-061a-4bfd-bd05-7807638c04ee",
+          "comment": "  bad",
+          "trend": true
+        },
+        {
+          "date": "2017-07-01",
+          "weight": "84",
+          "chest": "4",
+          "thigh": "4",
+          "upperArm": "4",
+          "waist": "4",
+          "hips": "4",
+          "assessmentId": "cad6550c-f04f-4b50-9377-e08364d773ff",
+          "comment": "  good",
+          "trend": true
+        }
+      ]
     }
   ]
 }

@@ -1,5 +1,6 @@
 <div class="ui bulleted list">
     {{#each member.assessments}}
+
         <tr>
             <td>{{date}}</td>
             <td>{{weight}}</td>
@@ -15,12 +16,18 @@
                     <i class="large red thumbs down icon"></i>
                 {{/if}}
             </td>
-            <td>{{comment}}</td>
-            <td>
-                <a href="/dashboard/{{../member.id}}/delete-assessment/{{assessmentId}}" class="ui icon button">
-                    <i class="icon trash"></i>
-                </a>
-            </td>
+            <form class="ui form" action="/trainer-assessment/{{../member.id}}/edit-comment/{{assessmentId}}" method="POST">
+                <td>
+                    <div class="ui field">
+                        <textarea name="comment" title="comment"> {{comment}} </textarea>
+                    </div>
+                </td>
+                <td>
+                    <button class="ui blue submit button"> Update </button>
+                </td>
+            </form>
         </tr>
     {{/each}}
 </div>
+
+
