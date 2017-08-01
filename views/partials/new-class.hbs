@@ -1,0 +1,39 @@
+<form class="ui stacked segment form" action="/new-class" method="POST">
+    <h3 class="ui header">Create a new class</h3>
+    <div class="six fields">
+        <div class="field">
+            <label>Name</label>
+            <input placeholder="Name" type="text" name="name">
+        </div>
+        <div class="field">
+            <label>Duration</label>
+            <input placeholder="Duration" type="time" min="00:30:00" max="01:30:00" step="300" name="duration">
+        </div>
+        <div class="field">
+            <label>Capacity</label>
+            <input placeholder="Capacity" type="number" min="10" max="40" step="1" name="capacity">
+        </div>
+        <div class="field">
+            <label> Difficulty </label>
+            <select class="ui dropdown" name="difficulty">
+                <option selected disabled> </option>
+                <option value="Beginner"> Beginner </option>
+                <option value="Intermediate"> Intermediate </option>
+                <option value="Advanced"> Advanced </option>
+            </select>
+        </div>
+        <div class="field">
+            <label> Time </label>
+            <input placeholder="Time" type="time" min="08:00:00" max="20:00:00" step="1800" name="time">
+        </div>
+        <div class="field">
+            <label>Starting Date</label>
+            <input placeholder="Date" type="date" name="date">
+        </div>
+        <div class="field">
+            <label>Runs for</label>
+            <input placeholder="No. of weeks" type="number" min="4" max="12" step="1" name="weeks">
+        </div>
+    </div>
+    <button class="ui blue submit button">Submit</button>
+</form>

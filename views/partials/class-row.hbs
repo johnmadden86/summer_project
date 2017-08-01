@@ -1,0 +1,18 @@
+<div class="ui bulleted list">
+    {{#each classes}}
+        <tr>
+            <td> {{name}} </td>
+            <td> {{duration}} </td>
+            <td> {{capacity}} </td>
+            <td> {{difficulty}} </td>
+            <td> {{time}} </td>
+            <td> {{date}} </td>
+            <td> {{weeks}} weeks </td>
+            <td>
+                <a href="/trainer-classes/delete-class/{{classId}}" class="ui icon button">
+                    <i class="icon trash"></i>
+                </a>
+            </td>
+        </tr>
+    {{/each}}
+</div>

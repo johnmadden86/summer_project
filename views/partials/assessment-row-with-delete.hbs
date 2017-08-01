@@ -1,21 +1,5 @@
 <div class="ui bulleted list">
-    {{#each member.assessments}}
-        <tr>
-            <td>{{date}}</td>
-            <td>{{weight}}</td>
-            <td>{{chest}}</td>
-            <td>{{thigh}}</td>
-            <td>{{upperArm}}</td>
-            <td>{{waist}}</td>
-            <td>{{hips}}</td>
-            <td>
-                {{#if assessment.trend}}
-                    <a class="ui green tag label"></a>
-                {{else}}
-                    <a class="ui red tag label"></a>
-                {{/if}}
-            </td><div class="ui bulleted list">
-    {{#each member.assessments}}
+{{#each member.assessments}}
         <tr>
             <td>{{date}}</td>
             <td>{{weight}}</td>
@@ -38,14 +22,11 @@
                 </a>
             </td>
         </tr>
-    {{/each}}
-</div>
-            <td>{{comment}}</td>
-            <td>
-                <a href="/dashboard/{{../member.id}}/deleteassessment/{{assessmentId}}" class="ui icon button">
-                    <i class="icon trash"></i>
-                </a>
-            </td>
-        </tr>
-    {{/each}}
+    <td>{{comment}}</td>
+    <td>
+        <a href="/dashboard/{{../member.id}}/deleteassessment/{{assessmentId}}" class="ui icon button">
+            <i class="icon trash"></i>
+        </a>
+    </td>
+{{/each}}
 </div>

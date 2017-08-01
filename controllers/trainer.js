@@ -4,19 +4,43 @@ const logger = require('../utils/logger');
 const accounts = require('./accounts.js');
 const memberStore = require('../models/member-store');
 const analytics = require('../utils/analytics');
+const classStore = require('../models/class-store');
+const uuid = require('uuid');
 
 const trainer = {
 
   index(request, response) {
     const loggedInUser = accounts.getCurrentTrainer(request);
-    const members = memberStore.getAllMembers();
     const viewData = {
       title: 'Dashboard',
       trainer: loggedInUser,
-      members: members,
     };
     logger.info(`dashboard rendering for ${loggedInUser.name.full}`);
     response.render('trainer-dashboard', viewData);
+  },
+
+  members(request, response) {
+    const loggedInUser = accounts.getCurrentTrainer(request);
+    const members = memberStore.getAllMembers();
+    const viewData = {
+      title: 'Members',
+      trainer: loggedInUser,
+      members: members,
+    };
+    logger.info(`member list rendering for ${loggedInUser.name.full}`);
+    response.render('view-members', viewData);
+  },
+
+  classes(request, response) {
+    const loggedInUser = accounts.getCurrentTrainer(request);
+    const classes = classStore.getAllClasses();
+    const viewData = {
+      title: 'Classes',
+      trainer: loggedInUser,
+      classes: classes,
+    };
+    logger.info(`classes menu rendering for ${loggedInUser.name.full}`);
+    response.render('trainer-classes', viewData);
   },
 
   deleteMember(request, response) {
@@ -50,7 +74,23 @@ const trainer = {
     assessment.comment = comment;
     memberStore.save();
     logger.info(`Updating comment for ${member.name.full} on ${assessment.date}`);
-    response.redirect('/trainer-dashboard');
+    response.redirect(`/trainer-dashboard`);
+  },
+
+  newClass(request, response) {
+    const loggedInUser = accounts.getCurrentTrainer(request);
+    const newClass = request.body;
+    newClass.classId = uuid();
+    classStore.addClass(newClass);
+    logger.info(`New class added by ${loggedInUser.name.full}`);
+    response.redirect('/trainer-classes');
+  },
+
+  deleteClass(request, response) {
+    const classId = request.params.classId;
+    logger.debug(`Deleting Class ${classId}`);
+    classStore.removeClass(classId);
+    response.redirect('/trainer-classes');
   },
 
 };

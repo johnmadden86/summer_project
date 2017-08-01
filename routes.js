@@ -28,12 +28,16 @@ router.post('/admin', admin.newTrainer);
 router.get('/admin', admin.index);
 router.post('/admin', admin.newTrainer);
 
-
 router.get('/about', about.index);
 
 router.get('/trainer-dashboard', trainer.index);
 router.get('/trainer-dashboard/delete-member/:id', trainer.deleteMember);
 router.get('/trainer-assessment/:id', trainer.trainerAssessment);
 router.post('/trainer-assessment/:id/edit-comment/:assessmentId', trainer.editComment);
+
+router.get('/view-members', trainer.members);
+router.get('/trainer-classes', trainer.classes);
+router.get('/trainer-classes/delete-class/:classId', trainer.deleteClass);
+router.post('/new-class', trainer.newClass);
 
 module.exports = router;

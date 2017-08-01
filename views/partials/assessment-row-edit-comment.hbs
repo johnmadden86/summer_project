@@ -1,22 +1,21 @@
 <div class="ui bulleted list">
     {{#each member.assessments}}
-
-        <tr>
-            <td>{{date}}</td>
-            <td>{{weight}}</td>
-            <td>{{chest}}</td>
-            <td>{{thigh}}</td>
-            <td>{{upperArm}}</td>
-            <td>{{waist}}</td>
-            <td>{{hips}}</td>
-            <td>
-                {{#if trend}}
-                    <i class="large green thumbs up icon"></i>
-                {{else}}
-                    <i class="large red thumbs down icon"></i>
-                {{/if}}
-            </td>
-            <form class="ui form" action="/trainer-assessment/{{../member.id}}/edit-comment/{{assessmentId}}" method="POST">
+        <form class="ui form" action="/trainer-assessment/{{../member.id}}/edit-comment/{{assessmentId}}" method="POST">
+            <tr>
+                <td>{{date}}</td>
+                <td>{{weight}}</td>
+                <td>{{chest}}</td>
+                <td>{{thigh}}</td>
+                <td>{{upperArm}}</td>
+                <td>{{waist}}</td>
+                <td>{{hips}}</td>
+                <td>
+                    {{#if trend}}
+                        <i class="large green thumbs up icon"></i>
+                    {{else}}
+                        <i class="large red thumbs down icon"></i>
+                    {{/if}}
+                </td>
                 <td>
                     <div class="ui field">
                         <textarea name="comment" title="comment"> {{comment}} </textarea>
@@ -25,8 +24,8 @@
                 <td>
                     <button class="ui blue submit button"> Update </button>
                 </td>
-            </form>
-        </tr>
+            </tr>
+        </form>
     {{/each}}
 </div>
 

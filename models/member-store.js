@@ -68,7 +68,7 @@ const memberStore = {
 
   save() {
     this.store.save();
-  }
+  },
 };
 
 module.exports = memberStore;
