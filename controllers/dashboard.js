@@ -5,6 +5,7 @@ const accounts = require('./accounts');
 const analytics = require('../utils/analytics');
 const memberStore = require('../models/member-store');
 const uuid = require('uuid');
+const classStore = require('../models/class-store');
 
 const dashboard = {
   index(request, response) {
@@ -47,6 +48,18 @@ const dashboard = {
       member: loggedInUser,
     };
     response.render('settings', viewData);
+  },
+
+  classes(request, response) {
+    const loggedInUser = accounts.getCurrentMember(request);
+    const classes = classStore.getAllClasses();
+    const viewData = {
+      title: 'Classes',
+      member: loggedInUser,
+      classes: classes,
+    };
+    logger.info(`classes menu rendering for ${loggedInUser.name.full}`);
+    response.render('classes', viewData);
   },
 
 };

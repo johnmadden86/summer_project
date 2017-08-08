@@ -1,0 +1,24 @@
+<div class="ui bulleted list">
+    {{#each classes}}
+        <tr>
+            <td> {{details.name}} </td>
+            <td> {{details.duration}} </td>
+            <td> {{details.capacity}} </td>
+            <td> {{details.difficulty}} </td>
+            <td> {{details.time}} </td>
+            <td> {{details.date}} </td>
+            <td> {{details.weeks}} weeks </td>
+            <td>
+                <form>
+                    <div class="field">
+                        <select title="Select class to enrol in" class="ui dropdown" name="enrol">
+                            <option selected disabled> </option>
+                            <option value="{{details.time}}"> {{details.date}} {{details.time}}</option>
+                            <option value="Female"> Female</option>
+                        </select>
+                    </div>
+                </form>
+            </td>
+        </tr>
+    {{/each}}
+</div>

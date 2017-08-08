@@ -3,6 +3,7 @@
 const _ = require('lodash');
 const JsonStore = require('./json-store');
 const logger = require('../utils/logger');
+const staticMethods = require('../utils/static-methods');
 
 const memberStore = {
 
@@ -47,6 +48,14 @@ const memberStore = {
     this.store.save();
   },
 
+  getAssessment(assessments, assessmentId) {
+    for (let i = 0; i < assessments.length; i++) {
+      if (assessments[i].assessmentId === assessmentId) {
+        return assessments[i];
+      }
+    }
+  },
+
   sortAssessments(user) {
     user.assessments.sort(
         function (a, b) {
@@ -56,14 +65,6 @@ const memberStore = {
         }
     );
     user.assessments.reverse();
-  },
-
-  getAssessment(assessments, assessmentId) {
-    for (let i = 0; i < assessments.length; i++) {
-      if (assessments[i].assessmentId === assessmentId) {
-        return assessments[i];
-      }
-    }
   },
 
   save() {

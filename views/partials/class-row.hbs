@@ -1,14 +1,18 @@
 <div class="ui bulleted list">
     {{#each classes}}
         <tr>
-            <td> {{name}} </td>
-            <td> {{duration}} </td>
-            <td> {{capacity}} </td>
-            <td> {{difficulty}} </td>
-            <td> {{time}} </td>
-            <td> {{date}} </td>
-            <td> {{weeks}} weeks </td>
+            <td> {{details.name}} </td>
+            <td> {{details.duration}} </td>
+            <td> {{details.capacity}} </td>
+            <td> {{details.difficulty}} </td>
+            <td> {{details.time}} </td>
+            <td> {{details.day }} </td>
+            <td> {{details.date}} </td>
+            <td> {{details.weeks}} weeks </td>
             <td>
+                <a href="/trainer-classes/edit-class/{{classId}}" class="ui icon button" title="Submit changes">
+                    <i class="icon write"></i>
+                </a>
                 <a href="/trainer-classes/delete-class/{{classId}}" class="ui icon button">
                     <i class="icon trash"></i>
                 </a>

@@ -4,6 +4,7 @@ const logger = require('../utils/logger');
 const accounts = require('./accounts.js');
 const memberStore = require('../models/member-store');
 const analytics = require('../utils/analytics');
+const staticMethods = require('../utils/static-methods');
 const classStore = require('../models/class-store');
 const uuid = require('uuid');
 
@@ -79,8 +80,12 @@ const trainer = {
 
   newClass(request, response) {
     const loggedInUser = accounts.getCurrentTrainer(request);
-    const newClass = request.body;
-    newClass.classId = uuid();
+    const newClass = {
+      classId: uuid(),
+      details: request.body,
+      schedule: [],
+    };
+    newClass.details.day = staticMethods.dayFromDate(newClass.details.date);
     classStore.addClass(newClass);
     logger.info(`New class added by ${loggedInUser.name.full}`);
     response.redirect('/trainer-classes');
@@ -88,9 +93,20 @@ const trainer = {
 
   deleteClass(request, response) {
     const classId = request.params.classId;
-    logger.debug(`Deleting Class ${classId}`);
-    classStore.removeClass(classId);
+    const classToRemove = classStore.getClassById(classId);
+    logger.debug(`Deleting Class ${classToRemove.name} ${classToRemove.date}`);
+    classStore.removeClass(classToRemove);
     response.redirect('/trainer-classes');
+  },
+
+  editClass(request, response) {
+    const classId = request.params.classId;
+    const details = request.body;
+    const classToEdit = classStore.getClassById(classId);
+    classToEdit.details = details;
+    classStore.save();
+    logger.info(`Updating details for ${classId}`);
+    response.redirect(`/trainer-classes`);
   },
 
 };

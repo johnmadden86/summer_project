@@ -3,6 +3,8 @@
 const _ = require('lodash');
 const JsonStore = require('./json-store');
 const logger = require('../utils/logger');
+const staticMethods = require('../utils/static-methods');
+const uuid = require('uuid');
 
 const classStore = {
 
@@ -15,18 +17,32 @@ const classStore = {
 
   addClass(newClass) {
     this.store.add(this.collection, newClass);
+    this.createSchedule(newClass);
     this.sortClassesByDate();
     this.store.save();
+  },
+
+  createSchedule(newClass) {
+    let i = 0;
+    let sessionDate = new Date(newClass.details.date);
+    logger.debug(newClass.weeks);
+    while (i < newClass.details.weeks) {
+      const session = {
+        id: uuid(),
+        date: staticMethods.shortenedDateString(sessionDate),
+        members: [],
+      };
+      newClass.schedule.unshift(session);
+      i++;
+      sessionDate = staticMethods.addOneWeek(sessionDate);
+    }
   },
 
   getClassById(classId) {
     return this.store.findOneBy(this.collection, { classId: classId });
   },
 
-  removeClass(classId) {
-    const classToRemove = this.getClassById(classId);
-    logger.debug(classToRemove.classId);
-    logger.debug(this.collection);
+  removeClass(classToRemove) {
     this.store.remove(this.collection, classToRemove);
     this.store.save();
   },
@@ -34,8 +50,8 @@ const classStore = {
   sortClassesByDate() {
     this.getAllClasses().sort(
         function (a, b) {
-          let dateA = new Date(a.date);
-          let dateB = new Date(b.date);
+          let dateA = new Date(a.details.date);
+          let dateB = new Date(b.details.date);
           return dateA - dateB;
         }
     );

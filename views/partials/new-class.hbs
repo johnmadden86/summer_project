@@ -3,36 +3,37 @@
     <div class="six fields">
         <div class="field">
             <label>Name</label>
-            <input placeholder="Name" type="text" name="name">
+            <input placeholder="Name" name="name">
         </div>
         <div class="field">
             <label>Duration</label>
-            <input placeholder="Duration" type="time" min="00:30:00" max="01:30:00" step="300" name="duration">
+            <input placeholder="Duration" type="time" min="00:30:00" max="01:30:00" step="300" name="duration" required>
         </div>
         <div class="field">
             <label>Capacity</label>
-            <input placeholder="Capacity" type="number" min="10" max="40" step="1" name="capacity">
+            <input placeholder="Capacity" type="number" min="10" max="40" step="1" name="capacity" required>
         </div>
         <div class="field">
-            <label> Difficulty </label>
-            <select class="ui dropdown" name="difficulty">
-                <option selected disabled> </option>
-                <option value="Beginner"> Beginner </option>
-                <option value="Intermediate"> Intermediate </option>
-                <option value="Advanced"> Advanced </option>
-            </select>
+            <label> Difficulty
+                <select class="ui dropdown" name="difficulty" required>
+                    <option selected disabled></option>
+                    <option value="Beginner"> Beginner</option>
+                    <option value="Intermediate"> Intermediate</option>
+                    <option value="Advanced"> Advanced</option>
+                </select>
+            </label>
         </div>
         <div class="field">
             <label> Time </label>
-            <input placeholder="Time" type="time" min="08:00:00" max="20:00:00" step="1800" name="time">
+            <input title="Time" type="time" min="08:00:00" max="20:00:00" step="1800" name="time" required>
         </div>
         <div class="field">
             <label>Starting Date</label>
-            <input placeholder="Date" type="date" name="date">
+            <input title="Date" type="date" name="date" required>
         </div>
         <div class="field">
             <label>Runs for</label>
-            <input placeholder="No. of weeks" type="number" min="4" max="12" step="1" name="weeks">
+            <input placeholder="No. of weeks" type="number" min="4" max="12" step="1" name="weeks" required>
         </div>
     </div>
     <button class="ui blue submit button">Submit</button>
