@@ -1,0 +1,32 @@
+{{> trainer-menu id='trainer-bookings'}}
+
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th> Trainer </th>
+        <th> Date </th>
+        <th> Time </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <div class="ui bulleted list">
+        {{#each trainer.bookings}}
+            <tr>
+                <td> {{member.name.full}} </td>
+                <td> {{date}} </td>
+                <td> {{time}} </td>
+                <td>
+                    <a href="/trainer-classes/edit-class/{{classId}}" class="ui icon button" title="Edit">
+                        <i class="icon write"></i>
+                    </a>
+                    <a href="/trainer-classes/delete-class/{{classId}}" class="ui icon button" title="Delete">
+                        <i class="icon trash"></i>
+                    </a>
+                </td>
+            </tr>
+        {{/each}}
+    </div>
+    </tbody>
+</table>
+
