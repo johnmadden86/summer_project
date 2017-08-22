@@ -16,6 +16,7 @@ const memberStore = {
 
   addMember(member) {
     this.store.add(this.collection, member);
+    this.sortMembers();
     this.store.save();
   },
 
@@ -48,10 +49,27 @@ const memberStore = {
     this.store.save();
   },
 
+  removeBooking(user, bookingId) {
+    user.memberBookings = user.memberBookings.filter(
+        function (el) {
+          return el.id !== bookingId;
+        }
+    );
+    this.store.save();
+  },
+
   getAssessment(assessments, assessmentId) {
     for (let i = 0; i < assessments.length; i++) {
       if (assessments[i].assessmentId === assessmentId) {
         return assessments[i];
+      }
+    }
+  },
+
+  getBooking(bookings, bookingId) {
+    for (let i = 0; i < bookings.length; i++) {
+      if (bookings[i].id === bookingId) {
+        return bookings[i];
       }
     }
   },
@@ -65,6 +83,38 @@ const memberStore = {
         }
     );
     user.assessments.reverse();
+  },
+
+  sortMembers() {
+    this.getAllMembers().sort(
+        function (a, b) {
+          let lastNameA = a.name.last;
+          let lastNameB = b.name.last;
+          let firstNameA = a.name.first;
+          let firstNameB = b.name.first;
+          if (lastNameA !== lastNameB) {
+            return lastNameA - lastNameB;
+          } else if (firstNameA !== firstNameB) {
+            return firstNameA - firstNameA;
+          }
+        }
+    );
+  },
+
+  sortBookings(user) {
+    user.memberBookings.sort(
+        function (a, b) {
+          let timeA = (new Date(a.date)).getTime();
+          let timeB = (new Date(b.date)).getTime();
+          let dateA = (new Date(a.date));
+          let dateB = (new Date(b.date));
+          if (dateA !== dateB) {
+            return dateA - dateB;
+          } else if (timeA !== timeB) {
+            return timeA - timeB;
+          }
+        }
+    );
   },
 
   save() {

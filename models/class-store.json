@@ -1,282 +1,49 @@
 {
   "classes": [
     {
-      "classId": "863fc0b3-936f-441e-adbd-edd70e80dba7",
-      "details": {
-        "name": "Boxercise",
-        "duration": "01:00",
-        "capacity": "40",
-        "difficulty": "Advanced",
-        "time": "12:00",
-        "date": "2017-08-15",
-        "weeks": "6",
-        "day": "Tuesday"
-      },
-      "schedule": [
-        {
-          "id": "ca19f421-a96a-4e55-b052-594bb94fe878",
-          "date": "Sep 19",
-          "members": []
-        },
-        {
-          "id": "90d3857c-cb21-49cb-be19-1fd9a7000b72",
-          "date": "Sep 12",
-          "members": []
-        },
-        {
-          "id": "ddcd9c3f-7539-4c0e-8bad-e1691dbc5247",
-          "date": "Sep 05",
-          "members": []
-        },
-        {
-          "id": "0c5bf9cf-3ae9-4170-9b70-9b35b4364274",
-          "date": "Aug 29",
-          "members": []
-        },
-        {
-          "id": "e9f6d02a-e486-4db6-87c0-7802a89a9d4d",
-          "date": "Aug 22",
-          "members": []
-        },
-        {
-          "id": "97cc1542-915f-479c-bdf8-036e7cceedd5",
-          "date": "Aug 15",
-          "members": []
-        }
-      ]
-    },
-    {
-      "classId": "92df2bf2-6007-4177-bc3b-a763fd0173aa",
-      "details": {
-        "name": "Pilates",
-        "duration": "01:00",
-        "capacity": "30",
-        "difficulty": "Advanced",
-        "time": "13:00",
-        "date": "2017-08-14",
-        "weeks": "9",
-        "day": "Monday"
-      },
-      "schedule": [
-        {
-          "id": "3cf7e008-b550-469b-b78d-365f99d82155",
-          "date": "Oct 09",
-          "members": []
-        },
-        {
-          "id": "a8d57041-4e26-448f-bbe4-ba56179be308",
-          "date": "Oct 02",
-          "members": []
-        },
-        {
-          "id": "52920432-95cc-4d7c-956b-25f90ee5c69a",
-          "date": "Sep 25",
-          "members": []
-        },
-        {
-          "id": "a35968d8-01f5-44ab-84a0-1d5648c4265c",
-          "date": "Sep 18",
-          "members": []
-        },
-        {
-          "id": "06eaa279-ab60-4f03-97e2-04b338343cbd",
-          "date": "Sep 11",
-          "members": []
-        },
-        {
-          "id": "0729217b-8eac-4d58-80e4-9be67ed8baca",
-          "date": "Sep 04",
-          "members": []
-        },
-        {
-          "id": "431454f5-cb2c-4a82-af41-4a0b1724fa99",
-          "date": "Aug 28",
-          "members": []
-        },
-        {
-          "id": "5c96ad26-9c90-4c0f-b814-c3778cb55a1d",
-          "date": "Aug 21",
-          "members": []
-        },
-        {
-          "id": "cd68c770-0a33-4c67-a7b5-3eb85219306c",
-          "date": "Aug 14",
-          "members": []
-        }
-      ]
-    },
-    {
-      "classId": "818f9bc6-e9dc-4174-aec7-1d90a122ea36",
-      "details": {
-        "name": "Yoga",
-        "duration": "01:20",
-        "capacity": "20",
-        "difficulty": "Beginner",
-        "time": "18:00",
-        "date": "2017-08-13",
-        "weeks": "5",
-        "day": "Sunday"
-      },
-      "schedule": [
-        {
-          "id": "7b7e4fc6-519d-41b2-9057-da77f03bffb9",
-          "date": "Sep 10",
-          "members": []
-        },
-        {
-          "id": "9efa66a5-a796-4dc8-a0a4-24a5c77def60",
-          "date": "Sep 03",
-          "members": []
-        },
-        {
-          "id": "0b7c57b0-361c-4122-8f53-eea96061087c",
-          "date": "Aug 27",
-          "members": []
-        },
-        {
-          "id": "641002ee-abab-4d22-9536-800a9f74e700",
-          "date": "Aug 20",
-          "members": []
-        },
-        {
-          "id": "1e360c4c-789e-4071-88e0-e5b7e362a1fd",
-          "date": "Aug 13",
-          "members": []
-        }
-      ]
-    },
-    {
-      "classId": "183a7277-ffbc-4e6b-b554-3eea5bc44188",
+      "classId": "8e3c612b-bed1-407a-9ad6-5eab50a7850a",
       "details": {
         "name": "Kettlebells",
         "duration": "01:00",
-        "capacity": "25",
+        "capacity": "15",
         "difficulty": "Advanced",
         "time": "12:00",
-        "date": "2017-08-12",
-        "weeks": "8",
-        "day": "Saturday"
-      },
-      "schedule": [
-        {
-          "id": "56fa04fd-65e1-4ae4-a6a1-a9a5f7880aae",
-          "date": "Sep 30",
-          "members": []
-        },
-        {
-          "id": "49c934ef-191c-458a-ab60-2684cde8c034",
-          "date": "Sep 23",
-          "members": []
-        },
-        {
-          "id": "2c0a033d-5c67-4bb7-8f0c-4a15fe9d117f",
-          "date": "Sep 16",
-          "members": []
-        },
-        {
-          "id": "cb027731-27ef-41ef-9a2b-1796249a0685",
-          "date": "Sep 09",
-          "members": []
-        },
-        {
-          "id": "f5d08917-66f0-48b8-920e-5080f8b77bec",
-          "date": "Sep 02",
-          "members": []
-        },
-        {
-          "id": "ffcafafc-50ab-486d-bd8c-074b2cc44347",
-          "date": "Aug 26",
-          "members": []
-        },
-        {
-          "id": "4fc4d7c0-f4fb-40ca-9cae-98e53723aa4d",
-          "date": "Aug 19",
-          "members": []
-        },
-        {
-          "id": "5e8bfcb4-46a9-4835-8c71-a78bd82fdbaa",
-          "date": "Aug 12",
-          "members": []
-        }
-      ]
-    },
-    {
-      "classId": "8f6ef226-3a39-4b6e-8d45-a8a314c37a85",
-      "details": {
-        "name": "Kettlebells",
-        "duration": "01:00",
-        "capacity": "10",
-        "difficulty": "Advanced",
-        "time": "12:00",
-        "date": "2017-08-11",
+        "date": "14 Sep 2017",
         "weeks": "4",
-        "day": "Friday"
-      },
-      "schedule": [
-        {
-          "id": "649733b1-ae0e-450a-a192-9c590b16e97c",
-          "date": "Sep 01",
-          "members": []
-        },
-        {
-          "id": "3a09eef2-973f-48b1-b555-266197adc196",
-          "date": "Aug 25",
-          "members": []
-        },
-        {
-          "id": "630333fd-c94a-447e-84af-335f9544040c",
-          "date": "Aug 18",
-          "members": []
-        },
-        {
-          "id": "fc6d1faa-176c-4ee9-8703-a43479d1ab6b",
-          "date": "Aug 11",
-          "members": []
-        }
-      ]
-    },
-    {
-      "classId": "c4bab3bd-e970-4cc4-ac87-6cbfc5ec18e7",
-      "details": {
-        "name": "Kettlebells",
-        "duration": "01:00",
-        "capacity": "20",
-        "difficulty": "Advanced",
-        "time": "13:00",
-        "date": "2017-08-10",
-        "weeks": "6",
         "day": "Thursday"
       },
       "schedule": [
         {
-          "id": "7a4ba692-097b-4fc9-89b3-c06affc350b0",
-          "date": "Sep 14",
-          "members": []
+          "id": "63e2bb01-9931-4448-9a1b-6622dfffe95c",
+          "date": "14 Sep",
+          "members": [],
+          "spaces": "15",
+          "full": false,
+          "enrolled": false
         },
         {
-          "id": "000bde60-4884-4c2a-b80c-3ef402012231",
-          "date": "Sep 07",
-          "members": []
+          "id": "60555073-6bde-4db9-8ca2-9ed3889908c9",
+          "date": "21 Sep",
+          "members": [],
+          "spaces": "15",
+          "full": false,
+          "enrolled": false
         },
         {
-          "id": "7dc64b38-2f3b-4788-a720-55f8bcf50195",
-          "date": "Aug 31",
-          "members": []
+          "id": "abdd3f50-285e-43e3-9b76-f86efb325e7a",
+          "date": "28 Sep",
+          "members": [],
+          "spaces": "15",
+          "full": false,
+          "enrolled": false
         },
         {
-          "id": "4e74da1c-5986-42fd-a028-530e77ea5351",
-          "date": "Aug 24",
-          "members": []
-        },
-        {
-          "id": "2da71c1c-7a1b-4db1-bd12-a46a6a9d49fb",
-          "date": "Aug 17",
-          "members": []
-        },
-        {
-          "id": "19a5beff-b90a-4814-a552-0138f5c99993",
-          "date": "Aug 10",
-          "members": []
+          "id": "fa5d68c3-6fc4-4a8f-ad27-d98ed5ca8789",
+          "date": "5 Oct",
+          "members": [],
+          "spaces": "15",
+          "full": false,
+          "enrolled": false
         }
       ]
     }

@@ -76,7 +76,7 @@ const analytics = {
     }
 
     idealBodyWeight = conversion.round(idealBodyWeight, 2);
-    logger.info('Ideal Weight ' + idealBodyWeight + ' kg');
+    //logger.info('Ideal Weight ' + idealBodyWeight + ' kg');
     const marginOfError = Math.abs(idealBodyWeight - weight);
     return marginOfError <= 2;
   },

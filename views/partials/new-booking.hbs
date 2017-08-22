@@ -1,0 +1,66 @@
+<form class="ui segment form" action="/member-bookings/new-booking" method="POST">
+    <h3 class="ui header">Create a new booking</h3>
+    <div class="three fields">
+        <div class="field">
+            <label> Trainer </label>
+            <select id="trainer" class="ui dropdown" title='Trainer' name="trainer" required
+                    onchange="noDateWithoutTrainer(); checkDiary()">
+                <option selected disabled></option>
+                {{#each trainers}}
+                    <option id="selectedTrainer" value="{{id}}"> {{name.full}} </option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="field">
+            <label> Date </label>
+            <input id="date" placeholder="dd/mm/yyyy" title="Date" name="date" required disabled onchange="noTimeWithoutDate()">
+        </div>
+        <div class="field">
+            <label> Time </label>
+            <select id="time" class="ui dropdown" title="Time" name="time" required disabled>
+                <option selected disabled></option>
+                <option value="09:30"> 9:30 </option>
+                <option value="11:00"> 11:00 </option>
+                <option value="14:00"> 14:00 </option>
+                <option value="15:30"> 15:30 </option>
+            </select>
+        </div>
+    </div>
+    <button class="ui blue submit button">Submit</button>
+</form>
+
+<script>
+    $( function() {
+        $( "#date" ).datepicker({
+            firstDay: 1, //starts on Monday
+            minDate: 0, //no earlier than today
+            maxDate: "+1M", //no later than one month from today
+            dateFormat: "d M y",
+            beforeShowDay: $.datepicker.noWeekends //disable weekends
+        });
+    } );
+
+    function noTimeWithoutDate(){
+        if (document.getElementById("date")) {
+            document.getElementById("time").disabled = false;
+        }
+    }
+
+    function noDateWithoutTrainer(){
+        if (document.getElementById("trainer")) {
+            document.getElementById("date").disabled = false;
+        }
+    }
+
+    function checkDiary() {
+        if (document.getElementById("trainer")){
+            const trainerTag = document.getElementById("selectedTrainer");
+            const trainerId = trainerTag.getAttribute("value");
+            console.log(trainerTag);
+            console.log(trainerId);
+            //const trainer = trainerStore.getTrainerById(trainerId);
+            console.log(trainer);
+        }
+
+    }
+</script>

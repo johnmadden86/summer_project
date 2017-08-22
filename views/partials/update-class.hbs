@@ -1,17 +1,17 @@
-<form class="ui stacked segment form" action="/new-class" method="POST">
-    <h3 class="ui header">Create a new class</h3>
+<form class="ui stacked segment form" action="/trainer-classes/update-class/{{classToEdit.classId}}" method="POST">
+    <h3 class="ui header">Edit class</h3>
     <div class="six fields">
         <div class="field">
             <label>Name</label>
-            <input placeholder="Name" name="name">
+            <input title="Name" value="{{classToEdit.details.name}}" name="name">
         </div>
         <div class="field">
             <label>Duration</label>
-            <input placeholder="Duration" type="time" min="00:30:00" max="01:30:00" step="300" name="duration" required>
+            <input title="Duration" value="{{classToEdit.details.duration}}" type="time" min="00:30:00" max="01:30:00" step="300" name="duration" required>
         </div>
         <div class="field">
             <label>Capacity</label>
-            <input placeholder="Capacity" type="number" min="10" max="40" step="1" name="capacity" required>
+            <input title="Capactiy" value="{{classToEdit.details.capacity}}" type="number" min="10" max="40" step="1" name="capacity" required>
         </div>
         <div class="field">
             <label> Difficulty
@@ -29,24 +29,12 @@
         </div>
         <div class="field">
             <label>Starting Date</label>
-            <input title="Date" placeholder="dd/mm/yyyy" id="date" name="date" required>
+            <input title="Date" type="date" name="date" required>
         </div>
         <div class="field">
             <label>Runs for</label>
-            <input placeholder="No. of weeks" type="number" min="4" max="12" step="1" name="weeks" required>
+            <input title="No. of weeks" value="{{classToEdit.details.weeks}}" type="number" min="4" max="12" step="1" name="weeks" required>
         </div>
     </div>
     <button class="ui blue submit button">Submit</button>
 </form>
-<script>
-    $( function() {
-        $( "#date" ).datepicker({
-            firstDay: 1, //starts on Monday
-            minDate: "+2w", //no earlier than two weeks from today
-            maxDate: "+3M", //no later than three months from today
-            dateFormat: "d M y",
-            beforeShowDay: $.datepicker.noWeekends //disable weekends
-        });
-    } );
-</script>
-

@@ -2,50 +2,12 @@
 
 <div class="ui accordion">
     {{#each classes}}
-        <div class="ui grid title">
-            <div class="one wide column"><i class="dropdown icon"></i></div>
-            <div class="two wide column">{{details.name}}</div>
-            <div class="two wide column">({{details.difficulty}})</div>
-            <div class="two wide column">{{details.day}}</div>
-            <div class="two wide column">{{details.time}}</div>
-        </div>
-        <div class="content">
-            {{#each schedule}}
-                {{#if full}}
-                    <a href="/classes/{{../classId}}/enrol-one/{{id}}" title="Class is full" class="ui red icon button disabled">
-                        {{date}}
-                    </a>
-                {{else}}
-                    <a href="/classes/{{../classId}}/enrol-one/{{id}}"
-                       id="enrol-button"
-                       onclick="toggle()"
-                       title="Click to enrol"
-                       class="ui blue icon button">
-                        {{date}}
-                    </a>
-                {{/if}}
-            {{/each}}
-            <a href="/classes/{{../classId}}/enrol-all" class="ui icon button">
-                All
-            </a>
-        </div>
+        {{> class-title}}
+        {{> class-content}}
     {{/each}}
 </div>
 <script>
-    $(function accordion(){
+    $( function () {
         $('.ui.accordion').accordion();
-    });
-</script>
-<script>
-    $(function toggle() {
-        let button = document.getElementById("enrol-button");
-        button.removeClass();
-        if (button.title === "Click to enrol") {
-            button.title = "Click to unenrol";
-            button.addClass("ui green button icon");
-        } else {
-            button.title = "Click to enrol";
-            button.addClass("ui blue button icon");
-        }
-    });
+    } );
 </script>

@@ -32,17 +32,6 @@ const trainer = {
     response.render('view-members', viewData);
   },
 
-  classes(request, response) {
-    const loggedInUser = accounts.getCurrentTrainer(request);
-    const classes = classStore.getAllClasses();
-    const viewData = {
-      title: 'Classes',
-      trainer: loggedInUser,
-      classes: classes,
-    };
-    logger.info(`classes menu rendering for ${loggedInUser.name.full}`);
-    response.render('trainer-classes', viewData);
-  },
 
   deleteMember(request, response) {
     const id = request.params.id;
@@ -78,36 +67,9 @@ const trainer = {
     response.redirect(`/trainer-dashboard`);
   },
 
-  newClass(request, response) {
-    const loggedInUser = accounts.getCurrentTrainer(request);
-    const newClass = {
-      classId: uuid(),
-      details: request.body,
-      schedule: [],
-    };
-    newClass.details.day = staticMethods.dayFromDate(newClass.details.date);
-    classStore.addClass(newClass);
-    logger.info(`New class added by ${loggedInUser.name.full}`);
-    response.redirect('/trainer-classes');
-  },
 
-  deleteClass(request, response) {
-    const classId = request.params.classId;
-    const classToRemove = classStore.getClassById(classId);
-    logger.debug(`Deleting Class ${classToRemove.name} ${classToRemove.date}`);
-    classStore.removeClass(classToRemove);
-    response.redirect('/trainer-classes');
-  },
 
-  editClass(request, response) {
-    const classId = request.params.classId;
-    const details = request.body;
-    const classToEdit = classStore.getClassById(classId);
-    classToEdit.details = details;
-    classStore.save();
-    logger.info(`Updating details for ${classId}`);
-    response.redirect(`/trainer-classes`);
-  },
+
 
 };
 

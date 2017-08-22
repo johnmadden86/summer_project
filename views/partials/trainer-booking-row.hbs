@@ -1,14 +1,14 @@
 <div class="ui bulleted list">
-    {{#each member.memberBookings}}
+    {{#each trainer.trainerBookings}}
         <tr>
-            <td> {{trainerName}} </td>
+            <td> {{memberName}} </td>
             <td> {{date}} </td>
             <td> {{time}} </td>
             <td>
-                <a href="/trainer-classes/edit-class/{{classId}}" class="ui icon button" title="Edit">
+                <a href="/trainer-bookings/add-booking-details/{{id}}" class="ui icon button" title="Edit">
                     <i class="icon write"></i>
                 </a>
-                <a href="/member-bookings/delete-booking/{{id}}" class="ui icon button" title="Delete">
+                <a href="/trainer-bookings/delete-booking/{{id}}" class="ui icon button" title="Delete">
                     <i class="icon trash"></i>
                 </a>
             </td>

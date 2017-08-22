@@ -1,3 +1,7 @@
+'use strict';
+
+const logger = require('./logger');
+
 const staticMethods = {
   dayFromDate(date) {
     let day;
@@ -22,6 +26,49 @@ const staticMethods = {
         break;
       case 6:
         day = 'Saturday';
+    }
+    return day;
+  },
+
+  monthFromDate(date) {
+    let day;
+    switch (new Date(date).getMonth()) {
+      case 0:
+        day = 'Jan';
+        break;
+      case 1:
+        day = 'Feb';
+        break;
+      case 2:
+        day = 'Mar';
+        break;
+      case 3:
+        day = 'Apr';
+        break;
+      case 4:
+        day = 'May';
+        break;
+      case 5:
+        day = 'Jun';
+        break;
+      case 6:
+        day = 'Jul';
+        break;
+      case 7:
+        day = 'Aug';
+        break;
+      case 8:
+        day = 'Sep';
+        break;
+      case 9:
+        day = 'Oct';
+        break;
+      case 10:
+        day = 'Nov';
+        break;
+      case 11:
+        day = 'Dec';
+        break;
     }
     return day;
   },

@@ -2,7 +2,7 @@
 
 <div class="ui two column grid basic middle aligned segment">
     <div class="column">
-        <form class="ui stacked segment form" action="/settings" method="POST">
+        <form class="ui segment form" action="/settings" method="POST">
             <h3 class="ui header">Update details</h3>
             <div class="two fields">
                 <div class="field">
@@ -27,8 +27,8 @@
                     <label>Gender
                     <select class="ui dropdown" name="gender">
                         <option disabled> </option>
-                        <option value="Male"> Male </option>
-                        <option value="Female"> Female </option>
+                        <option {{#if member.details.isMale}}selected{{/if}} value="Male"> Male </option>
+                        <option {{#unless member.details.isMale}}selected{{/unless}} value="Female"> Female </option>
                     </select>
                     </label>
                 </div>
@@ -48,7 +48,3 @@
         <img class="ui image" src="/public/images/about.jpg">
     </div>
 </div>
-
-<script>
-    $("#{{id}}").add_tag(selected);
-</script>

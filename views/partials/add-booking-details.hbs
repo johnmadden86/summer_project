@@ -1,0 +1,39 @@
+<form class="ui segment form"
+      action="/trainer-bookings/add-booking-details/assessment/{{assessment.assessmentId}}'" method="POST">
+    <h3 class="ui header">Add assessment details</h3>
+    <div class="seven fields">
+        <div class="field four wide">
+            <label>Date</label>
+            <input value="{{assessment.date}}" title="Date" name="date" required disabled>
+        </div>
+        <div class="field two wide">
+            <label>Weight</label>
+            <input placeholder="kg" value="{{assessment.weight}}" type="number" min="0" max="250" step="0.1" name="weight" required>
+        </div>
+        <div class="field two wide">
+            <label>Chest</label>
+            <input placeholder="cm" value="{{assessment.chest}}" type="number" min="0" max="250" step="0.1" name="chest" required>
+        </div>
+        <div class="field two wide">
+            <label>Thigh</label>
+            <input placeholder="cm" value="{{assessment.thigh}}" type="number" min="0" max="250" step="0.1" name="thigh" required>
+        </div>
+        <div class="field two wide">
+            <label>Upper Arm</label>
+            <input placeholder="cm" value="{{assessment.upperArm}}" type="number" min="0" max="250" step="0.1" name="upperArm" required>
+        </div>
+        <div class="field two wide">
+            <label>Waist</label>
+            <input placeholder="cm" value="{{assessment.waist}}" type="number" min="0" max="250" step="0.1" name="waist" required>
+        </div>
+        <div class="field two wide">
+            <label>Hips</label>
+            <input placeholder="cm" value="{{assessment.hips}}" type="number" min="0" max="250" step="0.1" name="hips" required>
+        </div>
+        <div class="ui field">
+            <label>Comment</label>
+            <textarea placeholder="Comment" name="comment" rows="1" title="comment">{{assessment.comment}}"</textarea>
+        </div>
+    </div>
+    <button class="ui blue submit button">Add Assessment</button>
+</form>

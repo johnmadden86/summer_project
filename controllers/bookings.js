@@ -4,6 +4,7 @@ const accounts = require('./accounts');
 const logger = require('../utils/logger');
 const memberStore = require('../models/member-store');
 const trainerStore = require('../models/trainer-store');
+const analytics = require('../utils/analytics');
 const uuid = require('uuid');
 
 const bookings = {
@@ -15,6 +16,15 @@ const bookings = {
       member: loggedInUser,
       trainers: trainers,
     };
+
+    //remove old bookings
+    loggedInUser.memberBookings.forEach(
+        function (booking) {
+          if (new Date(booking.date) < new Date()) {
+            memberStore.removeBooking(loggedInUser, booking.id);
+          }
+        }
+    );
     logger.info(`Rendering bookings page for ${loggedInUser.name.full}`);
     response.render('member-bookings', viewData);
   },
@@ -24,6 +34,11 @@ const bookings = {
     const trainer = trainerStore.getTrainerById(request.body.trainer);
     const date = request.body.date;
     const time = request.body.time;
+    bookings.makeBooking(loggedInUser, trainer, date, time);
+    response.redirect('/member-bookings');
+  },
+
+  makeBooking(member, trainer, date, time) {
     const id = uuid();
     const memberBooking = {
       id: id,
@@ -34,19 +49,24 @@ const bookings = {
     };
     const trainerBooking = {
       id: id,
-      memberId: loggedInUser.id,
-      memberName: loggedInUser.name.full,
+      memberId: member.id,
+      memberName: member.name.full,
       date: date,
       time: time,
     };
-    loggedInUser.memberBookings.push(memberBooking);
-    memberStore.sortBookings(loggedInUser);
+    const assessment = {
+      date: date,
+      assessmentId: id,
+      trend: false,
+    };
+    member.memberBookings.push(memberBooking);
+    memberStore.sortBookings(member);
     trainer.trainerBookings.push(trainerBooking);
     trainerStore.sortBookings(trainer);
-    logger.info(`Adding new booking for ${loggedInUser.name.full} on ${date} with ${trainer.name.full}`);
+    memberStore.addAssessment(member, assessment);
+    logger.info(`Adding new booking for ${member.name.full} on ${date} at ${time} with ${trainer.name.full}`);
     memberStore.save();
     trainerStore.save();
-    response.redirect('/member-bookings');
   },
 
   trainerBookings(request, response) {
@@ -55,6 +75,17 @@ const bookings = {
       title: 'Bookings',
       trainer: loggedInUser,
     };
+
+    //remove bookings over a month old
+    loggedInUser.trainerBookings.forEach(
+        function (booking) {
+          let oneMonthAgo = (new Date());
+          oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+          if (new Date(booking.date) < (oneMonthAgo)) {
+            trainerStore.removeBooking(loggedInUser, booking.id);
+          }
+        }
+    );
     logger.info(`bookings menu rendering for ${loggedInUser.name.full}`);
     response.render('trainer-bookings', viewData);
   },
@@ -63,17 +94,10 @@ const bookings = {
     const loggedInUser = accounts.getCurrentMember(request);
     const bookingId = request.params.bookingId;
     const booking = memberStore.getBooking(loggedInUser.memberBookings, bookingId);
-    logger.debug(bookingId);
-    logger.debug(loggedInUser.name.full);
-    logger.debug(loggedInUser.memberBookings.length);
-    logger.debug(booking);
     const trainer = trainerStore.getTrainerById(booking.trainerId);
-    logger.debug(trainer);
-    logger.debug(trainer.trainerBookings.length);
+    logger.info(`Deleting booking for ${loggedInUser.name.full} with ${trainer.name.full} on ${booking.date}`);
     memberStore.removeBooking(loggedInUser, bookingId);
     trainerStore.removeBooking(trainer, bookingId);
-    logger.debug(loggedInUser.memberBookings.length);
-    logger.debug(trainer.trainerBookings.length);
     response.redirect('/member-bookings');
   },
 
@@ -81,17 +105,58 @@ const bookings = {
     const loggedInUser =  accounts.getCurrentTrainer(request);
     const bookingId = request.params.bookingId;
     const booking = trainerStore.getBooking(loggedInUser.trainerBookings, bookingId);
-    logger.debug(bookingId);
-    logger.debug(loggedInUser.name.full);
-    logger.debug(loggedInUser.trainerBookings.length);
-    logger.debug(booking);
     const member = memberStore.getMemberById(booking.memberId);
-    logger.debug(member);
-    logger.debug(member.memberBookings.length);
+    logger.info(`Canceling booking for ${loggedInUser.name.full} with ${member.name.full} on ${booking.date}`);
     trainerStore.removeBooking(loggedInUser, bookingId);
     memberStore.removeBooking(member, bookingId);
-    logger.debug(loggedInUser.trainerBookings.length);
-    logger.debug(member.memberBookings.length);
+    response.redirect('/trainer-bookings');
+  },
+
+  update(request, response) {
+    const trainer = accounts.getCurrentTrainer(request);
+    const bookingId = request.params.bookingId;
+    const booking = trainerStore.getBooking(trainer.trainerBookings, bookingId);
+    const memberId = booking.memberId;
+    const member = memberStore.getMemberById(memberId);
+    const assessment = memberStore.getAssessment(member.assessments, bookingId);
+    const stats = analytics.generateDashboardStats(member);
+    response.cookie('memberId', memberId);
+    response.cookie('assessmentId', assessment.assessmentId);
+    const viewData = {
+      title: 'Add Assessment Details',
+      trainer: trainer,
+      member: member,
+      assessment: assessment,
+      stats: stats,
+    };
+    logger.debug(stats);
+    response.render('edit-booking', viewData);
+  },
+
+  assessment(request, response) {
+    const assessmentId = request.cookies.assessmentId;
+    const memberId = request.cookies.memberId;
+    const member = memberStore.getMemberById(memberId);
+    const assessment = memberStore.getAssessment(member.assessments, assessmentId);
+    assessment.weight = request.body.weight;
+    assessment.chest = request.body.chest;
+    assessment.thigh = request.body.thigh;
+    assessment.upperArm = request.body.upperArm;
+    assessment.waist = request.body.waist;
+    assessment.hips = request.body.hips;
+    assessment.comment = request.body.comment;
+    const assessmentDate = request.body.date;
+    logger.info(`Updating assessment for ${member.name.full} on ${assessmentDate}`);
+    memberStore.save();
+    response.redirect('/trainer-bookings');
+  },
+
+  repeatBooking(request, response) {
+    const loggedInUser = accounts.getCurrentTrainer(request);
+    const member = memberStore.getMemberById(request.cookies.memberId);
+    const date = request.body.date;
+    const time = request.body.time;
+    bookings.makeBooking(member, loggedInUser, date, time);
     response.redirect('/trainer-bookings');
   },
 

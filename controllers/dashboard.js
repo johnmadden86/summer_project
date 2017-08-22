@@ -17,6 +17,7 @@ const dashboard = {
       stats: stats,
     };
     memberStore.sortAssessments(loggedInUser);
+    analytics.trend(loggedInUser);
     logger.info(`dashboard rendering for ${loggedInUser.name.full}`);
     response.render('dashboard', viewData);
   },
@@ -29,7 +30,6 @@ const dashboard = {
     assessment.comment = '';
     assessment.trend = false;
     memberStore.addAssessment(loggedInUser, assessment);
-    analytics.trend(loggedInUser);
     logger.info(`Adding new assessment for ${loggedInUser.name.full} on ${assessmentDate}`);
     response.redirect('/dashboard');
   },
@@ -47,19 +47,8 @@ const dashboard = {
     const viewData = {
       member: loggedInUser,
     };
+    logger.info(`Rendering settings page for ${loggedInUser.name.full}`);
     response.render('settings', viewData);
-  },
-
-  classes(request, response) {
-    const loggedInUser = accounts.getCurrentMember(request);
-    const classes = classStore.getAllClasses();
-    const viewData = {
-      title: 'Classes',
-      member: loggedInUser,
-      classes: classes,
-    };
-    logger.info(`classes menu rendering for ${loggedInUser.name.full}`);
-    response.render('classes', viewData);
   },
 
 };

@@ -11,6 +11,7 @@ const accounts = {
     const viewData = {
       title: 'Welcome',
     };
+    logger.info('Rendering index');
     response.render('index', viewData);
   },
 
@@ -18,11 +19,11 @@ const accounts = {
     const viewData = {
       title: 'Registration',
     };
+    logger.info('Rendering Sign-Up');
     response.render('sign-up', viewData);
   },
 
   register(request, response) {
-
     const member = {
       id: uuid(),
       email: request.body.email,
@@ -30,33 +31,21 @@ const accounts = {
       name: {
         first: request.body.firstName,
         last: request.body.lastName,
+        full: request.body.firstName + ' ' + request.body.lastName,
       },
       details: {
         height: request.body.height,
         startingWeight: request.body.startingWeight,
         gender: request.body.gender,
+        isMale: false,
       },
       assessments: [],
+      memberBookings: [],
     };
-    member.name.full = member.name.first + ' ' + member.name.last;
+    member.details.isMale = member.details.gender === 'Male';
+
     memberStore.addMember(member);
     logger.info(`registering ${member.email}`);
-    response.redirect('/login');
-  },
-
-  newTrainer(request, response) {
-    const trainer = {
-      id: uuid(),
-      email: request.body.email,
-      password: request.body.password,
-      name: {
-        first: request.body.firstName,
-        last: request.body.lastName,
-      },
-    };
-    trainer.name.full = member.name.first + ' ' + member.name.last;
-    trainerStore.addTrainer(trainer);
-    logger.info(`registering ${trainer.email}`);
     response.redirect('/login');
   },
 
@@ -64,6 +53,8 @@ const accounts = {
     const viewData = {
       title: 'Login to the Service',
     };
+    logger.info('Rendering Login');
+    logger.debug(request.cookies);
     response.render('login', viewData);
   },
 
@@ -71,11 +62,11 @@ const accounts = {
     const member = memberStore.getMemberByEmail(request.body.email);
     const trainer = trainerStore.getTrainerByEmail(request.body.email);
     if (member){// && member.password === request.body.password) {
-      response.cookie('member', member.email);
+      response.cookie('memberId', member.id);
       logger.info(`logging in ${member.name.full}`);
       response.redirect('/dashboard');
     } else if (trainer){//} && trainer.password === request.body.password) {
-      response.cookie('trainer', trainer.email);
+      response.cookie('trainerId', trainer.id);
       logger.info(`logging in ${trainer.name.full}`);
       response.redirect('/trainer-dashboard');
     } else {
@@ -85,17 +76,19 @@ const accounts = {
   },
 
   getCurrentMember(request) {
-    const memberEmail = request.cookies.member;
-    return memberStore.getMemberByEmail(memberEmail);
+    const memberId = request.cookies.memberId;
+    return memberStore.getMemberById(memberId);
   },
 
   getCurrentTrainer(request) {
-    const trainerEmail = request.cookies.trainer;
-    return trainerStore.getTrainerByEmail(trainerEmail);
+    const trainerId = request.cookies.trainerId;
+    return trainerStore.getTrainerById(trainerId);
   },
 
   logout(request, response) {
-    response.cookie('member', '');
+    response.cookie('memberId', '');
+    response.cookie('trainerId', '');
+    response.cookie('classId', '');
     response.redirect('/');
     logger.info('logging out...');
   },
@@ -104,13 +97,18 @@ const accounts = {
     const loggedInUser = accounts.getCurrentMember(request);
     loggedInUser.email = request.body.email;
     loggedInUser.password = request.body.password;
-    loggedInUser.name.first = request.body.firstName;
-    loggedInUser.name.last = request.body.lastName;
-    loggedInUser.name.full = request.body.firstName + ' ' + request.body.lastName;
+    loggedInUser.name = {
+      first: request.body.firstName,
+      last: request.body.lastName,
+      full: request.body.firstName + ' ' + request.body.lastName,
+    };
     loggedInUser.details.height = request.body.height;
     loggedInUser.details.startingWeight = request.body.startingWeight;
     loggedInUser.details.gender = request.body.gender;
+    loggedInUser.details.isMale = loggedInUser.details.gender === 'Male';
+
     memberStore.save();
+    logger.info(`Profile updated for ${loggedInUser.name.full}`);
     response.redirect('/dashboard');
   },
 
