@@ -1,4 +1,4 @@
-<form class="ui stacked segment form" action="/trainer-classes/update-class/{{classToEdit.classId}}" method="POST">
+<form class="ui segment form" action="/trainer-classes/update-class/{{classToEdit.classId}}" method="POST">
     <h3 class="ui header">Edit class</h3>
     <div class="six fields">
         <div class="field">
@@ -14,24 +14,22 @@
             <input title="Capactiy" value="{{classToEdit.details.capacity}}" type="number" min="10" max="40" step="1" name="capacity" required>
         </div>
         <div class="field">
-            <label> Difficulty
-                <select class="ui dropdown" name="difficulty" required>
-                    <option selected disabled></option>
-                    <option value="Beginner"> Beginner</option>
-                    <option value="Intermediate"> Intermediate</option>
-                    <option value="Advanced"> Advanced</option>
-                </select>
-            </label>
+            <label> Difficulty </label>
+            <select title="{{classToEdit.details.difficulty}}" class="ui dropdown" name="difficulty">
+                <option value="Beginner"> Beginner </option>
+                <option value="Intermediate"> Intermediate </option>
+                <option value="Advanced"> Advanced </option>
+            </select>
         </div>
         <div class="field">
             <label> Time </label>
-            <input title="Time" type="time" min="08:00:00" max="20:00:00" step="1800" name="time" required>
+            <input id="time" title="Time" value="{{classToEdit.details.time}}" type="time" min="08:00:00" max="20:00:00" step="1800" name="time" required>
         </div>
         <div class="ui calendar field">
             <label>Starting Date</label>
             <div class="ui left input icon" id="date">
                 <i class="calendar icon"></i>
-                <input title="Date" type="date" name="date" required autocomplete="off">
+                <input title="Date" value="{{classToEdit.details.date}}" name="date" required autocomplete="off">
             </div>
         </div>
         <div class="field">
@@ -59,9 +57,9 @@
                             monthFirst: false,
                             formatter: {
                                 date: function (date) {
-                                    let day = date.getDate();
-                                    let month = monthsShort[date.getMonth()];
-                                    let year = date.getFullYear().toString().substring(2);
+                                    const day = date.getDate();
+                                    const month = monthsShort[date.getMonth()];
+                                    const year = date.getFullYear().toString().substring(2);
                                     return day + ' ' + month + ' ' + year;
                                 },
                                 cell: function (cell, date) {
@@ -69,8 +67,8 @@
                                         return date.getDay() === 0 || date.getDay() === 6;
                                     }
                                     function mayJunAugBankHol(date) {
-                                        let firstMonday = date.getDate() <= 7 && date.getDay() === 1;
-                                        let mayJunAug = date.getMonth() === 4
+                                        const firstMonday = date.getDate() <= 7 && date.getDay() === 1;
+                                        const mayJunAug = date.getMonth() === 4
                                                 || date.getMonth() === 5 || date.getMonth() === 7;
                                         return firstMonday && mayJunAug;
                                     }
@@ -130,4 +128,17 @@
                 );
             }
     );
+
+    $(function () {
+        const select = document.getElementsByTagName('select');
+        const tag = document.getElementsByTagName('option');
+        let i = 0;
+        while (i < tag.length) {
+            if (tag[i].value === select[0].title) {
+                const selected = document.createAttribute("selected");
+                tag[i].setAttributeNode(selected);
+            }
+            i++;
+        }
+    });
 </script>

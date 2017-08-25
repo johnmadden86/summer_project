@@ -1,9 +1,12 @@
 <form class="ui segment form" name="addAssessment" action="/dashboard/add-assessment" method="POST">
     <h3 class="ui header">Add a new assessment</h3>
     <div class="seven fields">
-        <div class="field four wide">
+        <div class="ui calendar field four wide">
             <label>Date</label>
-            <input placeholder="dd/mm/yyyy" id="date" name="date" required>
+            <div class="ui left input icon" id="date">
+                <i class="calendar icon"></i>
+                <input title="Date" placeholder="dd/mm/yyyy" type="date" name="date" required autocomplete="off">
+            </div>
         </div>
         <div class="field two wide">
             <label>Weight</label>
@@ -33,12 +36,30 @@
     <button class="ui blue submit button">Add Assessment</button>
 </form>
 <script>
-    $( function() {
-        $( "#date" ).datepicker({
-            firstDay: 1, //starts on Monday
-            minDate: "-2M", //no earlier than two months ago
-            maxDate: 0, //no later than today
-            dateFormat: "d M y",
-        });
-    } );
+    $( function()
+            {
+                const today = new Date();
+                let twoMonths = new Date();
+                twoMonths = new Date(twoMonths.setMonth(twoMonths.getMonth() - 2));
+                const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                $( "#date" ).calendar
+                (
+                        {
+                            type: 'date',
+                            firstDayOfWeek: 1, //starts on Monday
+                            minDate: twoMonths,  //no earlier than two months ago
+                            maxDate: today, //no later than today
+                            monthFirst: false,
+                            formatter: {
+                                date: function (date) {
+                                    const day = date.getDate();
+                                    const month = monthsShort[date.getMonth()];
+                                    const year = date.getFullYear().toString().substring(2);
+                                    return day + ' ' + month + ' ' + year;
+                                },
+                            },
+                        }
+                );
+            }
+    );
 </script>
