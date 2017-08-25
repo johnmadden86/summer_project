@@ -191,18 +191,14 @@ const classes = {
       classToEdit: classStore.getClassById(classId),
     };
     response.cookie('classId', classId);
-    logger.debug(request.cookies.classId);
     response.render('edit-class', viewData);
   },
 
   updateClass(request, response) {
     const classId = request.cookies.classId;
-    logger.debug(classId);
     const classToEdit = classStore.getClassById(classId);
-    logger.debug(classToEdit);
     classToEdit.details = request.body;
     classToEdit.details.day = staticMethods.dayFromDate(classToEdit.details.date);
-    logger.debug(classToEdit.details);
     classStore.save();
     response.redirect('/trainer-classes');
   },

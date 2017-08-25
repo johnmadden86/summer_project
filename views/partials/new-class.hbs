@@ -1,4 +1,4 @@
-<form class="ui stacked segment form" action="/new-class" method="POST">
+<form class="ui segment form" action="/new-class" method="POST">
     <h3 class="ui header">Create a new class</h3>
     <div class="six fields">
         <div class="field">
@@ -14,6 +14,13 @@
             <input placeholder="Capacity" type="number" min="10" max="40" step="1" name="capacity" required>
         </div>
         <div class="field">
+            <label> Difficulty </label>
+            <select title="Difficulty" class="ui dropdown" name="difficulty" required>
+                <option selected disabled></option>
+                <option value="Beginner"> Beginner</option>
+                <option value="Intermediate"> Intermediate</option>
+                <option value="Advanced"> Advanced</option>
+            </select>
             <label> Difficulty </label>
             <select class="ui dropdown" title="Difficulty" name="difficulty" required>
                 <option selected disabled></option>
@@ -109,6 +116,93 @@
                                     }
                                     function easter2018(date) {
                                       return new Date(date) === new Date('2018-04-02');
+                                    }
+                                    function publicHoliday(date) {
+                                        return newYearsDay(date) ||
+                                                patricksDay(date) ||
+                                                easter2018(date) ||
+                                                mayJunAugBankHol(date) ||
+                                                octBankHol(date) ||
+                                                xmasDay(date) ||
+                                                stephensDay(date);
+                                    }
+                                    if (weekend(date) || publicHoliday(date)) {
+                                        cell[0].className += ' disabled';
+                                    }
+                                },
+                            }
+                        }
+                );
+            }
+    );
+    $(function ()
+            {
+                let twoWeeks = new Date();
+                let threeMonths = new Date();
+                twoWeeks = new Date(twoWeeks.setDate(twoWeeks.getDate() + 14));
+                threeMonths = new Date(threeMonths.setMonth(threeMonths.getMonth() + 3));
+                const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                $('#date').calendar(
+                        {
+                            type: 'date',
+                            firstDayOfWeek: 1, //starts on Monday
+                            minDate: twoWeeks,  //no earlier than two weeks from today
+                            maxDate: threeMonths, //no later than three months from today
+                            monthFirst: false,
+                            formatter: {
+                                date: function (date) {
+                                    const day = date.getDate();
+                                    const month = monthsShort[date.getMonth()];
+                                    const year = date.getFullYear().toString().substring(2);
+                                    return day + ' ' + month + ' ' + year;
+                                },
+                                cell: function (cell, date) {
+                                    function weekend(date) {
+                                        return date.getDay() === 0 || date.getDay() === 6;
+                                    }
+                                    function mayJunAugBankHol(date) {
+                                        const firstMonday = date.getDate() <= 7 && date.getDay() === 1;
+                                        const mayJunAug = date.getMonth() === 4
+                                                || date.getMonth() === 5 || date.getMonth() === 7;
+                                        return firstMonday && mayJunAug;
+                                    }
+                                    function octBankHol(date) {
+                                        return date.getDate() > 24 && date.getDay() === 1 && date.getMonth() === 9;
+                                    }
+                                    function patricksDay(date) {
+                                        if (date.getDay() === 0) {
+                                            return date.getMonth() === 2 && date.getDate() === 18;
+                                        } else if (date.getDay() === 6) {
+                                            return date.getMonth() === 2 && date.getDate() === 19;
+                                        } else {
+                                            return date.getMonth() === 2 && date.getDate() === 17;
+                                        }
+                                    }
+                                    function newYearsDay(date) {
+                                        if (date.getDay() === 0) {
+                                            return date.getMonth() === 0 && date.getDate() === 2;
+                                        } else if (date.getDay() === 6) {
+                                            return date.getMonth() === 0 && date.getDate() === 3;
+                                        } else {
+                                            return date.getMonth() === 0 && date.getDate() === 1;
+                                        }
+                                    }
+                                    function xmasDay(date) {
+                                        if (date.getDay() === 0 || date.getDay() === 6) {
+                                            return date.getMonth() === 11 && date.getDate() === 27;
+                                        } else {
+                                            return date.getMonth() === 11 && date.getDate() === 25;
+                                        }
+                                    }
+                                    function stephensDay(date) {
+                                        if (date.getDay() === 0 || date.getDay() === 6) {
+                                            return date.getMonth() === 11 && date.getDate() === 28;
+                                        } else {
+                                            return date.getMonth() === 11 && date.getDate() === 26;
+                                        }
+                                    }
+                                    function easter2018(date) {
+                                        return new Date(date) === new Date('2018-04-02');
                                     }
                                     function publicHoliday(date) {
                                         return newYearsDay(date) ||
