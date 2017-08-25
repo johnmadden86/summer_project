@@ -15,27 +15,40 @@
         "gender": "Male",
         "isMale": true
       },
-      "assessments": [
-        {
-          "date": "24 Aug 17",
-          "assessmentId": "39440fc5-c6b6-4b65-ba7c-01d0e2625394",
-          "trend": true,
-          "weight": "84",
-          "chest": "5",
-          "thigh": "44",
-          "upperArm": "44",
-          "waist": "4",
-          "hips": "44",
-          "comment": "4\""
-        }
-      ],
+      "assessments": [],
       "memberBookings": [
         {
-          "id": "5fd16763-eff4-49c6-969d-72aa1d9f5380",
+          "id": "f2cb3b76-87a1-4481-b976-fa4f4ba983f7",
           "trainerId": "a972f094-e541-480c-9939-45542939a095",
           "trainerName": "Jose Mourinho",
+          "date": "25 Aug 17",
+          "time": "09:30"
+        }
+      ],
+      "goals": [
+        {
+          "date": "23 Sep 17",
+          "description": "lose more weight more and mroe and more",
+          "weight": "80",
+          "chest": "",
+          "thigh": "",
+          "upperArm": "",
+          "waist": "",
+          "hips": "",
+          "id": "37ae48c2-365b-4023-a728-5d6de2d332d6",
+          "status": "Open"
+        },
+        {
           "date": "31 Aug 17",
-          "time": "14:00"
+          "description": "lose weight",
+          "weight": "85",
+          "chest": "",
+          "thigh": "",
+          "upperArm": "",
+          "waist": "",
+          "hips": "",
+          "id": "5b845cd5-8e59-434d-a788-71beaa3063e5",
+          "status": "Open"
         }
       ]
     }

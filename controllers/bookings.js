@@ -54,16 +54,10 @@ const bookings = {
       date: date,
       time: time,
     };
-    const assessment = {
-      date: date,
-      assessmentId: id,
-      trend: false,
-    };
     member.memberBookings.push(memberBooking);
     memberStore.sortBookings(member);
     trainer.trainerBookings.push(trainerBooking);
     trainerStore.sortBookings(trainer);
-    memberStore.addAssessment(member, assessment);
     logger.info(`Adding new booking for ${member.name.full} on ${date} at ${time} with ${trainer.name.full}`);
     memberStore.save();
     trainerStore.save();
@@ -121,11 +115,12 @@ const bookings = {
     const assessment = memberStore.getAssessment(member.assessments, bookingId);
     const stats = analytics.generateDashboardStats(member);
     response.cookie('memberId', memberId);
-    response.cookie('assessmentId', assessment.assessmentId);
+    response.cookie('assessmentId', bookingId);
     const viewData = {
       title: 'Add Assessment Details',
       trainer: trainer,
       member: member,
+      date: booking.date,
       assessment: assessment,
       stats: stats,
     };
@@ -137,7 +132,17 @@ const bookings = {
     const assessmentId = request.cookies.assessmentId;
     const memberId = request.cookies.memberId;
     const member = memberStore.getMemberById(memberId);
-    const assessment = memberStore.getAssessment(member.assessments, assessmentId);
+    const booking = memberStore.getBooking(member.memberBookings, assessmentId);
+    let assessment = memberStore.getAssessment(member.assessments, assessmentId);
+    if (!assessment) {
+      assessment = {
+        date: booking.date,
+        assessmentId: assessmentId,
+        trend: false,
+      };
+      memberStore.addAssessment(member, assessment);
+    }
+
     assessment.weight = request.body.weight;
     assessment.chest = request.body.chest;
     assessment.thigh = request.body.thigh;
@@ -145,8 +150,7 @@ const bookings = {
     assessment.waist = request.body.waist;
     assessment.hips = request.body.hips;
     assessment.comment = request.body.comment;
-    const assessmentDate = request.body.date;
-    logger.info(`Updating assessment for ${member.name.full} on ${assessmentDate}`);
+    logger.info(`Updating assessment for ${member.name.full} on ${booking.date}`);
     memberStore.save();
     response.redirect('/trainer-bookings');
   },

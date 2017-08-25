@@ -15,13 +15,14 @@
         <div class="ui statistic">
             <div class="value">
                 {{#if stats.ibw}}
-                    <i class="green dashboard icon"></i>
+                    <i class="green dashboard icon" title="Ideal Body Weight"></i>
                 {{else}}
-                    <i class="red dashboard icon"></i>
+                    <i class="red dashboard icon" title="Not Ideal Body Weight"></i>
                 {{/if}}
+                {{stats.currentWeight}}kg
             </div>
             <div class="label">
-                Ideal Weight Indicator
+                Current Weight
             </div>
         </div>
         <div class="ui statistic">

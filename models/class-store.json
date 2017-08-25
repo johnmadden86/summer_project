@@ -1,47 +1,47 @@
 {
   "classes": [
     {
-      "classId": "8e3c612b-bed1-407a-9ad6-5eab50a7850a",
+      "classId": "ed6a44f4-458f-41ee-bb0a-9d84e8f7478c",
       "details": {
         "name": "Kettlebells",
-        "duration": "01:00",
-        "capacity": "15",
-        "difficulty": "Advanced",
-        "time": "12:00",
-        "date": "14 Sep 2017",
+        "duration": "00:45",
+        "capacity": "40",
+        "difficulty": "Beginner",
+        "time": "18:00",
+        "date": "11 Sep 17",
         "weeks": "4",
-        "day": "Thursday"
+        "day": "Monday"
       },
       "schedule": [
         {
-          "id": "63e2bb01-9931-4448-9a1b-6622dfffe95c",
-          "date": "14 Sep",
+          "id": "3654e81f-dc55-4b91-8547-5c24917ed8fb",
+          "date": "11 Sep",
           "members": [],
-          "spaces": "15",
+          "spaces": "40",
           "full": false,
           "enrolled": false
         },
         {
-          "id": "60555073-6bde-4db9-8ca2-9ed3889908c9",
-          "date": "21 Sep",
+          "id": "d23af5cd-4033-407b-92aa-5570a89a6ebb",
+          "date": "18 Sep",
           "members": [],
-          "spaces": "15",
+          "spaces": "40",
           "full": false,
           "enrolled": false
         },
         {
-          "id": "abdd3f50-285e-43e3-9b76-f86efb325e7a",
-          "date": "28 Sep",
+          "id": "5d1dd1b9-dc8b-4ced-bba8-7a74cf253789",
+          "date": "25 Sep",
           "members": [],
-          "spaces": "15",
+          "spaces": "40",
           "full": false,
           "enrolled": false
         },
         {
-          "id": "fa5d68c3-6fc4-4a8f-ad27-d98ed5ca8789",
-          "date": "5 Oct",
+          "id": "eefcf599-5ce9-495c-8b0d-468a65fd0307",
+          "date": "2 Oct",
           "members": [],
-          "spaces": "15",
+          "spaces": "40",
           "full": false,
           "enrolled": false
         }

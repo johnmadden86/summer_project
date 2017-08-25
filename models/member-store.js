@@ -40,10 +40,25 @@ const memberStore = {
     this.store.save();
   },
 
+  addGoal(member, goal) {
+    member.goals.push(goal);
+    this.sortGoals(member);
+    this.store.save();
+  },
+
   removeAssessment(user, assessmentId) {
     user.assessments = user.assessments.filter(
         function (el) {
           return el.assessmentId !== assessmentId;
+        }
+    );
+    this.store.save();
+  },
+
+  removeGoal(user, goalId) {
+    user.goals = user.goals.filter(
+        function (el) {
+          return el.id !== goalId;
         }
     );
     this.store.save();
@@ -83,6 +98,17 @@ const memberStore = {
         }
     );
     user.assessments.reverse();
+  },
+
+  sortGoals(user) {
+    user.goals.sort(
+        function (a, b) {
+          let dateA = new Date(a.date);
+          let dateB = new Date(b.date);
+          return dateA - dateB;
+        }
+    );
+    user.goals.reverse();
   },
 
   sortMembers() {

@@ -10,6 +10,7 @@ const classes = require('./controllers/classes');
 const bookings = require('./controllers/bookings');
 const trainer = require('./controllers/trainer');
 const admin = require('./controllers/admin');
+const goals = require('./controllers/goals');
 
 router.get('/', accounts.index);
 router.get('/sign-up', accounts.signUp);
@@ -21,6 +22,10 @@ router.post('/settings', accounts.update);
 
 router.get('/dashboard', dashboard.index);
 router.get('/settings', dashboard.settings);
+router.get('/goals', goals.index);
+router.post('/goals/add-goal', goals.addGoal);
+router.get('/goals/:userId/delete-goal/:goalId', goals.deleteGoal);
+
 router.get('/dashboard/:userId/delete-assessment/:assessmentId', dashboard.deleteAssessment);
 router.post('/dashboard/add-assessment', dashboard.addAssessment);
 router.get('/classes', classes.memberClasses);

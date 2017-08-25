@@ -41,6 +41,7 @@ const accounts = {
       },
       assessments: [],
       memberBookings: [],
+      goals: [],
     };
     member.details.isMale = member.details.gender === 'Male';
 
