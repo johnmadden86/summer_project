@@ -1,47 +1,63 @@
 {
   "classes": [
     {
-      "classId": "ed6a44f4-458f-41ee-bb0a-9d84e8f7478c",
+      "classId": "9f058597-7820-44d8-bed1-2d2fe95cd5e3",
       "details": {
         "name": "Kettlebells",
         "duration": "00:45",
-        "capacity": "40",
-        "difficulty": "Beginner",
-        "time": "18:00",
+        "capacity": "30",
+        "difficulty": "Advanced",
+        "time": "12:00",
         "date": "11 Sep 17",
-        "weeks": "4",
+        "weeks": "6",
         "day": "Monday"
       },
       "schedule": [
         {
-          "id": "3654e81f-dc55-4b91-8547-5c24917ed8fb",
-          "date": "11 Sep",
+          "id": "aabe262b-3346-4b55-af50-0ba8eff4e5be",
+          "date": "11 Sep 17",
           "members": [],
-          "spaces": "40",
+          "spaces": "30",
           "full": false,
           "enrolled": false
         },
         {
-          "id": "d23af5cd-4033-407b-92aa-5570a89a6ebb",
-          "date": "18 Sep",
+          "id": "112cbb29-4be7-4e40-ac49-de8e2653cdf8",
+          "date": "18 Sep 17",
           "members": [],
-          "spaces": "40",
+          "spaces": "30",
           "full": false,
           "enrolled": false
         },
         {
-          "id": "5d1dd1b9-dc8b-4ced-bba8-7a74cf253789",
-          "date": "25 Sep",
+          "id": "ced44dea-ec2b-4509-a326-eefc678bea00",
+          "date": "25 Sep 17",
           "members": [],
-          "spaces": "40",
+          "spaces": "30",
           "full": false,
           "enrolled": false
         },
         {
-          "id": "eefcf599-5ce9-495c-8b0d-468a65fd0307",
-          "date": "2 Oct",
+          "id": "9dfe1d34-457c-426d-935f-304e5af51405",
+          "date": "2 Oct 17",
           "members": [],
-          "spaces": "40",
+          "spaces": "30",
+          "full": false,
+          "enrolled": false
+        },
+        {
+          "id": "612a4430-2fbc-445b-9ecd-29d14e825d13",
+          "date": "9 Oct 17",
+          "members": [],
+          "spaces": "30",
+          "full": false,
+          "enrolled": false
+        },
+        {
+          "id": "5b83480d-2f8f-4241-ad39-bd22121d4a75",
+          "date": "16 Oct 17",
+          "members": [],
+          "spaces": "30",
           "full": false,
           "enrolled": false
         }

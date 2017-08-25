@@ -29,7 +29,7 @@ const classStore = {
     while (i < newClass.details.weeks) {
       const session = {
         id: uuid(),
-        date: sessionDate.getDate() + ' ' + staticMethods.monthFromDate(sessionDate),
+        date: sessionDate.getDate() + ' ' + staticMethods.monthFromDate(sessionDate) + ' ' + sessionDate.getFullYear().toString().substring(2),
         members: [],
         spaces: newClass.details.capacity,
         full: false,

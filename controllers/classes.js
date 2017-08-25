@@ -10,17 +10,20 @@ const classes = {
   memberClasses(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
     const classes = classStore.getAllClasses();
-    let j = 0;
+    let k = 0;
     let all = false;
     let none = true;
-    while (j < classes.length) {
-      classes[j].schedule.forEach(
+    while (k < classes.length) {
+      classes[k].schedule.forEach(
           function (session) {
-            /*const sessionDate = new Date(session.date);
+            const sessionDate = new Date(session.date);
+            logger.debug(sessionDate);
             const today = new Date();
+            logger.debug(today);
+            logger.debug(sessionDate < today);
             if (sessionDate < today) {
               session.full = true;
-            }*/
+            }
 
             session.enrolled = false;//set all false for new user
             let i = 0;
@@ -39,7 +42,7 @@ const classes = {
             }
           }
       );
-      j++;
+      k++;
     }
 
     const viewData = {

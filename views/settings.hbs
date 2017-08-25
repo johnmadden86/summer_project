@@ -7,39 +7,44 @@
             <div class="two fields">
                 <div class="field">
                     <label>First Name
-                    <input placeholder="First Name" value={{member.name.first}} type="text" name="firstName"></label>
+                        <input placeholder="First Name" value={{member.name.first}} type="text" name="firstName"></label>
                 </div>
                 <div class="field">
                     <label>Last Name
-                    <input placeholder="Last Name" value={{member.name.last}} type="text" name="lastName"></label>
+                        <input placeholder="Last Name" value={{member.name.last}} type="text" name="lastName">
+                    </label>
                 </div>
             </div>
             <div class="three fields">
                 <div class="field">
                     <label>Height
-                    <input placeholder="cm" value={{member.details.height}} type="text" name="height"></label>
+                        <input placeholder="cm" value={{member.details.height}} type="text" name="height">
+                    </label>
                 </div>
                 <div class="field">
-                    <label>Starting Weight</label>
-                    <input placeholder="kg" value={{member.details.startingWeight}} type="text" name="startingWeight">
+                    <label>Starting Weight
+                        <input placeholder="kg" value={{member.details.startingWeight}} type="text" name="startingWeight">
+                    </label>
                 </div>
                 <div class="field">
                     <label>Gender
-                    <select class="ui dropdown" name="gender">
-                        <option disabled> </option>
-                        <option {{#if member.details.isMale}}selected{{/if}} value="Male"> Male </option>
-                        <option {{#unless member.details.isMale}}selected{{/unless}} value="Female"> Female </option>
-                    </select>
+                        <select title="{{member.details.gender}}" class="ui dropdown" name="gender">
+                            <option disabled> </option>
+                            <option value="Male"> Male </option>
+                            <option value="Female"> Female </option>
+                        </select>
                     </label>
                 </div>
             </div>
             <div class="field">
                 <label>Email
-                <input placeholder="Email" value={{member.email}} type="text" name="email"></label>
+                    <input placeholder="Email" value={{member.email}} type="text" name="email">
+                </label>
             </div>
             <div class="field">
                 <label>Password
-                <input type="password" value={{member.password}} name="password"></label>
+                    <input type="password" value={{member.password}} name="password">
+                </label>
             </div>
             <button class="ui blue submit button">Submit</button>
         </form>
@@ -48,3 +53,17 @@
         <img class="ui image" src="/public/images/about.jpg">
     </div>
 </div>
+<script>
+    $(function () {
+        const select = document.getElementsByTagName('select');
+        const tag = document.getElementsByTagName('option');
+        let i = 0;
+        while (i < tag.length) {
+            if (tag[i].value === select[0].title) {
+                const selected = document.createAttribute("selected");
+                tag[i].setAttributeNode(selected);
+            }
+            i++;
+        }
+    });
+</script>
