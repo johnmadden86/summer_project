@@ -7,19 +7,19 @@ const memberStore = require('../models/member-store');
 const uuid = require('uuid');
 const classStore = require('../models/class-store');
 
-const dashboard = {
+const assessments = {
   index(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
     const stats = analytics.generateDashboardStats(loggedInUser);
     const viewData = {
-      title: 'Dashboard',
+      title: 'Assessments',
       member: loggedInUser,
       stats: stats,
     };
     memberStore.sortAssessments(loggedInUser);
     analytics.trend(loggedInUser);
-    logger.info(`dashboard rendering for ${loggedInUser.name.full}`);
-    response.render('dashboard', viewData);
+    logger.info(`assessments rendering for ${loggedInUser.name.full}`);
+    response.render('assessments', viewData);
   },
 
   addAssessment(request, response) {
@@ -31,7 +31,7 @@ const dashboard = {
     assessment.trend = false;
     memberStore.addAssessment(loggedInUser, assessment);
     logger.info(`Adding new assessment for ${loggedInUser.name.full} on ${assessmentDate}`);
-    response.redirect('/dashboard');
+    response.redirect('/assessments');
   },
 
   deleteAssessment(request, response) {
@@ -39,18 +39,11 @@ const dashboard = {
     const assessmentId = request.params.assessmentId;
     logger.debug(`Deleting Assessment for ${loggedInUser.name.full}`);
     memberStore.removeAssessment(loggedInUser, assessmentId);
-    response.redirect('/dashboard');
+    response.redirect('/assessments');
   },
 
-  settings(request, response) {
-    const loggedInUser = accounts.getCurrentMember(request);
-    const viewData = {
-      member: loggedInUser,
-    };
-    logger.info(`Rendering settings page for ${loggedInUser.name.full}`);
-    response.render('settings', viewData);
-  },
+
 
 };
 
-module.exports = dashboard;
+module.exports = assessments;

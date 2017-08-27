@@ -13,6 +13,10 @@ const staticMethods = {
     return months[new Date(date).getMonth()];
   },
 
+  daysToNumber(days) {
+    return 1000 * 60 * 60 * 24 * days;
+  },
+
   shortenedDateString(date) {
     return date.toDateString().substring(4, 10);
   },

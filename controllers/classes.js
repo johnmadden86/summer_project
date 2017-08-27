@@ -10,47 +10,35 @@ const classes = {
   memberClasses(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
     const classes = classStore.getAllClasses();
-    let k = 0;
-    let all = false;
-    let none = true;
-    while (k < classes.length) {
-      classes[k].schedule.forEach(
+    let i = 0;
+    while (i < classes.length) {
+      classes[i].schedule.forEach(
           function (session) {
+            //mark old sessions as unavailable
             const sessionDate = new Date(session.date);
-            logger.debug(sessionDate);
             const today = new Date();
-            logger.debug(today);
-            logger.debug(sessionDate < today);
             if (sessionDate < today) {
               session.full = true;
             }
 
             session.enrolled = false;//set all false for new user
-            let i = 0;
             let j = 0;
-            while (i < session.members.length) {
-              if (session.members[i] === loggedInUser) {
+            while (j < session.members.length) {
+              if (session.members[j] === loggedInUser.id) {
                 session.enrolled = true;//true only if current user is enrolled
-                none = false;
-                j++;
-                if (j === session.members.length) {
-                  all = true;
-                }
               }
 
-              i++;
+              j++;
             }
           }
-      );
-      k++;
+    );
+      i++;
     }
 
     const viewData = {
       title: 'Classes',
       member: loggedInUser,
       classes: classes,
-      all: all,
-      none: none,
     };
     logger.info(`classes menu rendering for ${loggedInUser.name.full}`);
     response.render('classes', viewData);
@@ -84,55 +72,45 @@ const classes = {
     const classToJoin = classStore.getClassById(classId);
     classToJoin.schedule.forEach(
         function (session) {
-          classes.unEnrol(loggedInUser, classToJoin, session);
+          let i = 0;
+          while (i < session.members.length) {
+            classes.unEnrol(loggedInUser, classToJoin, session, i);
+            i++;
+          }
         }
     );
     response.redirect('/classes');
   },
 
-  unEnrol(loggedInUser, classToJoin, session) {
-    let i = 0;
-    let j = 0;
-    while (i < session.members.length) {// i = 0 ensures loop runs at least once, covers for case length = 0
-      if (session.members[i] === loggedInUser) {//remove if already enrolled
-        session.members.splice(i, 1);
-        session.spaces++;
-        session.enrolled = false;
-        logger.debug(`Removing ${loggedInUser.name.full} from ${classToJoin.details.name} on ${session.date}`);
-        logger.debug(`${session.spaces} left in class`);
-      } else {
-        j++;
-      }
-
-      i++;
-    }
-
+  unEnrol(loggedInUser, classToJoin, session, index) {
+    session.members.splice(index, 1);
+    session.spaces++;
+    logger.info(`Removing ${loggedInUser.name.full} from ${classToJoin.details.name} on ${session.date}`);
+    logger.info(`${session.spaces} left in class`);
+    classStore.save();
   },
 
   enrol(loggedInUser, classToJoin, session, all) {
     let i = 0;//i controls while loop
     let j = 0;//counts members array for add method
     while (i === 0 || i < session.members.length) {// i = 0 ensures loop runs at least once, covers for case length = 0
-      if (session.members[i] === loggedInUser) {//remove if already enrolled, if all do nothing
+      if (session.members[i] === loggedInUser.id) {//remove if already enrolled, if all do nothing
         if (!all) {
-          session.members.splice(i, 1);
-          session.spaces++;
-          session.enrolled = false;
-          logger.debug(`Removing ${loggedInUser.name.full} from ${classToJoin.details.name} on ${session.date}`);
-          logger.debug(`${session.spaces} left in class`);
+          classes.unEnrol(loggedInUser, classToJoin, session, i);
         }
       } else {
         if (j === session.members.length && !session.full) {//j cycles through full array, no removals
-          session.members.push(loggedInUser);//adds member
+          session.members.push(loggedInUser.id);//adds member by id
           logger.debug(`Adding ${loggedInUser.name.full} to ${classToJoin.details.name} on ${session.date}`);
           session.spaces--;//decrement no. of spaces left
-          session.enrolled = true;
+          //session.enrolled = true;
           logger.debug(`${session.spaces} spaces left in class`);
           if (session.spaces === 0) {//mark full if no spaces left
             session.full = true;
             logger.debug(`${classToJoin.name} on ${session.date} is now full`);
           }
 
+          classStore.save();
           j++;
         }
       }

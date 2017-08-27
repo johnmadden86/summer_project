@@ -7,15 +7,21 @@
         {{else}}
             <a href="/classes/{{../classId}}/enrol-one/{{id}}"
                 {{#if enrolled}}
-               title="Click to un-enrol" class="ui green icon button"
+               title="Click to un-enrol" class="ui olive icon button"
                 {{else}}
                title="Click to enrol" class="ui icon button"
                 {{/if}}
             >
                 {{date}}
+                {{#if enrolled}}
+                    <i class="checked calendar icon"></i>
+                {{else}}
+                    <i class="calendar outline icon"></i>
+                {{/if}}
             </a>
         {{/if}}
     {{/each}}
-    <a href="/classes/{{classId}}/enrol-all" class="ui blue icon button" title="Enrol in all"> Enrol in all </a>
-    <a href="/classes/{{classId}}/unenrol-all" class="ui blue icon button" title="Un-enrol from all"> Un-enrol from all </a>
+    <br><br>
+    <a href="/classes/{{classId}}/enrol-all" class="ui teal icon button" title="Enrol in all"> Enrol in all </a>
+    <a href="/classes/{{classId}}/unenrol-all" class="ui teal icon button" title="Un-enrol from all"> Un-enrol from all </a>
 </div>

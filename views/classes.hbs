@@ -1,13 +1,15 @@
 {{> menu id="classes"}}
+<section class="ui segment">
 
-<div class="ui accordion">
+<div class="ui styled fluid accordion" id="accordion">
     {{#each classes}}
         {{> class-title}}
         {{> class-content}}
     {{/each}}
 </div>
+</section>
 <script>
     $( function () {
-        $('.ui.accordion').accordion();
+        $(' #accordion ').accordion();
     } );
 </script>

@@ -1,10 +1,10 @@
-<form class="ui form" action="/trainer-assessment/{{../member.id}}/edit-comment/{{assessmentId}}" method="POST">
-    <table class="ui celled table">
-        <thead>
-        {{> assessment-header}}
-        </thead>
-        <tbody>
-        <div class="ui bulleted list">
+<div class="ui bulleted list">
+    <form class="ui form" action="/trainer-assessment/{{../member.id}}/edit-comment/{{assessmentId}}" method="POST">
+        <table class="ui celled table">
+            <thead>
+            {{> assessment-header}}
+            </thead>
+            <tbody>
             {{#each member.assessments}}
                 <tr>
                     <td>{{date}}</td>
@@ -31,10 +31,11 @@
                     </td>
                 </tr>
             {{/each}}
-        </div>
-        </tbody>
-    </table>
-</form>
+            </tbody>
+        </table>
+    </form>
+</div>
+
 
 
 

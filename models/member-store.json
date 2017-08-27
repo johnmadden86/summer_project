@@ -12,30 +12,54 @@
       "details": {
         "height": "190",
         "startingWeight": "85",
-        "gender": "Male",
-        "isMale": true
+        "gender": "Male"
       },
-      "assessments": [],
+      "assessments": [
+        {
+          "date": "18 Aug 17",
+          "weight": "83",
+          "chest": "3",
+          "thigh": "3",
+          "upperArm": "3",
+          "waist": "3",
+          "hips": "3",
+          "assessmentId": "659a9d99-4065-4efb-99d3-e27f1fb702b5",
+          "comment": "",
+          "trend": true
+        },
+        {
+          "date": "12 Aug 17",
+          "weight": "84",
+          "chest": "4",
+          "thigh": "4",
+          "upperArm": "4",
+          "waist": "4",
+          "hips": "4",
+          "assessmentId": "6e151ce3-8ee9-429d-a24f-d28730b4ca73",
+          "comment": "",
+          "trend": true
+        }
+      ],
       "memberBookings": [
         {
-          "id": "f2cb3b76-87a1-4481-b976-fa4f4ba983f7",
+          "id": "37384a4f-7d5d-4370-ac0f-c1e373b9fb28",
           "trainerId": "a972f094-e541-480c-9939-45542939a095",
           "trainerName": "Jose Mourinho",
-          "date": "25 Aug 17",
-          "time": "09:30"
+          "date": "31 Aug 17",
+          "time": "14:00"
         }
       ],
       "goals": [
         {
-          "date": "23 Sep 17",
-          "description": "lose more weight more and mroe and more",
-          "weight": "80",
+          "date": "9 Sep 17",
+          "description": "",
+          "weight": "85",
           "chest": "",
           "thigh": "",
           "upperArm": "",
           "waist": "",
           "hips": "",
-          "id": "37ae48c2-365b-4023-a728-5d6de2d332d6",
+          "id": "c107a29d-f34b-44d9-a9fb-13450b896047",
           "status": "Open"
         },
         {
@@ -51,6 +75,24 @@
           "status": "Open"
         }
       ]
+    },
+    {
+      "id": "d78f627a-cb7b-4741-b12a-67aef78f99e8",
+      "email": "david@manutd.es",
+      "password": "secret",
+      "name": {
+        "first": "David",
+        "last": "de Gea",
+        "full": "David de Gea"
+      },
+      "details": {
+        "height": "195",
+        "startingWeight": "90",
+        "gender": "Male"
+      },
+      "assessments": [],
+      "memberBookings": [],
+      "goals": []
     }
   ]
 }

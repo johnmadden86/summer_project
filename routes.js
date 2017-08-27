@@ -5,9 +5,10 @@ const router = express.Router();
 
 const accounts = require('./controllers/accounts');
 const about = require('./controllers/about');
-const dashboard = require('./controllers/dashboard');
+const assessments = require('./controllers/assessments');
 const classes = require('./controllers/classes');
 const bookings = require('./controllers/bookings');
+const member = require('./controllers/member');
 const trainer = require('./controllers/trainer');
 const admin = require('./controllers/admin');
 const goals = require('./controllers/goals');
@@ -19,15 +20,17 @@ router.get('/logout', accounts.logout);
 router.post('/authenticate', accounts.authenticate);
 router.post('/register', accounts.register);
 router.post('/settings', accounts.update);
+router.get('/dashboard', member.index);
 
-router.get('/dashboard', dashboard.index);
-router.get('/settings', dashboard.settings);
+router.get('/assessments', assessments.index);
+router.get('/settings', accounts.settings);
 router.get('/goals', goals.index);
+router.get('/trainer-goals/:memberId', goals.trainerIndex);
 router.post('/goals/add-goal', goals.addGoal);
 router.get('/goals/:userId/delete-goal/:goalId', goals.deleteGoal);
 
-router.get('/dashboard/:userId/delete-assessment/:assessmentId', dashboard.deleteAssessment);
-router.post('/dashboard/add-assessment', dashboard.addAssessment);
+router.get('/assessments/:userId/delete-assessment/:assessmentId', assessments.deleteAssessment);
+router.post('/assessments/add-assessment', assessments.addAssessment);
 router.get('/classes', classes.memberClasses);
 router.get('/classes/:classId/enrol-one/:sessionId', classes.enrolOne);
 router.get('/classes/:classId/enrol-all', classes.enrolAll);

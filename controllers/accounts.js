@@ -37,13 +37,11 @@ const accounts = {
         height: request.body.height,
         startingWeight: request.body.startingWeight,
         gender: request.body.gender,
-        isMale: false,
       },
       assessments: [],
       memberBookings: [],
       goals: [],
     };
-    member.details.isMale = member.details.gender === 'Male';
 
     memberStore.addMember(member);
     logger.info(`registering ${member.email}`);
@@ -94,6 +92,15 @@ const accounts = {
     logger.info('logging out...');
   },
 
+  settings(request, response) {
+    const loggedInUser = accounts.getCurrentMember(request);
+    const viewData = {
+      member: loggedInUser,
+    };
+    logger.info(`Rendering settings page for ${loggedInUser.name.full}`);
+    response.render('settings', viewData);
+  },
+
   update(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
     loggedInUser.email = request.body.email;
@@ -106,7 +113,6 @@ const accounts = {
     loggedInUser.details.height = request.body.height;
     loggedInUser.details.startingWeight = request.body.startingWeight;
     loggedInUser.details.gender = request.body.gender;
-    loggedInUser.details.isMale = loggedInUser.details.gender === 'Male';
 
     memberStore.save();
     logger.info(`Profile updated for ${loggedInUser.name.full}`);

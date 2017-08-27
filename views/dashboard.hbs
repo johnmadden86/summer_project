@@ -1,6 +1,7 @@
-{{> menu id="dashboard"}}
+{{> menu}}
+
 <section class="ui segment">
-    {{> analytics}}
-    {{> add-assessment}}
-    {{> assessment-table}}
+    {{#unless openGoals}}
+        <p>goal-prompt</p>
+    {{/unless}}
 </section>

@@ -1,63 +1,110 @@
 {
   "classes": [
     {
-      "classId": "9f058597-7820-44d8-bed1-2d2fe95cd5e3",
+      "classId": "5c05ddd9-dd4c-4e52-8c52-7551fb9c6d11",
       "details": {
         "name": "Kettlebells",
         "duration": "00:45",
-        "capacity": "30",
-        "difficulty": "Advanced",
+        "capacity": "10",
+        "difficulty": "Intermediate",
         "time": "12:00",
         "date": "11 Sep 17",
-        "weeks": "6",
+        "weeks": "4",
         "day": "Monday"
       },
       "schedule": [
         {
-          "id": "aabe262b-3346-4b55-af50-0ba8eff4e5be",
+          "id": "eb43558c-2ce5-478e-814a-f3590429cb1b",
           "date": "11 Sep 17",
-          "members": [],
-          "spaces": "30",
+          "members": [
+            "973dcd28-d154-4511-a85b-ec18fb706211"
+          ],
+          "spaces": 9,
           "full": false,
-          "enrolled": false
+          "enrolled": true
         },
         {
-          "id": "112cbb29-4be7-4e40-ac49-de8e2653cdf8",
+          "id": "825191f5-9462-4d07-acc7-8b713d8ac275",
           "date": "18 Sep 17",
-          "members": [],
-          "spaces": "30",
+          "members": [
+            "973dcd28-d154-4511-a85b-ec18fb706211"
+          ],
+          "spaces": 9,
           "full": false,
-          "enrolled": false
+          "enrolled": true
         },
         {
-          "id": "ced44dea-ec2b-4509-a326-eefc678bea00",
+          "id": "f9eadfae-a66f-4de7-8e7d-1e7c84b0f107",
           "date": "25 Sep 17",
-          "members": [],
-          "spaces": "30",
+          "members": [
+            "973dcd28-d154-4511-a85b-ec18fb706211"
+          ],
+          "spaces": 9,
           "full": false,
-          "enrolled": false
+          "enrolled": true
         },
         {
-          "id": "9dfe1d34-457c-426d-935f-304e5af51405",
+          "id": "5eb3e643-262a-41ec-8498-f53f4d002bc0",
           "date": "2 Oct 17",
-          "members": [],
-          "spaces": "30",
+          "members": [
+            "973dcd28-d154-4511-a85b-ec18fb706211"
+          ],
+          "spaces": 9,
+          "full": false,
+          "enrolled": true
+        }
+      ]
+    },
+    {
+      "classId": "378ed2bb-6fb5-4df0-a8dd-010f5f1404fc",
+      "details": {
+        "name": "Pilates",
+        "duration": "01:00",
+        "capacity": "12",
+        "difficulty": "Beginner",
+        "time": "18:00",
+        "date": "12 Sep 17",
+        "weeks": "4",
+        "day": "Tuesday"
+      },
+      "schedule": [
+        {
+          "id": "0a0d4756-4e3e-4dae-ae9a-ee932c8fd1c3",
+          "date": "12 Sep 17",
+          "members": [
+            "973dcd28-d154-4511-a85b-ec18fb706211"
+          ],
+          "spaces": 11,
           "full": false,
           "enrolled": false
         },
         {
-          "id": "612a4430-2fbc-445b-9ecd-29d14e825d13",
-          "date": "9 Oct 17",
-          "members": [],
-          "spaces": "30",
+          "id": "910e8ea3-a111-4be5-8ff6-338b1ad233b9",
+          "date": "19 Sep 17",
+          "members": [
+            "973dcd28-d154-4511-a85b-ec18fb706211"
+          ],
+          "spaces": 11,
           "full": false,
           "enrolled": false
         },
         {
-          "id": "5b83480d-2f8f-4241-ad39-bd22121d4a75",
-          "date": "16 Oct 17",
-          "members": [],
-          "spaces": "30",
+          "id": "81f320c8-3115-43be-b0df-9c8aea45da58",
+          "date": "26 Sep 17",
+          "members": [
+            "973dcd28-d154-4511-a85b-ec18fb706211"
+          ],
+          "spaces": 11,
+          "full": false,
+          "enrolled": false
+        },
+        {
+          "id": "a08fb4e2-723a-4e22-a5e7-5e0b30aa4add",
+          "date": "3 Oct 17",
+          "members": [
+            "973dcd28-d154-4511-a85b-ec18fb706211"
+          ],
+          "spaces": 11,
           "full": false,
           "enrolled": false
         }

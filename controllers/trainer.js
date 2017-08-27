@@ -32,7 +32,6 @@ const trainer = {
     response.render('view-members', viewData);
   },
 
-
   deleteMember(request, response) {
     const id = request.params.id;
     logger.debug(`Deleting member ${id}`);

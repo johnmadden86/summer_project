@@ -32,12 +32,6 @@ const admin = {
     response.redirect('/login');
   },
 
-  /*getCurrentTrainer(request) {
-    const trainerEmail = request.cookies.trainer;
-    return trainerStore.getMemberByEmail(trainerEmail);
-  },*/
-
-
 };
 
 module.exports = admin;
