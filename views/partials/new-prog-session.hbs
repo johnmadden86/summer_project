@@ -1,0 +1,32 @@
+<div class="column eleven wide">
+    <div class="ui segment">
+
+        <form class="ui form"  method="POST">
+            <h3 class="ui header">Create a new routine</h3>
+            <div class="three fields">
+                <div class="field">
+                    <label>Name</label>
+                    <input placeholder="Name" name="name" required>
+                </div>
+                <div class="field">
+                    <label> Difficulty </label>
+                    <select class="ui dropdown" title="Difficulty" name="difficulty" required>
+                        <option selected disabled></option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label> Description </label>
+                    <textarea name="description" rows="1" title="description"></textarea>
+                </div>
+            </div>
+            <button class="ui blue submit button" formaction="/fitness-programmes/new-session">
+                <i class="save icon"></i>Save to standard sessions</button>
+            <button class="ui teal submit button" formaction="/fitness-programmes/custom-session">
+                <i class="edit icon"></i>Use as a custom session</button>
+        </form>
+    </div>
+</div>
+
