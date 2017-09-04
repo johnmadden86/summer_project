@@ -1,10 +1,38 @@
-{{> menu id="about"}}
-
-<section class="ui center aligned middle aligned segment">
-    <p>
-        John Madden<br>
-        w20077700<br>
-        Sep 2017<br>
-        <img src="\public\images\wit.png" width="20%">
-</p>
+{{> welcome-menu id="about"}}
+<section class="ui three column relaxed grid center aligned">
+    <div class="column twelve wide">
+        <div class="ui special card fluid">
+            <div class="blurring dimmable image">
+                <div class="ui dimmer">
+                    <div class="content">
+                        <div class="center">
+                            <a class="ui inverted button" href="https://github.com/johnmadden86/summer_project"><i class="large github icon middle aligned"></i>Github</a>
+                        </div>
+                    </div>
+                </div><img src="http://res.cloudinary.com/dth42qs8n/image/upload/c_scale,w_1000/v1504542314/wit_ejstui.jpg"></div>
+            <div class="content center aligned">
+                <div class="header">John Madden</div>
+                <div class="meta">w20077700</div>
+            </div>
+            <div class="extra content center aligned">
+                <a href="https://wit-ict-summer-school-2017.github.io/glitch-course-web/topic-xx-assignment/talk-2-gym-v2-spec/assignment.pdf"
+                   title="Assignment brief"><i class="edit icon"></i><span class="date">Sep 2017</span></a>
+            </div>
+        </div>
+    </div>
 </section>
+<footer class="ui relaxed grid center aligned">
+    <div class="three wide column">
+        <img src="http://res.cloudinary.com/dth42qs8n/image/upload/c_scale,w_100/v1504544016/javascript_logo_tblfsu.png">
+    </div>
+    <div class="three wide column">
+        <img src="http://res.cloudinary.com/dth42qs8n/image/upload/c_scale,w_100/v1504544017/nodejs-new-pantone-black_aiyayi.png">
+    </div>
+    <div class="three wide column">
+        <img src="http://res.cloudinary.com/dth42qs8n/image/upload/c_scale,w_100/v1504544015/687474703a2f2f707265636973696f6e2d736f6674776172652e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30342f6a5175726572792e676966_hsudgr.png"></div>
+</footer>
+<script>
+    $('.special.card .image').dimmer({
+        on: 'hover'
+    });
+</script>
