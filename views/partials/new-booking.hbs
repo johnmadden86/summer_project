@@ -4,7 +4,7 @@
         <div class="field">
             <label> Trainer </label>
             <select id="trainer" class="ui dropdown" title='Trainer' name="trainer"
-                    required onchange="noDateWithoutTrainer()">
+                    required onchange="noDateWithoutTrainer(); checkDiary()">
                 <option selected disabled></option>
                 {{#each trainers}}
                     <option id="selectedTrainer" value="{{id}}"> {{name.full}} </option>
@@ -21,7 +21,7 @@
         </div>
         <div class="field">
             <label> Time </label>
-            <div class="ui left input icon">
+            <div class="ui input icon">
                 <i class="clock icon"></i>
                 <select id="time" class="ui dropdown" title="Time" name="time" required disabled>
                     <option selected disabled></option>
@@ -37,27 +37,29 @@
 </form>
 
 <script>
-    $(function ()
-            {
+    $(function () {
                 let tomorrow = new Date();
                 let oneMonth = new Date();
                 tomorrow = new Date(tomorrow.setDate(tomorrow.getDate() + 1));
                 oneMonth = new Date(oneMonth.setMonth(oneMonth.getMonth() + 1));
                 const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                $('#date').calendar(
-                        {
+                $('#date').calendar( {
                             type: 'date',
                             firstDayOfWeek: 1, //starts on Monday
-                            minDate: tomorrow,  //no earlier than two weeks from today
-                            maxDate: oneMonth, //no later than three months from today
+                            minDate: tomorrow,  //no earlier than tomorrow
+                            maxDate: oneMonth, //no later than one month from today
                             monthFirst: false,
                             formatter: {
+
+                                // d MMM yy format
                                 date: function (date) {
                                     let day = date.getDate();
                                     let month = monthsShort[date.getMonth()];
                                     let year = date.getFullYear().toString().substring(2);
                                     return day + ' ' + month + ' ' + year;
                                 },
+
+                                //disable weekends and holidays
                                 cell: function (cell, date) {
                                     function weekend(date) {
                                         return date.getDay() === 0 || date.getDay() === 6;
@@ -127,8 +129,17 @@
                 );
             }
     );
-
     function noDateWithoutTrainer(){
         document.getElementById("datePicker").disabled = false;
     }
+
+    function checkDiary() {
+    }
 </script>
+<script>
+    const trainerStore = require('../../models/trainer-store');
+    $(function () {
+        console.log(trainerStore.getAllTrainers().length);
+    });
+</script>
+

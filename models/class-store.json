@@ -76,7 +76,7 @@
           ],
           "spaces": 11,
           "full": false,
-          "enrolled": false
+          "enrolled": true
         },
         {
           "id": "910e8ea3-a111-4be5-8ff6-338b1ad233b9",
@@ -86,7 +86,7 @@
           ],
           "spaces": 11,
           "full": false,
-          "enrolled": false
+          "enrolled": true
         },
         {
           "id": "81f320c8-3115-43be-b0df-9c8aea45da58",
@@ -96,7 +96,7 @@
           ],
           "spaces": 11,
           "full": false,
-          "enrolled": false
+          "enrolled": true
         },
         {
           "id": "a08fb4e2-723a-4e22-a5e7-5e0b30aa4add",
@@ -106,7 +106,7 @@
           ],
           "spaces": 11,
           "full": false,
-          "enrolled": false
+          "enrolled": true
         }
       ]
     }

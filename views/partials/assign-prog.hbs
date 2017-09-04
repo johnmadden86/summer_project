@@ -1,0 +1,45 @@
+<form class="ui segment form" action="/fitness-programmes/new-assignment" method="POST">
+    <h3 class="ui header">Assign a member to a fitness programme</h3>
+    <div class="three fields">
+        <div class="field">
+            <label> Member <select class="ui fluid search dropdown" name="member" id="member" required>
+                <option selected disabled></option>
+                {{#each members}}
+                    <option value="{{id}}">{{name.full}}</option>
+                {{/each}}
+            </select></label>
+        </div>
+        <div class="field twelve wide">
+            <label> Routines (choose five) <select class="ui fluid search dropdown" name="routine" id="routine" multiple="">
+                <option selected disabled></option>
+                <option class="divider" disabled>Classes</option>
+                {{#each classes}}
+                    <option value="{{classId}}"> {{details.name}} ({{details.difficulty}}) </option>
+                {{/each}}
+                <option class="divider" disabled>Routines</option>
+                {{#each routines}}
+                    {{#unless custom}}
+                        <option value="{{id}}"> {{details.name}} ({{details.difficulty}}) </option>
+                    {{/unless}}
+                    {{#if custom}}
+                        <option class="divider" disabled>Custom</option>
+                        <option value="{{id}}"> {{details.name}} ({{details.difficulty}}) </option>
+                    {{/if}}
+                {{/each}}
+            </select></label>
+        </div>
+    </div>
+    <button id="submit" class="ui blue submit button" disabled>Submit</button>
+</form>
+<script>
+    $('#member').dropdown();
+    $('#routine').dropdown( {
+                placeholder: 'Select Five',
+                onChange: function() {
+                  document.getElementById('submit').disabled = $(this).val().length !== 5;
+                }
+            },
+    );
+</script>
+
+

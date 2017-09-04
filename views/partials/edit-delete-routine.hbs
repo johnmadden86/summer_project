@@ -1,0 +1,29 @@
+<div class="column five wide right floated">
+    <div class="ui segment">
+        <form class="ui form">
+            <h3 class="ui header">Delete a routine</h3>
+            <div class="field">
+                <label>Choose a routine</label>
+                <select class="ui fluid search dropdown" title="Select" id="select" required>
+                    <<option selected disabled></option>
+                    {{#each routines}}
+                        <option value="{{id}}"> {{details.name}} ({{details.difficulty}}) </option>
+                    {{/each}}
+                </select>
+            </div>
+            <button id="delete" class="ui red submit button"><i class="trash icon"></i> Delete routine</button>
+        </form>
+    </div>
+</div>
+<script>
+    $('#select').dropdown( {
+        onChange: function () {
+            const routineId = $(this).val();
+            const delButton = document.getElementById('delete');
+            let formAction = document.createAttribute('formaction');
+            formAction.value = '/fitness-programmes/delete-routine/' + routineId;
+            delButton.setAttributeNode(formAction);
+        }
+    });
+</script>
+

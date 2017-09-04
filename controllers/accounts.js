@@ -53,7 +53,7 @@ const accounts = {
       title: 'Login to the Service',
     };
     logger.info('Rendering Login');
-    logger.debug(request.cookies);
+    //logger.debug(request.cookies);
     response.render('login', viewData);
   },
 
@@ -85,9 +85,12 @@ const accounts = {
   },
 
   logout(request, response) {
-    response.cookie('memberId', '');
-    response.cookie('trainerId', '');
-    response.cookie('classId', '');
+
+    response.clearCookie('memberId');
+    response.clearCookie('trainerId');
+    response.clearCookie('classId');
+    response.clearCookie('assessmentId');
+
     response.redirect('/');
     logger.info('logging out...');
   },

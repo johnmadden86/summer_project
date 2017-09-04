@@ -1,6 +1,21 @@
 {{> menu id="goals"}}
+{{#if assessmentRequired}}
+    <div class="ui positive message" id="prompt">
+        <i class="close icon" onclick="hide()"></i>
+        <div class="header">
+            Assessment required, click
+            <a href="member-bookings">here </a>to schedule a booking with your trainer
+        </div>
+    </div>
+{{/if}}
 <section class="ui segment">
     {{> analytics}}
     {{> add-goal}}
     {{> goals-table}}
 </section>
+<script>
+    function hide() {
+        const hidden = document.createAttribute("hidden");
+        document.getElementById('prompt').setAttributeNode(hidden);
+    }
+</script>

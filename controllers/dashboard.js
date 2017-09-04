@@ -27,11 +27,6 @@ const dashboard = {
         }
     );
     const stats = analytics.generateDashboardStats(loggedInUser);
-    let i = 0;
-    while (i < 5) {
-      logger.debug(loggedInUser.fitnessProgramme[i]);
-      i++;
-    }
 
     const viewData = {
       title: 'Dashboard',
@@ -86,7 +81,7 @@ const dashboard = {
 
   deleteMember(request, response) {
     const id = request.params.id;
-    logger.debug(`Deleting member ${id}`);
+    logger.info(`Deleting member ${id}`);
     memberStore.removeMember(id);
     response.redirect('/trainer-dashboard');
   },

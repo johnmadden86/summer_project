@@ -23,8 +23,8 @@ const admin = {
         first: request.body.firstName,
         last: request.body.lastName,
       },
+      diary: [],
       trainerBookings: [],
-      //diary: [],
     };
     trainer.name.full = trainer.name.first + ' ' + trainer.name.last;
     trainerStore.addTrainer(trainer);

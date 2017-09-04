@@ -1,0 +1,28 @@
+{
+  "fitnessProgrammes": [
+    {
+      "id": "d7abde46-89ca-4360-a08f-2afc3afe5aa3",
+      "details": {
+        "name": "Upper Body",
+        "difficulty": "Intermediate",
+        "description": "Pull-ups x 10\r\nBench press x 10\r\nSeated row x 10"
+      }
+    },
+    {
+      "id": "af66bc43-5185-4d3b-abb0-182e6c9023ac",
+      "details": {
+        "name": "Stretching",
+        "difficulty": "Beginner",
+        "description": "stetces"
+      }
+    },
+    {
+      "id": "a6febff3-bf7c-4574-9d4f-090dfe8f6bbe",
+      "details": {
+        "name": "Rowing",
+        "difficulty": "Intermediate",
+        "description": "30 mins"
+      }
+    }
+  ]
+}

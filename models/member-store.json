@@ -42,37 +42,103 @@
       ],
       "memberBookings": [
         {
-          "id": "37384a4f-7d5d-4370-ac0f-c1e373b9fb28",
+          "id": "28f2a28b-1786-4e47-a5db-a3088930ee3d",
           "trainerId": "a972f094-e541-480c-9939-45542939a095",
           "trainerName": "Jose Mourinho",
-          "date": "31 Aug 17",
-          "time": "14:00"
+          "date": "28 Sep 17",
+          "time": "11:00"
         }
       ],
       "goals": [
         {
-          "date": "9 Sep 17",
+          "date": "30 Aug 17",
           "description": "",
-          "weight": "85",
-          "chest": "",
-          "thigh": "",
-          "upperArm": "",
-          "waist": "",
-          "hips": "",
-          "id": "c107a29d-f34b-44d9-a9fb-13450b896047",
+          "weight": "100",
+          "chest": "3",
+          "thigh": "3",
+          "upperArm": "3",
+          "waist": "3",
+          "hips": "3",
+          "id": "6a1800f3-64ed-401f-ab1d-8e156c8c03fc",
+          "status": "Awaiting Processing"
+        },
+        {
+          "date": "7 Sep 17",
+          "description": "",
+          "weight": "83",
+          "chest": "3",
+          "thigh": "3",
+          "upperArm": "3",
+          "waist": "3",
+          "hips": "3",
+          "id": "027d799c-2423-4aca-a958-3ade0effc79a",
           "status": "Open"
         },
         {
-          "date": "31 Aug 17",
-          "description": "lose weight",
-          "weight": "85",
-          "chest": "",
-          "thigh": "",
-          "upperArm": "",
-          "waist": "",
-          "hips": "",
-          "id": "5b845cd5-8e59-434d-a788-71beaa3063e5",
+          "date": "8 Sep 17",
+          "description": "",
+          "weight": "83",
+          "chest": "3",
+          "thigh": "3",
+          "upperArm": "3",
+          "waist": "3",
+          "hips": "3",
+          "id": "efaf5745-7365-4a65-bf6c-2f343a042b49",
           "status": "Open"
+        },
+        {
+          "date": "9 Sep 17",
+          "description": "",
+          "weight": "83",
+          "chest": "3",
+          "thigh": "3",
+          "upperArm": "3",
+          "waist": "3",
+          "hips": "3",
+          "id": "bbb60c2a-b160-49b0-a14b-c29092fe609b",
+          "status": "Open"
+        }
+      ],
+      "fitnessProgramme": [
+        {
+          "id": "5c05ddd9-dd4c-4e52-8c52-7551fb9c6d11",
+          "details": {
+            "name": "Kettlebells",
+            "difficulty": "Intermediate",
+            "description": "Class"
+          }
+        },
+        {
+          "id": "378ed2bb-6fb5-4df0-a8dd-010f5f1404fc",
+          "details": {
+            "name": "Pilates",
+            "difficulty": "Beginner",
+            "description": "Class"
+          }
+        },
+        {
+          "id": "d7abde46-89ca-4360-a08f-2afc3afe5aa3",
+          "details": {
+            "name": "Upper Body",
+            "difficulty": "Intermediate",
+            "description": "Pull-ups x 10\r\nBench press x 10\r\nSeated row x 10"
+          }
+        },
+        {
+          "id": "af66bc43-5185-4d3b-abb0-182e6c9023ac",
+          "details": {
+            "name": "Stretching",
+            "difficulty": "Beginner",
+            "description": "stetces"
+          }
+        },
+        {
+          "id": "a6febff3-bf7c-4574-9d4f-090dfe8f6bbe",
+          "details": {
+            "name": "Rowing",
+            "difficulty": "Intermediate",
+            "description": "30 mins"
+          }
         }
       ]
     },

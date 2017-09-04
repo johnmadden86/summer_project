@@ -108,7 +108,6 @@ const memberStore = {
           return dateA - dateB;
         }
     );
-    user.goals.reverse();
   },
 
   sortMembers() {

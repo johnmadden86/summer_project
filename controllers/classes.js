@@ -31,7 +31,7 @@ const classes = {
               j++;
             }
           }
-    );
+      );
       i++;
     }
 
@@ -91,23 +91,37 @@ const classes = {
   },
 
   enrol(loggedInUser, classToJoin, session, all) {
-    let i = 0;//i controls while loop
-    let j = 0;//counts members array for add method
-    while (i === 0 || i < session.members.length) {// i = 0 ensures loop runs at least once, covers for case length = 0
-      if (session.members[i] === loggedInUser.id) {//remove if already enrolled, if all do nothing
+    //i controls while loop
+    let i = 0;
+
+    //counts members array for add method
+    let j = 0;
+
+    // i = 0 ensures loop runs at least once, covers for case length = 0
+    while (i === 0 || i < session.members.length) {
+
+      //remove if already enrolled, if all do nothing
+      if (session.members[i] === loggedInUser.id) {
         if (!all) {
           classes.unEnrol(loggedInUser, classToJoin, session, i);
         }
       } else {
-        if (j === session.members.length && !session.full) {//j cycles through full array, no removals
-          session.members.push(loggedInUser.id);//adds member by id
-          logger.debug(`Adding ${loggedInUser.name.full} to ${classToJoin.details.name} on ${session.date}`);
-          session.spaces--;//decrement no. of spaces left
-          //session.enrolled = true;
-          logger.debug(`${session.spaces} spaces left in class`);
-          if (session.spaces === 0) {//mark full if no spaces left
+
+        //j cycles through full array, no removals
+        if (j === session.members.length && !session.full) {
+
+          //adds member by id
+          session.members.push(loggedInUser.id);
+          logger.info(`Adding ${loggedInUser.name.full} to ${classToJoin.details.name} on ${session.date}`);
+
+          //decrement no. of spaces left
+          session.spaces--;
+          logger.info(`${session.spaces} spaces left in class`);
+
+          //mark full if no spaces left
+          if (session.spaces === 0) {
             session.full = true;
-            logger.debug(`${classToJoin.name} on ${session.date} is now full`);
+            logger.info(`${classToJoin.name} on ${session.date} is now full`);
           }
 
           classStore.save();
@@ -182,6 +196,49 @@ const classes = {
     classToEdit.details.day = staticMethods.dayFromDate(classToEdit.details.date);
     classStore.save();
     response.redirect('/trainer-classes');
+  },
+
+  nextClass(member) {
+    let dates = [];
+    const today = new Date();
+    classStore.getAllClasses().forEach(
+        function (oneClass) {
+          oneClass.schedule.forEach(
+              function (session) {
+                let i = 0;
+                if (member) {
+                  while (i < session.members.length) {
+                    if (session.members[i] === member.id) {
+                      dates.push(session.date);
+                    }
+
+                    i++;
+                  }
+                } else {
+                  dates.push(session.date);
+                }
+              }
+          );
+        }
+    );
+    dates.sort(
+        function (a, b) {
+          let dateA = (new Date(a));
+          let dateB = (new Date(b));
+          return dateA - dateB;
+        }
+    );
+    if (dates.length > 0) {
+      let nextClass = dates[0];
+      for (let i = 0; nextClass < today; i++) {
+        nextClass = dates[i];
+      }
+
+      return nextClass;
+
+    } else {
+      return 'No enrollments';
+    }
   },
 
 };

@@ -1,5 +1,5 @@
 <div class="ui bulleted list">
-{{#each member.goals}}
+    {{#each member.goals}}
         <tr>
             <td>{{date}}</td>
             <td>{{weight}}</td>
@@ -10,11 +10,14 @@
             <td>{{hips}}</td>
             <td>{{description}}</td>
             <td>{{status}}</td>
-            <td>
-                <a href="/goals/{{../member.id}}/delete-goal/{{id}}" class="ui icon button">
-                    <i class="icon trash" title="Delete"></i>
-                </a>
-            </td>
+            {{#unless ../trainer}}
+                <td>
+                    <a href="/goals/{{../member.id}}/delete-goal/{{id}}" class="ui icon button">
+                        <i class="icon trash" title="Delete"></i>
+                    </a>
+
+                </td>
+            {{/unless}}
         </tr>
-{{/each}}
+    {{/each}}
 </div>

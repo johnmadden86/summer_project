@@ -1,7 +1,23 @@
 {{> menu}}
-
+{{#unless openGoals}}
+    <div class="ui negative message" id="prompt">
+        <i class="close icon" onclick="hide()"></i>
+        <div class="header">
+            You have no open goals, click
+            <a href="goals">here </a>to set a new goal
+        </div>
+    </div>
+{{/unless}}
 <section class="ui segment">
-    {{#unless openGoals}}
-        <p>goal-prompt</p>
-    {{/unless}}
+    {{> analytics}}
+    <div class="ui grid">
+        {{> member-fitness}}
+        {{> member-status}}
+    </div>
 </section>
+<script>
+    function hide() {
+        const hidden = document.createAttribute("hidden");
+        document.getElementById('prompt').setAttributeNode(hidden);
+    }
+</script>

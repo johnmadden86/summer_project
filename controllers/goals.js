@@ -81,20 +81,18 @@ const goals = {
             if (today - assessmentDate < threeDays) {
               if (goals.compareGoal(goal, assessment)) {
                 goal.status = goals.compareGoal(goal, assessment);
-                return false;
               }
             } else {
-              return true;
+              assessmentRequired = true;
             }
           }
         }
     );
     memberStore.save();
+    return assessmentRequired;
   },
 
   compareGoal(goal, assessment) {
-    logger.debug(goal);
-    logger.debug(assessment);
     let weight = true;
     let chest = true;
     let thigh = true;
@@ -104,7 +102,6 @@ const goals = {
 
     if (goal.weight) {// goal reached if within 2%
       weight = Math.abs((goal.weight - assessment.weight) / goal.weight) < 0.02;
-      logger.debug(Math.abs((goal.weight - assessment.weight) / goal.weight));
     }
 
     if (goal.chest) {
@@ -131,6 +128,24 @@ const goals = {
       return 'Achieved';
     } else {
       return 'Missed';
+    }
+
+  },
+
+  currentGoal(member) {
+    const today = new Date();
+    let currentGoal = member.goals[0];
+    if (currentGoal) {
+      let goalDate = new Date(currentGoal.date);
+      for (let i = 0; goalDate < today; i++) {
+        currentGoal = member.goals[i];
+        goalDate = new Date(currentGoal.date);
+      }
+
+      return currentGoal.date;
+
+    } else {
+      return 'No goal set';
     }
 
   },

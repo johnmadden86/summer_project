@@ -54,9 +54,14 @@ const bookings = {
       date: date,
       time: time,
     };
+    const diary = {
+      date: date,
+      time: time,
+    };
     member.memberBookings.push(memberBooking);
     memberStore.sortBookings(member);
     trainer.trainerBookings.push(trainerBooking);
+    trainer.diary.push(diary);
     trainerStore.sortBookings(trainer);
     logger.info(`Adding new booking for ${member.name.full} on ${date} at ${time} with ${trainer.name.full}`);
     memberStore.save();
@@ -96,7 +101,7 @@ const bookings = {
   },
 
   trainerDelete(request, response) {
-    const loggedInUser =  accounts.getCurrentTrainer(request);
+    const loggedInUser = accounts.getCurrentTrainer(request);
     const bookingId = request.params.bookingId;
     const booking = trainerStore.getBooking(loggedInUser.trainerBookings, bookingId);
     const member = memberStore.getMemberById(booking.memberId);
@@ -124,7 +129,6 @@ const bookings = {
       assessment: assessment,
       stats: stats,
     };
-    logger.debug(stats);
     response.render('edit-booking', viewData);
   },
 
@@ -162,6 +166,42 @@ const bookings = {
     const time = request.body.time;
     bookings.makeBooking(member, loggedInUser, date, time);
     response.redirect('/trainer-bookings');
+  },
+
+  nextBooking(member) {
+    const today = new Date();
+    let nextBooking = member.memberBookings[0];
+    if (nextBooking) {
+      let bookingDate = new Date(nextBooking.date);
+      for (let i = 0; nextBooking < today; i++) {
+        nextBooking = member.memberBookings()[i];
+        bookingDate = new Date(nextBooking.date);
+      }
+
+      return nextBooking.date;
+
+    } else {
+      return 'No bookings made';
+    }
+
+  },
+
+  nextBookingTrainer(trainer) {
+    const today = new Date();
+    let nextBooking = trainer.trainerBookings[0];
+    if (nextBooking) {
+      let bookingDate = new Date(nextBooking.date);
+      for (let i = 0; nextBooking < today; i++) {
+        nextBooking = trainer.trainerBookings()[i];
+        bookingDate = new Date(nextBooking.date);
+      }
+
+      return nextBooking.date;
+
+    } else {
+      return 'No bookings made';
+    }
+
   },
 
 };

@@ -37,12 +37,37 @@ const assessments = {
   deleteAssessment(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
     const assessmentId = request.params.assessmentId;
-    logger.debug(`Deleting Assessment for ${loggedInUser.name.full}`);
+    logger.info(`Deleting Assessment for ${loggedInUser.name.full}`);
     memberStore.removeAssessment(loggedInUser, assessmentId);
     response.redirect('/assessments');
   },
 
+  trainerAssessment(request, response) {
+    const trainer = accounts.getCurrentTrainer(request);
+    const memberId = request.params.id;
+    const member = memberStore.getMemberById(memberId);
+    const stats = analytics.generateDashboardStats(member);
+    const viewData = {
+      title: 'View Assessments',
+      trainer: trainer,
+      member: member,
+      stats: stats,
+    };
+    response.cookie('member', member.email);
+    logger.info(`Rendering assessments for ${member.name.full}`);
+    response.render('trainer-assessment', viewData);
+  },
 
+  editComment(request, response) {
+    const assessmentId = request.params.assessmentId;
+    const comment = request.body.comment;
+    const member = accounts.getCurrentMember(request);
+    const assessment = memberStore.getAssessment(member.assessments, assessmentId);
+    assessment.comment = comment;
+    memberStore.save();
+    logger.info(`Updating comment for ${member.name.full} on ${assessment.date}`);
+    response.redirect(`/trainer-dashboard`);
+  },
 
 };
 

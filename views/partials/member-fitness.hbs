@@ -1,0 +1,28 @@
+<div class="column eight wide">
+    <div class="ui segment">
+        <div class="ui header"> Current Fitness Programme </div>
+        {{#if member.fitnessProgramme}}
+            <div class="ui celled list">
+                {{#each member.fitnessProgramme}}
+                <div class="item">
+                    <i class="help circle icon link middle aligned"
+                       data-content="{{details.description}}"></i>
+                    <div class="content">
+                        <div class="header">
+                            {{details.name}}
+                        </div>
+                        <div class="description">
+                            ({{details.difficulty}})
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        {{else}}
+            None
+        {{/if}}
+    </div>
+</div>
+<script>
+    $('.help').popup();
+</script>
