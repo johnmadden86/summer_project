@@ -3,14 +3,14 @@
 const express = require('express');
 const router = express.Router();
 
-const accounts = require('./controllers/accounts');
 const about = require('./controllers/about');
+const accounts = require('./controllers/accounts');
+const admin = require('./controllers/admin');
 const assessments = require('./controllers/assessments');
 const classes = require('./controllers/classes');
 const bookings = require('./controllers/bookings');
-const member = require('./controllers/member');
-const trainer = require('./controllers/trainer');
-const admin = require('./controllers/admin');
+const dashboard = require('./controllers/dashboard');
+const fitness = require('./controllers/fitness');
 const goals = require('./controllers/goals');
 
 router.get('/', accounts.index);
