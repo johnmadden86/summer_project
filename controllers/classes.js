@@ -5,6 +5,7 @@ const accounts = require('./accounts');
 const classStore = require('../models/class-store');
 const staticMethods = require('../utils/static-methods');
 const uuid = require('uuid');
+const Handlebars = require('../utils/handlebar-helper');
 
 const classes = {
   memberClasses(request, response) {

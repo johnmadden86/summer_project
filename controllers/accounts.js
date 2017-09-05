@@ -98,6 +98,7 @@ const accounts = {
   settings(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
     const viewData = {
+      title: 'Update Settings',
       member: loggedInUser,
     };
     logger.info(`Rendering settings page for ${loggedInUser.name.full}`);

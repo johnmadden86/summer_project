@@ -2,7 +2,7 @@
     {{#each schedule}}
         {{#if full}}
             <a href="/classes/{{../classId}}/enrol-one/{{id}}" title="Class is full" class="ui red icon button disabled">
-                {{date}}
+                {{dropDateYear date}}
             </a>
         {{else}}
             <a href="/classes/{{../classId}}/enrol-one/{{id}}"
@@ -12,7 +12,7 @@
                title="Click to enrol" class="ui icon button"
                 {{/if}}
             >
-                {{date}}
+                {{dropDateYear date}}&nbsp;&nbsp;
                 {{#if enrolled}}
                     <i class="checked calendar icon"></i>
                 {{else}}
