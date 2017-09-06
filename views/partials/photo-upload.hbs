@@ -1,38 +1,53 @@
 <div class="column six wide center aligned">
-    <div class="ui card">
-        <div class="content">
-            <div class="ui header">Profile picture</div>
-        </div>
-        <div class="content">
-            <div class="ui center aligned image">
-                {{#if picture}}
-                    <img src="{{picture.img}}">
-                {{else}}
-                    <img src="https://semantic-ui.com/images/wireframe/image.png">
-                {{/if}}
+    {{#if cloud}}
+        <div class="ui card">
+            <div class="content">
+                <div class="ui header">Profile picture</div>
+            </div>
+            <div class="content">
+                <div class="ui center aligned image">
+                    {{#if picture.img}}
+                        <img src="{{picture.img}}">
+                    {{else}}
+                        <img src="https://semantic-ui.com/images/wireframe/image.png">
+                    {{/if}}
+                </div>
+            </div>
+            <div class="extra content">
+                <form class="ui form">
+                    <div class="field">
+                        <div class="ui input">
+                            <input id="fileInput" type="file" name="picture" onchange="enable()">
+                        </div>
+                    </div>
+                    <div class="ui relaxed two buttons">
+                        <button id="upload"
+                                class="ui basic green button"
+                                formaction="/settings/photo-upload"
+                                formmethod="post"
+                                formenctype="multipart/form-data"
+                                disabled>Upload</button>
+                        <button class="ui basic red button" formaction="/settings/photo-delete"
+                                {{#unless picture.img}}disabled{{/unless}}>Delete</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="extra content">
-            <form class="ui form">
-                <div class="field">
-                    <div class="ui input">
-                        <input type="file" name="picture" onchange="enable()">
-                    </div>
-                </div>
-                <div class="ui relaxed two buttons">
-                    <button id="upload"
-                            class="ui basic green button"
-                            formaction="/settings/photo-upload"
-                            formmethod="post"
-                            formenctype="multipart/form-data">Upload</button>
-                    <button class="ui basic red button" formaction="/settings/photo-delete">Delete</button>
-                </div>
-            </form>
+    {{/if}}
+    {{#unless cloud}}
+        <div class="ui negative message">
+            <div class="header">
+                No cloudinary file detected, view
+                <a href="https://github.com/johnmadden86/summer_project/blob/master/README.md">
+                    <i class="github icon"></i>readme </a>
+                to enable photo uploads
+            </div>
         </div>
-    </div>
+    {{/unless}}
 </div>
 <script>
     function enable() {
-        document.getElementById("upload").disabled = false;
+        const input = document.getElementById("fileInput");
+        document.getElementById("upload").disabled = !input.value;
     }
 </script>

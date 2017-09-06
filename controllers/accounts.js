@@ -5,6 +5,7 @@ const memberStore = require('../models/member-store');
 const pictureStore = require('../models/picture-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
+const cloudinary = require('cloudinary');
 
 const accounts = {
 
@@ -98,10 +99,20 @@ const accounts = {
 
   settings(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
+    let cloud = true;
+    try {
+      const env = require('../.data/.env.json');
+      cloudinary.config(env.cloudinary);
+    } catch (e) {
+      logger.info('You must provide a Cloudinary credentials file - see README.md');
+      cloud = false;
+    }
+
     const viewData = {
       title: 'Update Settings',
       member: loggedInUser,
       picture: pictureStore.getPicture(loggedInUser.id),
+      cloud: cloud,
     };
     logger.info(`Rendering settings page for ${loggedInUser.name.full}`);
     response.render('settings', viewData);
