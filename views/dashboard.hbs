@@ -1,6 +1,6 @@
 {{> menu}}
 {{#unless openGoals}}
-    <div class="ui negative message">
+    <div class="ui negative message" id="prompt">
         <i class="close icon" onclick="hide()"></i>
         <div class="header">
             You have no open goals, click
@@ -17,7 +17,7 @@
 </section>
 <script>
     function hide() {
-        const hidden = document.createAttribute("hidden");
+        const hidden = document.createAttribute('hidden');
         document.getElementById('prompt').setAttributeNode(hidden);
     }
 </script>

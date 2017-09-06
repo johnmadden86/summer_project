@@ -21,6 +21,8 @@ router.post('/authenticate', accounts.authenticate);
 router.post('/register', accounts.register);
 router.post('/settings', accounts.update);
 router.get('/settings', accounts.settings);
+router.post('/settings/photo-upload', accounts.uploadPicture);
+router.get('/settings/photo-delete', accounts.deletePicture);
 
 router.get('/dashboard', dashboard.index);
 router.get('/view-members', dashboard.members);

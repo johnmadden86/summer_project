@@ -1,0 +1,48 @@
+<div class="column ten wide">
+    <form class="ui segment form" action="/settings" method="POST">
+        <h3 class="ui header">Update details</h3>
+        <div class="two fields">
+            <div class="field">
+                <label>First Name
+                    <input placeholder="First Name" value={{member.name.first}} type="text" name="firstName"></label>
+            </div>
+            <div class="field">
+                <label>Last Name
+                    <input placeholder="Last Name" value={{member.name.last}} type="text" name="lastName">
+                </label>
+            </div>
+        </div>
+        <div class="three fields">
+            <div class="field">
+                <label>Height
+                    <input placeholder="cm" value={{member.details.height}} type="text" name="height">
+                </label>
+            </div>
+            <div class="field">
+                <label>Starting Weight
+                    <input placeholder="kg" value={{member.details.startingWeight}} type="text" name="startingWeight">
+                </label>
+            </div>
+            <div class="field">
+                <label>Gender
+                    <select title="{{member.details.gender}}" class="ui dropdown" name="gender">
+                        <option disabled> </option>
+                        <option value="Male"> Male </option>
+                        <option value="Female"> Female </option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="field">
+            <label>Email
+                <input placeholder="Email" value={{member.email}} type="text" name="email">
+            </label>
+        </div>
+        <div class="field">
+            <label>Password
+                <input type="password" value={{member.password}} name="password">
+            </label>
+        </div>
+        <button class="ui blue submit button">Submit</button>
+    </form>
+</div>

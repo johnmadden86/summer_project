@@ -49,56 +49,7 @@
           "time": "11:00"
         }
       ],
-      "goals": [
-        {
-          "date": "30 Aug 17",
-          "description": "",
-          "weight": "100",
-          "chest": "3",
-          "thigh": "3",
-          "upperArm": "3",
-          "waist": "3",
-          "hips": "3",
-          "id": "6a1800f3-64ed-401f-ab1d-8e156c8c03fc",
-          "status": "Awaiting Processing"
-        },
-        {
-          "date": "7 Sep 17",
-          "description": "",
-          "weight": "83",
-          "chest": "3",
-          "thigh": "3",
-          "upperArm": "3",
-          "waist": "3",
-          "hips": "3",
-          "id": "027d799c-2423-4aca-a958-3ade0effc79a",
-          "status": "Open"
-        },
-        {
-          "date": "8 Sep 17",
-          "description": "",
-          "weight": "83",
-          "chest": "3",
-          "thigh": "3",
-          "upperArm": "3",
-          "waist": "3",
-          "hips": "3",
-          "id": "efaf5745-7365-4a65-bf6c-2f343a042b49",
-          "status": "Open"
-        },
-        {
-          "date": "9 Sep 17",
-          "description": "",
-          "weight": "83",
-          "chest": "3",
-          "thigh": "3",
-          "upperArm": "3",
-          "waist": "3",
-          "hips": "3",
-          "id": "bbb60c2a-b160-49b0-a14b-c29092fe609b",
-          "status": "Open"
-        }
-      ],
+      "goals": [],
       "fitnessProgramme": [
         {
           "id": "5c05ddd9-dd4c-4e52-8c52-7551fb9c6d11",

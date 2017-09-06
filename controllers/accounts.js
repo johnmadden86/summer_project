@@ -2,6 +2,7 @@
 
 const trainerStore = require('../models/trainer-store');
 const memberStore = require('../models/member-store');
+const pictureStore = require('../models/picture-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
 
@@ -100,6 +101,7 @@ const accounts = {
     const viewData = {
       title: 'Update Settings',
       member: loggedInUser,
+      picture: pictureStore.getPicture(loggedInUser.id),
     };
     logger.info(`Rendering settings page for ${loggedInUser.name.full}`);
     response.render('settings', viewData);
@@ -120,6 +122,24 @@ const accounts = {
 
     memberStore.save();
     logger.info(`Profile updated for ${loggedInUser.name.full}`);
+    response.redirect('/dashboard');
+  },
+
+  uploadPicture(request, response) {
+    const loggedInUser = accounts.getCurrentMember(request);
+    pictureStore.addPicture(
+        loggedInUser.id,
+        request.files.picture,
+        function () {
+          response.redirect('/dashboard');
+        }
+    );
+  },
+
+  deletePicture(request, response) {
+    logger.debug('hi');
+    const loggedInUser = accounts.getCurrentMember(request);
+    pictureStore.deletePicture(loggedInUser.id);
     response.redirect('/dashboard');
   },
 

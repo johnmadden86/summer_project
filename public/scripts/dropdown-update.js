@@ -1,6 +1,9 @@
+/*
+**  Selects previous inputs for drop-down menus when updating
+*/
+
 $(
     function () {
-      console.log('It\'s working!');
       const select = document.getElementsByTagName('select');
       const tag = document.getElementsByTagName('option');
       let i = 0;
