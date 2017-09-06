@@ -6,8 +6,8 @@
             </div>
             <div class="content">
                 <div class="ui center aligned image">
-                    {{#if picture.img}}
-                        <img src="{{picture.img}}">
+                    {{#if picture}}
+                        <img src="{{picture}}">
                     {{else}}
                         <img src="https://semantic-ui.com/images/wireframe/image.png">
                     {{/if}}
@@ -28,7 +28,7 @@
                                 formenctype="multipart/form-data"
                                 disabled>Upload</button>
                         <button class="ui basic red button" formaction="/settings/photo-delete"
-                                {{#unless picture.img}}disabled{{/unless}}>Delete</button>
+                                {{#unless picture}}disabled{{/unless}}>Delete</button>
                     </div>
                 </form>
             </div>

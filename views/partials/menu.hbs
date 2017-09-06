@@ -1,5 +1,11 @@
 <nav class="ui menu">
-    <a id="dashboard" class="ui header item" href="/dashboard"> <i class="ui home icon"></i>{{member.name.full}} </a>
+    <a id="dashboard" class="ui header item" href="/dashboard">
+        <i class="ui home icon"></i>
+    </a>
+    <a class="ui header item" href="/dashboard">
+        {{member.name.full}}&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="{{member.img}}">
+    </a>
     <div class="right menu">
         <a id="assessments" class="item" href="/assessments"> Assessments  </a>
         <a id="bookings" class="item" href="/member-bookings"> Bookings  </a>
@@ -9,7 +15,6 @@
         <a class="item" href="/logout">Logout</a>
     </div>
 </nav>
-
 <script>
     $("#{{id}}").addClass("active item");
 </script>

@@ -3,7 +3,8 @@
 const _ = require('lodash');
 const JsonStore = require('./json-store');
 const logger = require('../utils/logger');
-const staticMethods = require('../utils/static-methods');
+const cloudinary = require('cloudinary');
+const path = require('path');
 
 const memberStore = {
 
@@ -140,6 +141,29 @@ const memberStore = {
           }
         }
     );
+  },
+
+  addPicture(member, imageFile, response) {
+    imageFile.mv('tempimage', err => {
+      if (!err) {
+        cloudinary.uploader.upload('tempimage', result => {
+          logger.debug(result);
+          member.img = result.url;
+          this.store.save();
+          response();
+        });
+      }
+    });
+  },
+
+  deletePicture(member) {
+    const id = path.parse(member.img);
+    cloudinary.api.delete_resources([id.name], function (result) {
+      console.log(result);
+    });
+
+    delete member.img;
+    this.store.save();
   },
 
   save() {

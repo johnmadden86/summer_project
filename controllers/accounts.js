@@ -2,7 +2,6 @@
 
 const trainerStore = require('../models/trainer-store');
 const memberStore = require('../models/member-store');
-const pictureStore = require('../models/picture-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
 const cloudinary = require('cloudinary');
@@ -111,7 +110,7 @@ const accounts = {
     const viewData = {
       title: 'Update Settings',
       member: loggedInUser,
-      picture: pictureStore.getPicture(loggedInUser.id),
+      picture: loggedInUser.img,
       cloud: cloud,
     };
     logger.info(`Rendering settings page for ${loggedInUser.name.full}`);
@@ -138,8 +137,8 @@ const accounts = {
 
   uploadPicture(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
-    pictureStore.addPicture(
-        loggedInUser.id,
+    memberStore.addPicture(
+        loggedInUser,
         request.files.picture,
         function () {
           response.redirect('/dashboard');
@@ -148,9 +147,8 @@ const accounts = {
   },
 
   deletePicture(request, response) {
-    logger.debug('hi');
     const loggedInUser = accounts.getCurrentMember(request);
-    pictureStore.deletePicture(loggedInUser.id);
+    memberStore.deletePicture(loggedInUser);
     response.redirect('/dashboard');
   },
 
