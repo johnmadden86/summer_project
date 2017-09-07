@@ -1,0 +1,35 @@
+<div class="column middle aligned">
+    <div class="ui two cards">
+        <div class="card">
+            <div class="center aligned content">
+                <div class="header">{{nextBooking}}</div>
+                <div class="description"><i class="calendar icon"></i> Next booking</div>
+            </div>
+            <a href="trainer-bookings" class="ui bottom attached button">
+                <i class="book icon"></i>Bookings ({{trainer.trainerBookings.length}})</a>
+        </div>
+        <div class="card">
+            <div class="center aligned content">
+                <div class="header">{{nextClass}}</div>
+                <div class="description"><i class="calendar icon"></i> Next class</div>
+            </div>
+            <a href="trainer-classes" class="ui bottom attached button"><i class="announcement icon"></i>Classes ({{noOfClasses}})</a>
+        </div>
+    </div>
+    <div class="ui two cards">
+        <div class="card">
+            <div class="ui statistic">
+                <div class="value">{{fitnessProgCount}}</div>
+                <div class="label">assigned to programmes</div>
+            </div>
+            <a href="fitness-programmes" class="ui bottom attached button"><i class="bicycle icon"></i>Fitness Programmes</a>
+        </div>
+        <div class="card">
+            <div class="ui statistic">
+                <div class="value">{{members.length}}</div>
+                <div class="label">total gym members</div>
+            </div>
+            <a href="view-members" class="ui bottom attached button"><i class="users icon"></i>Members</a>
+        </div>
+    </div>
+</div>

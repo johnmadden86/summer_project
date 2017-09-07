@@ -12,7 +12,7 @@
       "details": {
         "height": "190",
         "startingWeight": "85",
-        "gender": "Female"
+        "gender": "Male"
       },
       "assessments": [
         {
@@ -54,9 +54,29 @@
           "id": "21ed4434-cb38-43a8-929e-d13e09748900",
           "comment": "",
           "trend": true
+        },
+        {
+          "date": "15 Aug 17",
+          "assessmentId": "f89011c5-158c-45b4-94d8-3d8703991c83",
+          "trend": false,
+          "weight": "87",
+          "chest": "8",
+          "thigh": "8",
+          "upperArm": "8",
+          "waist": "8",
+          "hips": "8",
+          "comment": "8"
         }
       ],
-      "memberBookings": [],
+      "memberBookings": [
+        {
+          "id": "918e3784-1d1f-4f61-94f9-25d25b4047f6",
+          "trainerId": "a972f094-e541-480c-9939-45542939a095",
+          "trainerName": "Jose Mourinho",
+          "date": "13 Sep 17",
+          "time": "11:00"
+        }
+      ],
       "goals": [
         {
           "date": "16 Sep 17",

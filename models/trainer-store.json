@@ -9,33 +9,33 @@
         "last": "Mourinho",
         "full": "Jose Mourinho"
       },
-      "diary": [
+      "trainerBookings": [
         {
-          "date": "31 Aug 17",
-          "time": "11:00"
-        },
-        {
-          "date": "28 Sep 17",
-          "time": "11:00"
-        },
-        {
-          "date": "28 Sep 17",
+          "id": "f89011c5-158c-45b4-94d8-3d8703991c83",
+          "memberId": "973dcd28-d154-4511-a85b-ec18fb706211",
+          "memberName": "Paul Pogba",
+          "date": "15 Aug 17",
           "time": "14:00"
         },
         {
-          "date": "7 Sep 17",
-          "time": "09:30"
-        }
-      ],
-      "trainerBookings": [
-        {
-          "id": "433f21ac-7ca6-4a76-bc90-43782968a2df",
+          "id": "918e3784-1d1f-4f61-94f9-25d25b4047f6",
           "memberId": "973dcd28-d154-4511-a85b-ec18fb706211",
           "memberName": "Paul Pogba",
-          "date": "7 Aug 17",
-          "time": "09:30"
+          "date": "13 Sep 17",
+          "time": "11:00"
         }
       ]
+    },
+    {
+      "id": "8cf67c4a-1087-42df-abe8-ab713d1cc5e7",
+      "email": "marty@fai.ie",
+      "password": "secret",
+      "name": {
+        "first": "Martin",
+        "last": "O'Neill",
+        "full": "Martin O'Neill"
+      },
+      "trainerBookings": []
     }
   ]
 }

@@ -1,4 +1,6 @@
 <div class="content">
+<div class="ui grid content center aligned">
+    <div class="row">
     {{#each schedule}}
         {{#if full}}
             <a href="/classes/{{../id}}/enrol-one/{{id}}" title="Class is full" class="ui red icon button disabled">
@@ -21,7 +23,8 @@
             </a>
         {{/if}}
     {{/each}}
-    <br><br>
+    </div>
     <a href="/classes/{{id}}/enrol-all" class="ui teal icon button" title="Enrol in all"> Enrol in all </a>
     <a href="/classes/{{id}}/unenrol-all" class="ui teal icon button" title="Un-enrol from all"> Un-enrol from all </a>
+</div>
 </div>

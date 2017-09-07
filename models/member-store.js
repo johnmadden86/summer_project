@@ -147,7 +147,6 @@ const memberStore = {
     imageFile.mv('tempimage', err => {
       if (!err) {
         cloudinary.uploader.upload('tempimage', result => {
-          logger.debug(result);
           member.img = result.url;
           this.store.save();
           response();

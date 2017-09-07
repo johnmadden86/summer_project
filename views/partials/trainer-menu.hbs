@@ -1,5 +1,10 @@
 <nav class="ui menu">
-    <a class="ui header item"  href="/trainer-dashboard"><i class="ui home icon"></i> {{trainer.name.full}} </a>
+    <a id="dashboard" class="ui header item" href="/trainer-dashboard">
+        <i class="ui home icon"></i>
+    </a>
+    <a class="ui header item" href="/trainer-dashboard">
+        {{trainer.name.full}}&nbsp;&nbsp;&nbsp;&nbsp;
+    </a>
     <div class="right menu">
         <a id="trainer-bookings" class="item" href="/trainer-bookings"> Bookings </a>
         <a id="trainer-classes" class="item" href="/trainer-classes"> Classes  </a>

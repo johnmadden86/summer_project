@@ -71,7 +71,7 @@ const accounts = {
       response.redirect('/trainer-dashboard');
     } else {
       logger.info('Authentication failed');
-      response.redirect('/login');
+      response.redirect('/');
     }
   },
 
@@ -90,9 +90,6 @@ const accounts = {
     response.clearCookie('trainerId');
     response.clearCookie('classId');
     response.clearCookie('assessmentId');
-
-    logger.debug(request.cookies);
-
     response.redirect('/');
     logger.info('logging out...');
   },

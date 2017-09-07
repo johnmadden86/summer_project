@@ -229,17 +229,21 @@ const classes = {
           return dateA - dateB;
         }
     );
-    if (dates.length > 0) {
-      let nextClass = dates[0];
-      for (let i = 0; nextClass < today; i++) {
+
+    let nextClass = 'No future classes';
+    let i = 0;
+    while (i < dates.length) {
+      let sessionDate = dates[i];
+      if (new Date(sessionDate) > today) {
         nextClass = dates[i];
+        break;
       }
 
-      return nextClass;
-
-    } else {
-      return 'No enrollments';
+      i++;
     }
+
+    return nextClass;
+
   },
 
 };

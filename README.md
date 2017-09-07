@@ -1,27 +1,39 @@
-Welcome to the Glitch BETA
-=========================
+Summer Project - WIT ICT Skills
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+A gym application designed in accordance with the assigned brief
+https://wit-ict-summer-school-2017.github.io/glitch-course-web/topic-xx-assignment/talk-2-gym-v2-spec/assignment.pdf
 
-**Glitch** is the friendly commmunity where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+Aim was to add additional features to an app built previously using Play and Java.
+This app was built using Node and Javascript, with the Webstorm IDE
 
-Find out more [about Glitch](https://glitch.com/about).
+The run can be downloaded and deployed locally or imported into https://glitch.com/
 
+Cloudinary details are required for profile pictures. 
+Place a Cloudinary credentials file in the .data folder called .env.json:
 
-Your Project
-------------
+.data/.env.json
 
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
+{
+  "cloudinary": {
+    "cloud_name": "YOURID",
+    "api_key": "YOURKEY",
+    "api_secret": "YOURSECRET"
+  }
+}
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
+Member Accounts:
 
+email: paul@manutd.fr.
+password: secret
 
-Made by [Fog Creek](https://fogcreek.com/)
--------------------
+email: david@manutd.es
+password: secret
 
-\ ゜o゜)ノ
+Trainer Account:
+
+email: jose@manutd.pt
+password: secret
+
+New trainers can be added by an existing trainer
+
+7 Sept 2017

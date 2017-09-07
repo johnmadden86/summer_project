@@ -55,14 +55,9 @@ const bookings = {
       date: date,
       time: time,
     };
-    const diary = {
-      date: date,
-      time: time,
-    };
     member.memberBookings.push(memberBooking);
     memberStore.sortBookings(member);
     trainer.trainerBookings.push(trainerBooking);
-    trainer.diary.push(diary);
     trainerStore.sortBookings(trainer);
     logger.info(`Adding new booking for ${member.name.full} on ${date} at ${time} with ${trainer.name.full}`);
     memberStore.save();
@@ -171,37 +166,36 @@ const bookings = {
 
   nextBooking(member) {
     const today = new Date();
-    let nextBooking = member.memberBookings[0];
-    if (nextBooking) {
-      let bookingDate = new Date(nextBooking.date);
-      for (let i = 0; nextBooking < today; i++) {
-        nextBooking = member.memberBookings()[i];
-        bookingDate = new Date(nextBooking.date);
+    let nextBooking = 'No future bookings made';
+    let i = 0;
+    while (i < member.memberBookings.length) {
+      let bookingDate = new Date(member.memberBookings[i].date);
+      if (bookingDate > today) {
+        nextBooking = member.memberBookings[i].date;
       }
 
-      return nextBooking.date;
-
-    } else {
-      return 'No bookings made';
+      i++;
     }
+
+    return nextBooking;
 
   },
 
   nextBookingTrainer(trainer) {
     const today = new Date();
-    let nextBooking = trainer.trainerBookings[0];
-    if (nextBooking) {
-      let bookingDate = new Date(nextBooking.date);
-      for (let i = 0; nextBooking < today; i++) {
-        nextBooking = trainer.trainerBookings()[i];
-        bookingDate = new Date(nextBooking.date);
+    let nextBooking = 'No future bookings';
+    let i = 0;
+    while (i < trainer.trainerBookings.length) {
+      let bookingDate = new Date(trainer.trainerBookings[i].date);
+      if (bookingDate > today) {
+        nextBooking = trainer.trainerBookings[i].date;
+        break;
       }
 
-      return nextBooking.date;
-
-    } else {
-      return 'No bookings made';
+      i++;
     }
+
+    return nextBooking;
 
   },
 

@@ -60,8 +60,7 @@ router.post('/trainer-bookings/add-booking-details/assessment/:bookingId', booki
 router.post('/trainer-bookings/add-booking-details/repeat-booking/:memberId', bookings.repeatBooking);
 router.get('/trainer-bookings', bookings.trainerBookings);
 
-router.get('/admin', admin.index);
-router.post('/admin', admin.newTrainer);
+router.post('/admin', dashboard.newTrainer);
 
 router.get('/about', about.index);
 

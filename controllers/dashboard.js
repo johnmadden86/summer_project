@@ -4,11 +4,12 @@ const logger = require('../utils/logger');
 const accounts = require('./accounts.js');
 const memberStore = require('../models/member-store');
 const classStore = require('../models/class-store');
-
+const trainerStore = require('../models/trainer-store');
 const analytics = require('../utils/analytics');
 const goals = require('./goals');
 const bookings = require('./bookings');
 const classes = require('./classes');
+const uuid = require('uuid');
 
 const dashboard = {
 
@@ -87,6 +88,23 @@ const dashboard = {
     const id = request.params.id;
     logger.info(`Deleting member ${id}`);
     memberStore.removeMember(id);
+    response.redirect('/trainer-dashboard');
+  },
+
+  newTrainer(request, response) {
+    const trainer = {
+      id: uuid(),
+      email: request.body.email,
+      password: request.body.password,
+      name: {
+        first: request.body.firstName,
+        last: request.body.lastName,
+      },
+      trainerBookings: [],
+    };
+    trainer.name.full = trainer.name.first + ' ' + trainer.name.last;
+    trainerStore.addTrainer(trainer);
+    logger.info(`registering ${trainer.email}`);
     response.redirect('/trainer-dashboard');
   },
 

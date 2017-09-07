@@ -7,30 +7,7 @@ const uuid = require('uuid');
 
 const admin = {
 
-  index(request, response) {
-    const viewData = {
-      title: 'Admin',
-    };
-    response.render('admin', viewData);
-  },
 
-  newTrainer(request, response) {
-    const trainer = {
-      id: uuid(),
-      email: request.body.email,
-      password: request.body.password,
-      name: {
-        first: request.body.firstName,
-        last: request.body.lastName,
-      },
-      diary: [],
-      trainerBookings: [],
-    };
-    trainer.name.full = trainer.name.first + ' ' + trainer.name.last;
-    trainerStore.addTrainer(trainer);
-    logger.info(`registering ${trainer.email}`);
-    response.redirect('/login');
-  },
 
 };
 
