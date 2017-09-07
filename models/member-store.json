@@ -12,44 +12,65 @@
       "details": {
         "height": "190",
         "startingWeight": "85",
-        "gender": "Male"
+        "gender": "Female"
       },
       "assessments": [
         {
-          "date": "18 Aug 17",
-          "weight": "83",
+          "date": "6 Sep 17",
+          "weight": "92",
           "chest": "3",
           "thigh": "3",
           "upperArm": "3",
           "waist": "3",
           "hips": "3",
-          "assessmentId": "659a9d99-4065-4efb-99d3-e27f1fb702b5",
-          "comment": "",
+          "id": "a3f87775-d744-4ace-8446-d2000e42749c",
+          "comment": [
+            "good",
+            "",
+            ""
+          ],
           "trend": true
         },
         {
-          "date": "12 Aug 17",
-          "weight": "84",
-          "chest": "4",
-          "thigh": "4",
-          "upperArm": "4",
-          "waist": "4",
-          "hips": "4",
-          "assessmentId": "6e151ce3-8ee9-429d-a24f-d28730b4ca73",
+          "date": "5 Sep 17",
+          "weight": "93",
+          "chest": "3",
+          "thigh": "3",
+          "upperArm": "3",
+          "waist": "3",
+          "hips": "3",
+          "id": "5bc830cd-2214-44f7-8fed-da3bc80635e8",
+          "comment": "",
+          "trend": false
+        },
+        {
+          "date": "1 Sep 17",
+          "weight": "85",
+          "chest": "6",
+          "thigh": "6",
+          "upperArm": "6",
+          "waist": "6",
+          "hips": "6",
+          "id": "21ed4434-cb38-43a8-929e-d13e09748900",
           "comment": "",
           "trend": true
         }
       ],
-      "memberBookings": [
+      "memberBookings": [],
+      "goals": [
         {
-          "id": "28f2a28b-1786-4e47-a5db-a3088930ee3d",
-          "trainerId": "a972f094-e541-480c-9939-45542939a095",
-          "trainerName": "Jose Mourinho",
-          "date": "28 Sep 17",
-          "time": "11:00"
+          "date": "16 Sep 17",
+          "description": "ffffff",
+          "weight": "82",
+          "chest": "",
+          "thigh": "",
+          "upperArm": "",
+          "waist": "",
+          "hips": "",
+          "id": "d49e0df2-1c3f-41d4-b821-326b5eb7766d",
+          "status": "Open"
         }
       ],
-      "goals": [],
       "fitnessProgramme": [
         {
           "id": "5c05ddd9-dd4c-4e52-8c52-7551fb9c6d11",
@@ -93,24 +114,6 @@
         }
       ],
       "img": "http://res.cloudinary.com/dth42qs8n/image/upload/v1504710597/qsfww1b5rgrrjqmqvb9p.png"
-    },
-    {
-      "id": "d78f627a-cb7b-4741-b12a-67aef78f99e8",
-      "email": "david@manutd.es",
-      "password": "secret",
-      "name": {
-        "first": "David",
-        "last": "de Gea",
-        "full": "David de Gea"
-      },
-      "details": {
-        "height": "195",
-        "startingWeight": "90",
-        "gender": "Male"
-      },
-      "assessments": [],
-      "memberBookings": [],
-      "goals": []
     }
   ]
 }

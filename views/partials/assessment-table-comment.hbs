@@ -1,5 +1,5 @@
 <div class="ui bulleted list">
-    <form class="ui form" action="/trainer-assessment/{{../member.id}}/edit-comment/{{assessmentId}}" method="POST">
+    <form class="ui form">
         <table class="ui celled table">
             <thead>
             {{> assessment-header}}
@@ -23,11 +23,13 @@
                     </td>
                     <td>
                         <div class="ui field">
-                            <textarea name="comment" rows="1" title="comment"> {{comment}} </textarea>
+                            <textarea name="comment" rows="1" title="comment">{{comment}}</textarea>
                         </div>
                     </td>
                     <td>
-                        <button class="ui blue submit button"> Update </button>
+                        <button class="ui blue submit button"
+                                formaction="/trainer-assessment/{{../member.id}}/edit-comment/{{id}}"
+                                formmethod="POST"> Update </button>
                     </td>
                 </tr>
             {{/each}}

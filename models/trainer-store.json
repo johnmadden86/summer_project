@@ -17,22 +17,23 @@
         {
           "date": "28 Sep 17",
           "time": "11:00"
+        },
+        {
+          "date": "28 Sep 17",
+          "time": "14:00"
+        },
+        {
+          "date": "7 Sep 17",
+          "time": "09:30"
         }
       ],
       "trainerBookings": [
         {
-          "id": "73137393-5dc0-4446-bf69-d82038b9c36e",
+          "id": "433f21ac-7ca6-4a76-bc90-43782968a2df",
           "memberId": "973dcd28-d154-4511-a85b-ec18fb706211",
           "memberName": "Paul Pogba",
-          "date": "31 Aug 17",
-          "time": "11:00"
-        },
-        {
-          "id": "28f2a28b-1786-4e47-a5db-a3088930ee3d",
-          "memberId": "973dcd28-d154-4511-a85b-ec18fb706211",
-          "memberName": "Paul Pogba",
-          "date": "28 Sep 17",
-          "time": "11:00"
+          "date": "7 Aug 17",
+          "time": "09:30"
         }
       ]
     }

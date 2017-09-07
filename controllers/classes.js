@@ -161,7 +161,7 @@ const classes = {
   newClass(request, response) {
     const loggedInUser = accounts.getCurrentTrainer(request);
     const newClass = {
-      classId: uuid(),
+      id: uuid(),
       details: request.body,
       schedule: [],
     };

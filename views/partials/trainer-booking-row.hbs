@@ -1,16 +1,19 @@
 <div class="ui bulleted list">
     {{#each trainer.trainerBookings}}
         <tr>
-            <td> {{memberName}} </td>
+            <td cl> {{memberName}} </td>
             <td> {{date}} </td>
             <td> {{time}} </td>
             <td>
-                <a href="/trainer-bookings/add-booking-details/{{id}}" class="ui icon button" title="Edit">
-                    <i class="icon write"></i>
+                {{#if (dateInPast date)}}
+                <a href="/trainer-bookings/add-booking-details/{{id}}" class="ui teal icon button" title="Edit">
+                    <i class="icon write"></i>Assessment Details
                 </a>
-                <a href="/trainer-bookings/delete-booking/{{id}}" class="ui icon button" title="Delete">
-                    <i class="icon trash"></i>
+                {{else}}
+                <a href="/trainer-bookings/delete-booking/{{id}}" class="ui red icon button" title="Delete">
+                    <i class="icon trash"></i>Cancel Booking
                 </a>
+                {{/if}}
             </td>
         </tr>
     {{/each}}

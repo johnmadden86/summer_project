@@ -14,7 +14,11 @@ const dashboard = {
 
   index(request, response) {
     const loggedInUser = accounts.getCurrentMember(request);
-    const latestAssessment = analytics.latestAssessment(loggedInUser).date;
+    let latestAssessment = 'None';
+    if (analytics.latestAssessment(loggedInUser)) {
+      latestAssessment = analytics.latestAssessment(loggedInUser).date;
+    }
+
     const currentGoal = goals.currentGoal(loggedInUser);
     const nextBooking = bookings.nextBooking(loggedInUser);
     const nextClass = classes.nextClass(loggedInUser);

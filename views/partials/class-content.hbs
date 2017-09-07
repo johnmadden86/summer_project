@@ -1,11 +1,11 @@
 <div class="content">
     {{#each schedule}}
         {{#if full}}
-            <a href="/classes/{{../classId}}/enrol-one/{{id}}" title="Class is full" class="ui red icon button disabled">
+            <a href="/classes/{{../id}}/enrol-one/{{id}}" title="Class is full" class="ui red icon button disabled">
                 {{dropDateYear date}}
             </a>
         {{else}}
-            <a href="/classes/{{../classId}}/enrol-one/{{id}}"
+            <a href="/classes/{{../id}}/enrol-one/{{id}}"
                 {{#if enrolled}}
                title="Click to un-enrol" class="ui olive icon button"
                 {{else}}
@@ -22,6 +22,6 @@
         {{/if}}
     {{/each}}
     <br><br>
-    <a href="/classes/{{classId}}/enrol-all" class="ui teal icon button" title="Enrol in all"> Enrol in all </a>
-    <a href="/classes/{{classId}}/unenrol-all" class="ui teal icon button" title="Un-enrol from all"> Un-enrol from all </a>
+    <a href="/classes/{{id}}/enrol-all" class="ui teal icon button" title="Enrol in all"> Enrol in all </a>
+    <a href="/classes/{{id}}/unenrol-all" class="ui teal icon button" title="Un-enrol from all"> Un-enrol from all </a>
 </div>

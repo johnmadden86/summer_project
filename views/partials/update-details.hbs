@@ -4,23 +4,23 @@
         <div class="two fields">
             <div class="field">
                 <label>First Name
-                    <input placeholder="First Name" value={{member.name.first}} type="text" name="firstName"></label>
+                    <input placeholder="First Name" value="{{member.name.first}}" name="firstName" required></label>
             </div>
             <div class="field">
                 <label>Last Name
-                    <input placeholder="Last Name" value={{member.name.last}} type="text" name="lastName">
+                    <input placeholder="Last Name" value="{{member.name.last}}" name="lastName" required>
                 </label>
             </div>
         </div>
         <div class="three fields">
             <div class="field">
                 <label>Height
-                    <input placeholder="cm" value={{member.details.height}} type="text" name="height">
+                    <input placeholder="cm" value="{{member.details.height}}" min="0" max="250" step="0.1"  name="height" required>
                 </label>
             </div>
             <div class="field">
                 <label>Starting Weight
-                    <input placeholder="kg" value={{member.details.startingWeight}} type="text" name="startingWeight">
+                    <input placeholder="kg" value="{{member.details.startingWeight}}" min="0" max="250" step="0.1"  name="startingWeight" required>
                 </label>
             </div>
             <div class="field">
@@ -35,12 +35,12 @@
         </div>
         <div class="field">
             <label>Email
-                <input placeholder="Email" value={{member.email}} type="text" name="email">
+                <input placeholder="Email" value={{member.email}} type="text" name="email" required>
             </label>
         </div>
         <div class="field">
             <label>Password
-                <input type="password" value={{member.password}} name="password">
+                <input type="password" value={{member.password}} name="password" required>
             </label>
         </div>
         <button class="ui blue submit button">Submit</button>

@@ -6,6 +6,7 @@ const memberStore = require('../models/member-store');
 const trainerStore = require('../models/trainer-store');
 const analytics = require('../utils/analytics');
 const uuid = require('uuid');
+const Handlebars = require('../utils/handlebar-helper');
 
 const bookings = {
   memberBookings(request, response) {

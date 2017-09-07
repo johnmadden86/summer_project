@@ -46,7 +46,8 @@ const accounts = {
 
     memberStore.addMember(member);
     logger.info(`registering ${member.email}`);
-    response.redirect('/login');
+    response.cookie('memberId', member.id);
+    response.redirect('/dashboard');
   },
 
   login(request, response) {
@@ -54,7 +55,6 @@ const accounts = {
       title: 'Login to the Service',
     };
     logger.info('Rendering Login');
-    //logger.debug(request.cookies);
     response.render('login', viewData);
   },
 
@@ -86,11 +86,12 @@ const accounts = {
   },
 
   logout(request, response) {
-
     response.clearCookie('memberId');
     response.clearCookie('trainerId');
     response.clearCookie('classId');
     response.clearCookie('assessmentId');
+
+    logger.debug(request.cookies);
 
     response.redirect('/');
     logger.info('logging out...');

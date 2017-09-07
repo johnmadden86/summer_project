@@ -1,7 +1,7 @@
 {
   "classes": [
     {
-      "classId": "5c05ddd9-dd4c-4e52-8c52-7551fb9c6d11",
+      "id": "5c05ddd9-dd4c-4e52-8c52-7551fb9c6d11",
       "details": {
         "name": "Kettlebells",
         "duration": "00:45",
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "classId": "378ed2bb-6fb5-4df0-a8dd-010f5f1404fc",
+      "id": "378ed2bb-6fb5-4df0-a8dd-010f5f1404fc",
       "details": {
         "name": "Pilates",
         "duration": "01:00",

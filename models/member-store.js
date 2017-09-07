@@ -50,7 +50,7 @@ const memberStore = {
   removeAssessment(user, assessmentId) {
     user.assessments = user.assessments.filter(
         function (el) {
-          return el.assessmentId !== assessmentId;
+          return el.id !== assessmentId;
         }
     );
     this.store.save();
@@ -76,7 +76,7 @@ const memberStore = {
 
   getAssessment(assessments, assessmentId) {
     for (let i = 0; i < assessments.length; i++) {
-      if (assessments[i].assessmentId === assessmentId) {
+      if (assessments[i].id === assessmentId) {
         return assessments[i];
       }
     }

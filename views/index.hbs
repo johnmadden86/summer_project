@@ -1,10 +1,11 @@
-{{> welcome-menu}}
+{{> welcome-menu id="home"}}
 
-<section class="ui center aligned middle aligned segment">
-    <h1 class="ui header">
+<section class="ui middle aligned segment">
+    <h1 class="center aligned ui header">
         Welcome to Play Gym v2.0
     </h1>
-    <p>
-        Track your progress today!
-    </p>
+    <div class="ui two column grid">
+        {{> sign-up}}
+        {{> login}}
+    </div>
 </section>

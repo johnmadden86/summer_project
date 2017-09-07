@@ -43,7 +43,7 @@ const classStore = {
   },
 
   getClassById(classId) {
-    return this.store.findOneBy(this.collection, { classId: classId });
+    return this.store.findOneBy(this.collection, { id: classId });
   },
 
   removeClass(classToRemove) {

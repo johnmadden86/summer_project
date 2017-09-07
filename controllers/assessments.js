@@ -26,7 +26,7 @@ const assessments = {
     const loggedInUser = accounts.getCurrentMember(request);
     const assessment = request.body;
     const assessmentDate = request.body.date;
-    assessment.assessmentId = uuid();
+    assessment.id = uuid();
     assessment.comment = '';
     assessment.trend = false;
     memberStore.addAssessment(loggedInUser, assessment);
@@ -53,7 +53,7 @@ const assessments = {
       member: member,
       stats: stats,
     };
-    response.cookie('member', member.email);
+    response.cookie('memberId', memberId);
     logger.info(`Rendering assessments for ${member.name.full}`);
     response.render('trainer-assessment', viewData);
   },
@@ -61,7 +61,7 @@ const assessments = {
   editComment(request, response) {
     const assessmentId = request.params.assessmentId;
     const comment = request.body.comment;
-    const member = accounts.getCurrentMember(request);
+    const member = memberStore.getMemberById(request.cookies.memberId);
     const assessment = memberStore.getAssessment(member.assessments, assessmentId);
     assessment.comment = comment;
     memberStore.save();
