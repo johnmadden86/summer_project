@@ -98,9 +98,7 @@ const classes = {
     //counts members array for add method
     let j = 0;
 
-    // i = 0 ensures loop runs at least once, covers for case length = 0
-    while (i === 0 || i < session.members.length) {
-
+    do {
       //remove if already enrolled, if all do nothing
       if (session.members[i] === loggedInUser.id) {
         if (!all) {
@@ -131,7 +129,7 @@ const classes = {
       }
 
       i++;
-    }
+    } while (i < session.members.length);
   },
 
   trainerClasses(request, response) {

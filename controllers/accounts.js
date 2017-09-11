@@ -2,6 +2,7 @@
 
 const trainerStore = require('../models/trainer-store');
 const memberStore = require('../models/member-store');
+const fitnessStore = require('../models/fitness-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
 const cloudinary = require('cloudinary');
@@ -61,11 +62,11 @@ const accounts = {
   authenticate(request, response) {
     const member = memberStore.getMemberByEmail(request.body.email);
     const trainer = trainerStore.getTrainerByEmail(request.body.email);
-    if (member){// && member.password === request.body.password) {
+    if (member && member.password === request.body.password) {
       response.cookie('memberId', member.id);
       logger.info(`logging in ${member.name.full}`);
       response.redirect('/dashboard');
-    } else if (trainer){//} && trainer.password === request.body.password) {
+    } else if (trainer && trainer.password === request.body.password) {
       response.cookie('trainerId', trainer.id);
       logger.info(`logging in ${trainer.name.full}`);
       response.redirect('/trainer-dashboard');
@@ -90,6 +91,11 @@ const accounts = {
     response.clearCookie('trainerId');
     response.clearCookie('classId');
     response.clearCookie('assessmentId');
+    const oldCustom = fitnessStore.getRoutineById('custom');
+    if (oldCustom) {
+      fitnessStore.removeRoutine(oldCustom);
+    }
+
     response.redirect('/');
     logger.info('logging out...');
   },

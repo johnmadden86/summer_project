@@ -6,7 +6,6 @@ const classes = require('./classes');
 const classStore = require('../models/class-store');
 const fitnessStore = require('../models/fitness-store');
 const memberStore = require('../models/member-store');
-const staticMethods = require('../utils/static-methods');
 const uuid = require('uuid');
 
 const fitness = {
