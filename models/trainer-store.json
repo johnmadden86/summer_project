@@ -11,17 +11,10 @@
       },
       "trainerBookings": [
         {
-          "id": "f89011c5-158c-45b4-94d8-3d8703991c83",
-          "memberId": "973dcd28-d154-4511-a85b-ec18fb706211",
+          "id": "31a651af-12c2-4c95-8ac7-47d3854c6d1e",
+          "memberId": "735c2213-0615-4df1-a74f-01cf22d4348b",
           "memberName": "Paul Pogba",
-          "date": "15 Aug 17",
-          "time": "14:00"
-        },
-        {
-          "id": "918e3784-1d1f-4f61-94f9-25d25b4047f6",
-          "memberId": "973dcd28-d154-4511-a85b-ec18fb706211",
-          "memberName": "Paul Pogba",
-          "date": "13 Sep 17",
+          "date": "12 Dec 17",
           "time": "11:00"
         }
       ]

@@ -5,7 +5,6 @@ const router = express.Router();
 
 const about = require('./controllers/about');
 const accounts = require('./controllers/accounts');
-const admin = require('./controllers/admin');
 const assessments = require('./controllers/assessments');
 const classes = require('./controllers/classes');
 const bookings = require('./controllers/bookings');

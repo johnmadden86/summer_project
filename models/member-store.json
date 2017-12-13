@@ -1,7 +1,7 @@
 {
   "members": [
     {
-      "id": "973dcd28-d154-4511-a85b-ec18fb706211",
+      "id": "735c2213-0615-4df1-a74f-01cf22d4348b",
       "email": "paul@manutd.fr",
       "password": "secret",
       "name": {
@@ -10,130 +10,60 @@
         "full": "Paul Pogba"
       },
       "details": {
-        "height": "190",
-        "startingWeight": "85",
+        "height": "189",
+        "startingWeight": "86",
         "gender": "Male"
       },
       "assessments": [
         {
-          "date": "6 Sep 17",
-          "weight": "92",
-          "chest": "3",
-          "thigh": "3",
-          "upperArm": "3",
-          "waist": "3",
-          "hips": "3",
-          "id": "a3f87775-d744-4ace-8446-d2000e42749c",
-          "comment": [
-            "good",
-            "",
-            ""
-          ],
-          "trend": true
-        },
-        {
-          "date": "5 Sep 17",
-          "weight": "93",
-          "chest": "3",
-          "thigh": "3",
-          "upperArm": "3",
-          "waist": "3",
-          "hips": "3",
-          "id": "5bc830cd-2214-44f7-8fed-da3bc80635e8",
-          "comment": "",
-          "trend": false
-        },
-        {
-          "date": "1 Sep 17",
-          "weight": "85",
-          "chest": "6",
-          "thigh": "6",
-          "upperArm": "6",
-          "waist": "6",
-          "hips": "6",
-          "id": "21ed4434-cb38-43a8-929e-d13e09748900",
-          "comment": "",
-          "trend": true
-        },
-        {
-          "date": "15 Aug 17",
-          "assessmentId": "f89011c5-158c-45b4-94d8-3d8703991c83",
+          "date": "12 Dec 17",
+          "assessmentId": "31a651af-12c2-4c95-8ac7-47d3854c6d1e",
           "trend": false,
-          "weight": "87",
-          "chest": "8",
-          "thigh": "8",
-          "upperArm": "8",
-          "waist": "8",
-          "hips": "8",
-          "comment": "8"
+          "weight": "85",
+          "chest": "56",
+          "thigh": "65",
+          "upperArm": "65",
+          "waist": "56",
+          "hips": "56",
+          "comment": "good"
+        },
+        {
+          "date": "1 Dec 17",
+          "weight": "85.5",
+          "chest": "46",
+          "thigh": "26",
+          "upperArm": "24",
+          "waist": "34",
+          "hips": "32",
+          "id": "2bedeb47-5404-4be4-92e5-b3cc76d910fe",
+          "comment": "",
+          "trend": true
         }
       ],
       "memberBookings": [
         {
-          "id": "918e3784-1d1f-4f61-94f9-25d25b4047f6",
+          "id": "31a651af-12c2-4c95-8ac7-47d3854c6d1e",
           "trainerId": "a972f094-e541-480c-9939-45542939a095",
           "trainerName": "Jose Mourinho",
-          "date": "13 Sep 17",
+          "date": "12 Dec 17",
           "time": "11:00"
         }
       ],
       "goals": [
         {
-          "date": "16 Sep 17",
-          "description": "ffffff",
-          "weight": "82",
-          "chest": "",
-          "thigh": "",
-          "upperArm": "",
-          "waist": "",
-          "hips": "",
-          "id": "d49e0df2-1c3f-41d4-b821-326b5eb7766d",
+          "date": "31 Dec 17",
+          "description": "Lose 0.5 kg",
+          "weight": "85",
+          "chest": "46",
+          "thigh": "26",
+          "upperArm": "24",
+          "waist": "34",
+          "hips": "32",
+          "id": "d9d43e78-d926-4cc1-8315-e43b64f9043f",
           "status": "Open"
         }
       ],
-      "fitnessProgramme": [
-        {
-          "id": "5c05ddd9-dd4c-4e52-8c52-7551fb9c6d11",
-          "details": {
-            "name": "Kettlebells",
-            "difficulty": "Intermediate",
-            "description": "Class"
-          }
-        },
-        {
-          "id": "378ed2bb-6fb5-4df0-a8dd-010f5f1404fc",
-          "details": {
-            "name": "Pilates",
-            "difficulty": "Beginner",
-            "description": "Class"
-          }
-        },
-        {
-          "id": "d7abde46-89ca-4360-a08f-2afc3afe5aa3",
-          "details": {
-            "name": "Upper Body",
-            "difficulty": "Intermediate",
-            "description": "Pull-ups x 10\r\nBench press x 10\r\nSeated row x 10"
-          }
-        },
-        {
-          "id": "af66bc43-5185-4d3b-abb0-182e6c9023ac",
-          "details": {
-            "name": "Stretching",
-            "difficulty": "Beginner",
-            "description": "stetces"
-          }
-        },
-        {
-          "id": "a6febff3-bf7c-4574-9d4f-090dfe8f6bbe",
-          "details": {
-            "name": "Rowing",
-            "difficulty": "Intermediate",
-            "description": "30 mins"
-          }
-        }
-      ],
-      "img": "http://res.cloudinary.com/dth42qs8n/image/upload/v1504710597/qsfww1b5rgrrjqmqvb9p.png"
+      "img": "http://res.cloudinary.com/dth42qs8n/image/upload/v1513183050/jovvjpewqis0wcb7ypph.jpg"
     }
   ]
 }

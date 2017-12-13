@@ -72,15 +72,15 @@ const bookings = {
     };
 
     //remove bookings over a month old
-    loggedInUser.trainerBookings.forEach(
-        function (booking) {
-          let oneMonthAgo = (new Date());
-          oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+    let oneMonthAgo = (new Date());
+    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+    loggedInUser.trainerBookings.forEach(function (booking) {
           if (new Date(booking.date) < (oneMonthAgo)) {
             trainerStore.removeBooking(loggedInUser, booking.id);
           }
         }
     );
+
     logger.info(`bookings menu rendering for ${loggedInUser.name.full}`);
     response.render('trainer-bookings', viewData);
   },

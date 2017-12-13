@@ -142,16 +142,15 @@ const classes = {
     };
 
     //remove classes that are finished
-    classes.forEach(
-        function (classListing) {
-          let startDate = new Date(classListing.details.date);
-          startDate.setDate(startDate.getDate() + 7 * classListing.details.weeks);
-          const today = new Date();
-          if (startDate < today) {
-            classStore.removeClass(classListing);
-          }
-        }
-    );
+    let startDate = new Date(classListing.details.date);
+    startDate.setDate(startDate.getDate() + 7 * classListing.details.weeks);
+    const today = new Date();
+    classes.forEach(function (classListing) {
+      if (startDate < today) {
+        classStore.removeClass(classListing);
+      }
+    });
+
     logger.info(`classes menu rendering for ${loggedInUser.name.full}`);
     response.render('trainer-classes', viewData);
   },

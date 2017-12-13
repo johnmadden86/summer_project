@@ -1,232 +1,6 @@
 {
   "classes": [
     {
-      "id": "5c05ddd9-dd4c-4e52-8c52-7551fb9c6d11",
-      "details": {
-        "name": "Kettlebells",
-        "duration": "00:45",
-        "capacity": "10",
-        "difficulty": "Intermediate",
-        "time": "12:00",
-        "date": "11 Sep 17",
-        "weeks": "4",
-        "day": "Monday"
-      },
-      "schedule": [
-        {
-          "id": "eb43558c-2ce5-478e-814a-f3590429cb1b",
-          "date": "11 Sep 17",
-          "members": [],
-          "spaces": 10,
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "825191f5-9462-4d07-acc7-8b713d8ac275",
-          "date": "18 Sep 17",
-          "members": [
-            "973dcd28-d154-4511-a85b-ec18fb706211"
-          ],
-          "spaces": 9,
-          "full": false,
-          "enrolled": true
-        },
-        {
-          "id": "f9eadfae-a66f-4de7-8e7d-1e7c84b0f107",
-          "date": "25 Sep 17",
-          "members": [
-            "973dcd28-d154-4511-a85b-ec18fb706211"
-          ],
-          "spaces": 9,
-          "full": false,
-          "enrolled": true
-        },
-        {
-          "id": "5eb3e643-262a-41ec-8498-f53f4d002bc0",
-          "date": "2 Oct 17",
-          "members": [
-            "973dcd28-d154-4511-a85b-ec18fb706211"
-          ],
-          "spaces": 9,
-          "full": false,
-          "enrolled": true
-        }
-      ]
-    },
-    {
-      "id": "59762f55-8699-4d8d-8c9d-e7a31b680c51",
-      "details": {
-        "name": "Pilates",
-        "duration": "00:50",
-        "capacity": "25",
-        "difficulty": "Intermediate",
-        "time": "13:00",
-        "date": "25 Sep 17",
-        "weeks": "6",
-        "day": "Monday"
-      },
-      "schedule": [
-        {
-          "id": "d57cde1d-3a4a-49fa-802e-dd28c7caa189",
-          "date": "25 Sep 17",
-          "members": [],
-          "spaces": "25",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "0ab24b9b-44c9-4443-966f-f396861cb2b9",
-          "date": "2 Oct 17",
-          "members": [],
-          "spaces": "25",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "085f348c-0b9e-405b-8abb-68fb525b6baa",
-          "date": "9 Oct 17",
-          "members": [],
-          "spaces": "25",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "3d24a321-01ff-44b9-a0d2-971b4d6b101a",
-          "date": "16 Oct 17",
-          "members": [],
-          "spaces": "25",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "1c402ea7-4a02-46be-ab08-f75d078f756f",
-          "date": "23 Oct 17",
-          "members": [],
-          "spaces": "25",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "2a3e8710-5145-4941-b2ed-77c9546ad482",
-          "date": "30 Oct 17",
-          "members": [],
-          "spaces": "25",
-          "full": false,
-          "enrolled": false
-        }
-      ]
-    },
-    {
-      "id": "378ed2bb-6fb5-4df0-a8dd-010f5f1404fc",
-      "details": {
-        "name": "Pilates",
-        "duration": "01:00",
-        "capacity": "12",
-        "difficulty": "Beginner",
-        "time": "18:00",
-        "date": "12 Sep 17",
-        "weeks": "4",
-        "day": "Tuesday"
-      },
-      "schedule": [
-        {
-          "id": "0a0d4756-4e3e-4dae-ae9a-ee932c8fd1c3",
-          "date": "12 Sep 17",
-          "members": [],
-          "spaces": 12,
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "910e8ea3-a111-4be5-8ff6-338b1ad233b9",
-          "date": "19 Sep 17",
-          "members": [],
-          "spaces": 12,
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "81f320c8-3115-43be-b0df-9c8aea45da58",
-          "date": "26 Sep 17",
-          "members": [],
-          "spaces": 12,
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "a08fb4e2-723a-4e22-a5e7-5e0b30aa4add",
-          "date": "3 Oct 17",
-          "members": [],
-          "spaces": 12,
-          "full": false,
-          "enrolled": false
-        }
-      ]
-    },
-    {
-      "id": "3f8d2a13-ca93-4ebc-aa05-33e6be14612d",
-      "details": {
-        "name": "Yoga",
-        "duration": "01:00",
-        "capacity": "20",
-        "difficulty": "Advanced",
-        "time": "16:00",
-        "date": "21 Sep 17",
-        "weeks": "6",
-        "day": "Thursday"
-      },
-      "schedule": [
-        {
-          "id": "879281ab-c858-4f96-b35e-0e8121eec428",
-          "date": "21 Sep 17",
-          "members": [],
-          "spaces": "20",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "bda660c2-1c98-4f50-b1a1-112a78b3b490",
-          "date": "28 Sep 17",
-          "members": [],
-          "spaces": "20",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "b44aa3af-af94-4213-bdc3-f13241f5924f",
-          "date": "5 Oct 17",
-          "members": [],
-          "spaces": "20",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "ba1aa362-e0ff-42cd-ac32-6b35b39f536d",
-          "date": "12 Oct 17",
-          "members": [],
-          "spaces": "20",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "81af0fee-d03b-4656-8b77-773fb9648496",
-          "date": "19 Oct 17",
-          "members": [],
-          "spaces": "20",
-          "full": false,
-          "enrolled": false
-        },
-        {
-          "id": "4f67ca8e-53ec-40d9-b7f0-a2feeeb25299",
-          "date": "26 Oct 17",
-          "members": [],
-          "spaces": "20",
-          "full": false,
-          "enrolled": false
-        }
-      ]
-    },
-    {
       "id": "651a9bd2-f861-48fb-b442-8b0920112f39",
       "details": {
         "name": "Boxercise",
@@ -244,7 +18,7 @@
           "date": "27 Oct 17",
           "members": [],
           "spaces": "10",
-          "full": false,
+          "full": true,
           "enrolled": false
         },
         {
@@ -252,7 +26,7 @@
           "date": "3 Nov 17",
           "members": [],
           "spaces": "10",
-          "full": false,
+          "full": true,
           "enrolled": false
         },
         {
@@ -260,7 +34,7 @@
           "date": "10 Nov 17",
           "members": [],
           "spaces": "10",
-          "full": false,
+          "full": true,
           "enrolled": false
         },
         {
@@ -268,7 +42,7 @@
           "date": "17 Nov 17",
           "members": [],
           "spaces": "10",
-          "full": false,
+          "full": true,
           "enrolled": false
         },
         {
@@ -276,7 +50,7 @@
           "date": "24 Nov 17",
           "members": [],
           "spaces": "10",
-          "full": false,
+          "full": true,
           "enrolled": false
         },
         {
@@ -284,7 +58,7 @@
           "date": "1 Dec 17",
           "members": [],
           "spaces": "10",
-          "full": false,
+          "full": true,
           "enrolled": false
         },
         {
@@ -292,16 +66,18 @@
           "date": "8 Dec 17",
           "members": [],
           "spaces": "10",
-          "full": false,
+          "full": true,
           "enrolled": false
         },
         {
           "id": "d9d5befc-742e-440e-95ca-d32fbb4b8346",
           "date": "15 Dec 17",
-          "members": [],
-          "spaces": "10",
+          "members": [
+            "735c2213-0615-4df1-a74f-01cf22d4348b"
+          ],
+          "spaces": 9,
           "full": false,
-          "enrolled": false
+          "enrolled": true
         }
       ]
     }
